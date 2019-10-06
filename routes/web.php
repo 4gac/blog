@@ -11,18 +11,14 @@
 |
 */
 
-/*Route::get('/', function () {
-    return view('master');
-});
 
-Route::resource('post', 'PostController');*/
-
+/*Výpis článkov chceme zobraziť na homepage rovnako ako na stránke článkov. Preto požijeme 
+rovnaký controller pre / ako aj /post*/
 Route::get('/', 'PostController@index');
 Route::resource('post', 'PostController');
-Auth::routes();
 
+/*Tieto routy si vytvorila knižnica Auth */
+Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
-
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
