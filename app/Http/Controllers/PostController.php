@@ -18,12 +18,11 @@ tak ukaze konkretny post, ktoreho id = 2.
 findorFail - laravelovská funkcia ktorá zabezpečí to, že ak by sme chceli pristúpiť napr. k
 post/4580 tak vyhodí 404 a nie error message*/
 
-
     public function show($id){
         $post= Post::findorFail($id);
         
-        $post->user;
-        return $post;
+        /* JSON vypis$post->user;
+        /return $post;*/
         return view('posts.show')->with('post',$post);       
         }
 }
