@@ -1,15 +1,20 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use Illuminate\Foundation\Bus\DispatchesJobs;
-use Illuminate\Routing\Controller as BaseController;
-use Illuminate\Foundation\Validation\ValidatesRequests;
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+//prihodila som sem classu Tag aby sme nemuseli vkuse vypisovat celu cestu
+use \App\Tag;
+use Illuminate\Http\Request;
 
 class TagController extends Controller
 {
     public function show ($id){
-
+        
+      $tag=Tag::findOrFail($id);
+      return $tag->name; 
+     
+     
+   /*  return view('posts.index')
+      ->with('title', $tag->name)
+      ->with('posts', $tag->posts); */
     }
 }

@@ -20,7 +20,7 @@
         <small>{{$post->created_at}}</small>
     </time>
     </h2>
-@include('partials.tags')
+@include('posts.tags')
 </header>
 
 <div class="post-content">

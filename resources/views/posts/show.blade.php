@@ -24,7 +24,7 @@
 
 
 </footer>
-@include('partials.tags')
+@include('posts.tags')
 </article>
 </section>
 
