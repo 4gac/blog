@@ -16,7 +16,7 @@
     <p>{{$post->text}}</p>
     <small> --written by
     <a href="{{'user',$post->user->id}}">
-    {{$post->user-name}}</a>
+    {{$post->user->name}}</a>
     </small>
 </div>
 </article>
