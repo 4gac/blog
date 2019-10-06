@@ -22,6 +22,8 @@ post/4580 tak vyhodí 404 a nie error message*/
     public function show($id){
         $post= Post::findorFail($id);
         
+        $post->user;
+        return $post;
         return view('posts.show')->with('post',$post);       
         }
 }
