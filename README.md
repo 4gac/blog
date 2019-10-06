@@ -1,4 +1,4 @@
-#step-by-step
+# step-by-step
 	-nainstalovat composer 1.9.0
 	-overit instalaciu/vereziu (composer -V)
 	-stiahnut repository z githubu a dat do priecinka htdocs (git clone https://github.com/4gac/blog.git)
