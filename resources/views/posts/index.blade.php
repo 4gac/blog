@@ -20,17 +20,7 @@
         <small>{{$post->created_at}}</small>
     </time>
     </h2>
-
-    @if($post->tags)
-    <p class="tags">
-        @foreach ($post->tags as $tag)
-    <a href="{{url('tag',$tag->id)}}">
-    {{$tag->name}}
-    </a>
-            
-        @endforeach
-    </p>
-    @endif
+@include('partials.tags')
 </header>
 
 <div class="post-content">

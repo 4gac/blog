@@ -19,8 +19,13 @@
     {{$post->user->name}}</a>
     </small>
 </div>
-</article>
 
+<footer class="post-footer">
+
+
+</footer>
+@include('partials.tags')
+</article>
 </section>
 
 @endsection
