@@ -8,7 +8,7 @@
     <div class="panel panel-default">
 <section class="box post-list">
 <h1 class="box-heading text-muted"></h1>
-
+{{$title or "erasmus"}}
 <h1>šicke články</h1>
 
 @forelse($posts as $post)
@@ -20,6 +20,17 @@
         <small>{{$post->created_at}}</small>
     </time>
     </h2>
+
+    @if($post->tags)
+    <p class="tags">
+        @foreach ($post->tags as $tag)
+    <a href="{{url('tag',$tag->id)}}">
+    {{$tag->name}}
+    </a>
+            
+        @endforeach
+    </p>
+    @endif
 </header>
 
 <div class="post-content">

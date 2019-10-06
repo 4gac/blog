@@ -6,6 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
+/*Ak pristupim k atributu tags, post môže patriť k mnohým tagom*/
+
+public function tags(){
+    return $this->belongsToMany('App\Tag');
+}
+
 /*Príspevok patrí userovi */
 public function user(){
     return $this->belongsTo('App\User');
