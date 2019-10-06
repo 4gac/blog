@@ -15,7 +15,11 @@
 <div class="post-content">
     <p>{{$post->text}}</p>
     <small> --written by
+<<<<<<< HEAD
     <a href="{{'user',$post->user->id}}">
+=======
+    <a href="{{url('user',$post->user->id)}}">
+>>>>>>> 70c644168440866cb510558c2e8b5a0e1dfa93c7
     {{$post->user->name}}</a>
     </small>
 </div>
