@@ -16,9 +16,9 @@ class CreateSpravaTable extends Migration
         Schema::create('sprava', function (Blueprint $table) {
             $table->increments('idsprava');
             $table->integer('pouzivatel_idpouzivatel')->unsigned();
-            // mobilita_idmobilita ma definovaný cudzi kľúč v update migracii na konci
             $table->integer('mobilita_idmobilita')->unsigned();
             $table->foreign('pouzivatel_idpouzivatel')->references('idpouzivatel')->on('pouzivatel');
+            $table->foreign('mobilita_idmobilita')->references('idmobility')->on('mobilita');
             $table->timestamps();
         });
     }

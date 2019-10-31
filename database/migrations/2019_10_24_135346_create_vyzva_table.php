@@ -17,9 +17,8 @@ class CreateVyzvaTable extends Migration
             $table->increments('idvyzva');
             $table->string('nazov_vyzvy');
             $table->integer('typVyzvy_idtypVyzvy')->unsigned();
-            $table->integer('id_suboru_hlavna_foto')->unsigned();
+            $table->string('cesta_hlavna_foto');
             $table->foreign('typVyzvy_idtypVyzvy')->references('id_typ_vyzvy')->on('typ_vyzvy');
-            $table->foreign('id_suboru_hlavna_foto')->references('idsubor')->on('subor');
             $table->timestamps();
         });
     }
