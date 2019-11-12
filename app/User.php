@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name','lastname','email', 'password', 'role',
     ];
 
     /**
@@ -26,9 +26,4 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
-
- /*User má veľa postov */
-   public function posts(){
-       return $this->hasMany('App\Post');
-   } 
 }

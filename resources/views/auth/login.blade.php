@@ -1,5 +1,6 @@
-@extends('master')
-
+@extends('layouts.app')
+@section('description', 'Prenádherný a úplne zbytočný description')
+@section('title', 'Login')
 @section('content')
 <div class="container">
     <div class="row">
