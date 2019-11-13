@@ -9,7 +9,9 @@
     <title>@yield('title') Erasmus UKF</title>
     
     <!-- Styles -->
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
 </head>
 <body>
 
@@ -18,15 +20,19 @@
                   <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-                  <a class="navbar-brand" href="#">Nádherné logo</a>
+
+                    <a class="navbar-brand" href="#">
+                        <img id="logo"src="logoukf.png" class="img-responsive" />
+                    </a>
+
                   <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                    <li class="nav-item active">
+                    <li class="nav-item active hlavneMenuItem">
                       <a class="nav-link" href="#">Študijné pobyty<span class="sr-only">(current)</span></a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item hlavneMenuItem">
                       <a class="nav-link" href="#">Pracovné stáže</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item hlavneMenuItem">
                       <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Účastnícke správy</a>
                     </li>
                     <li class="nav-item">
