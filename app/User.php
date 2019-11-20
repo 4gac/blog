@@ -26,4 +26,8 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+    /*User ma vela postov*/
+    public function post(){
+        return $this->hasMany('App\Models\Post');
+    }
 }
