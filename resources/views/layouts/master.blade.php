@@ -24,7 +24,7 @@
                  
                     <a class="navbar-brand" href="{{route('homepage') }}">
                      
-                        <img id="logo"src="logoukf.png" class="img-responsive" />
+                        <img id="logo"src="{{asset('assets/images/logoukf.png')}}" class="img-responsive" />
                     </a>
                    
                   <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
