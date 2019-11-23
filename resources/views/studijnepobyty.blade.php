@@ -26,7 +26,7 @@
 @foreach($post->tags->where('name', 'Študijné pobyty') as $tags)
 <div class="col-lg-4 col-sm-6 mb-4">
         <div class="card h-100">
-        <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+        <a href="#"><img class="card-img-top" src="{{asset('assets/images/').'/'.$post->image->where('main', '1')->first()->imgPath}}" alt=""></a>
         <div class="card-body"> 
     <article id="post-{{ $post->id }}" class="posts">
           <header class="post-header" > 

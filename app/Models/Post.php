@@ -21,6 +21,11 @@ public function tags(){
 public function user(){
     return $this->belongsTo('App\User');
 }
+public function image(){
+        return $this->hasMany('App\Models\Image');
+}
+
+
 
 /* V databáze sa  časy zobrazujú pod iným formátom. Napr 2019-10-05 00:00:0
 Tento akcesor vezme čas z databázy a prehodí ho do normálneho zápisu. */
