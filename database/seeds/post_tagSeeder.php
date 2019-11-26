@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class PosthastagsSeeder extends Seeder
+class post_tagSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,15 +11,15 @@ class PosthastagsSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('posthastags')->insert([
+        DB::table('post_tag')->insert([
             'post_id'=>"1",
             'tag_id'=>"1"
             ]);
-            DB::table('posthastags')->insert([
+            DB::table('post_tag')->insert([
                 'post_id'=>"2",
                 'tag_id'=>"2"
                 ]);
-                DB::table('posthastags')->insert([
+                DB::table('post_tag')->insert([
                     'post_id'=>"3",
                     'tag_id'=>"3"
                     ]);

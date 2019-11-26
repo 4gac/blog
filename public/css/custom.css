@@ -2,3 +2,23 @@
 li.hlavneMenuItem {
     border-right: 1px solid rgba(107,173,95,0.34);
 }
+h1{
+    font-size:40px;
+  }
+  h2{
+    font-size:25px;
+  }
+  h3{
+    font-size:20px;
+  }
+  .carousel-item {
+    height: 698px;
+    background: no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+  .item-margin{
+    margin-top:50px;
+  }

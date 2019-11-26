@@ -11,10 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('homepage');
-});
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -40,13 +36,42 @@ Route::post('users-crud/update/{id}',[
 Route::get('users-crud/add-user',[
             'as'=>'add-user', 'uses'=>'UserController@getAddUserForm'
             ]);
-    
+
 Route::get('users-crud/delete/{id}',[
             'as'=>'delete', 'uses'=>'UserController@deleteAction'
             ]);
+
+/*homepage*/
 Route::get('/',[
-    'as'=>'showAll','uses' =>'PostController@showAllAction'
+    'as'=>'homepage','uses' =>'PostController@index'
 ]);
+/*konkretny post*/
+Route::get('post/{id}',[
+    'as'=>'show', 'uses'=>'PostController@show'
+    ]);
+/*Študijné pobyty*/
+Route::get('studijne-pobyty',[
+    'as'=>'pobyty','uses' =>'PostController@pobyty'
+]);
+
+/*Pracovné stáže*/
+Route::get('pracovne-staze',[
+    'as'=>'staze','uses' =>'PostController@staze'
+]);
+
+/*Účastnícke správy*/
+Route::get('ucastnicke-spravy',[
+    'as'=>'spravy','uses' =>'PostController@spravy'
+]);
+/*konkretny user pre frontend*/
+Route::get('user/{id}',[
+    'as'=>'show', 'uses'=>'UserController@show'
+    ]);
+    
+/*CRUD postov v admin rozhrani*/
+
+
+/*tagy*/
 Route::get('tags/showAll',[
     'as'=>'showAll','uses' =>'TagController@showAllAction'
 ]);

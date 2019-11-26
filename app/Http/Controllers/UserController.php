@@ -49,4 +49,14 @@ class UserController extends Controller
     public function getAddUserForm(){
         return view("users-crud/adduser");
     }
+
+/*FRONTEND*/
+public function show($id){
+    $user= User::findOrFail($id);
+    return view('frontend-posts.user-posts')->with('title',$user->name)->with('posts',$user->post);
+}
+
+
+
+
 }
