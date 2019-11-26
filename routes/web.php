@@ -63,6 +63,12 @@ Route::get('pracovne-staze',[
 Route::get('ucastnicke-spravy',[
     'as'=>'spravy','uses' =>'PostController@spravy'
 ]);
+
+/*Kontakty*/
+Route::get('kontakt',[
+    'as'=>'kontakt','uses' =>'ContactController@showAll'
+]);
+
 /*konkretny user pre frontend*/
 Route::get('user/{id}',[
     'as'=>'show', 'uses'=>'UserController@show'

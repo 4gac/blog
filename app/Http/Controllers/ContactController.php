@@ -43,4 +43,8 @@ class ContactController extends Controller
 			"priezvisko_kontaktu" => $request->input("priezvisko_kontaktu"),
 			"typKontaktu_idtypKontaktu" => $request->input("typKontaktu_idtypKontaktu")]);
 	}
+
+	public function showAll(){
+		return view('contact');
+	}
 }

@@ -44,7 +44,7 @@
                       <a class="nav-link" href="{{route('spravy') }}" tabindex="-1" aria-disabled="true">Účastnícke správy</a>
                     </li>
                     <li class="nav-item">
-                            <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Kontakt</a>
+                            <a class="nav-link" href="{{route('kontakt') }}" tabindex="-1" aria-disabled="true">Kontakt</a>
                           </li>
                   </ul>
 
