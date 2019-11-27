@@ -1,29 +1,43 @@
 @extends('layouts/master')
 @section('title','Kontakty')
 @section('content')
-<?php
-         echo Form::open(array('route' => 'kontakt'));
+<!-- Kontaktny formular -->
+<div class="container">
+   {!! Form::open(array('route' => 'fetchForm')) !!} 
+      <fieldset>
+      <!-- UserName -->
+      <div class="form-group">
+         {!! Form::label('username', 'Vaše meno:', ['class' => 'col-lg-2 control-label']) !!}
+         <div class="col-lg-3">
+            {!! Form::text('username', $value = null, ['class' => 'form-control', 'rows' => 1]) !!}
+         </div>
+      </div>
+ 
+      <!-- Email -->
+      <div class="form-group">
+         {!! Form::label('email', 'Váš email:', ['class' => 'col-lg-2 control-label']) !!}
+         <div class="col-lg-3">
+            {!! Form::email('email', $value = null, ['class' => 'form-control', 'placeholder' => 'email']) !!}
+         </div>
+       </div>
 
-            echo Form::label('Zadajte vase meno:');
-            echo Form::text('username');
-            echo '<br/>';
+      <!-- Text Area -->
+      <div class="form-group">
+         {!! Form::label('textarea', 'Vaša správa:', ['class' => 'col-lg-2 control-label']) !!}
+         <div class="col-lg-10">
+            {!! Form::textarea('textarea', $value = null, ['class' => 'form-control', 'rows' => 3]) !!}
+         </div>
+      </div>
 
-            echo Form::label('Zadajte vas email:');
-            echo Form::text('email', 'example@gmail.com');
-            echo '<br/>';
-
-            echo Form::label('Predmet spravy:');
-            echo Form::text('subject');
-            echo '<br/>';
-
-            echo Form::label('Vasa sprava:');   
-            echo Form::text('message');
-            echo '<br/>';
-            
-            
-            echo Form::submit('Odoslat');
-         echo Form::close();
-      ?>
+      <!-- Submit Button -->
+      <div class="form-group">
+         <div class="col-lg-10 col-lg-offset-2">
+            {!! Form::submit('Odoslať', ['class' => 'btn btn-lg btn-info pull-right'] ) !!}
+         </div>
+      </div>
+      </fieldset>
+   {!! Form::close() !!} 
+</div>
 
 </section>
 @endsection

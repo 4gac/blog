@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\ContactModel;
+use Illuminate\Support\Facades\Input;
 
 class ContactController extends Controller
 {
@@ -45,6 +46,14 @@ class ContactController extends Controller
 	}
 
 	public function showAll(){
+		return view('contact');
+	}
+
+	public function fetchForm(){
+		$formdata = Input::all();
+		//sem treba dokodit spracovanie formu - odoslat mail/ulozit do db
+		//vymazat print, bol len na testovanie
+		print_r($formdata);
 		return view('contact');
 	}
 }
