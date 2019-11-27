@@ -28,5 +28,18 @@ public function spravy(){
    // return view('frontend-posts.homepage-all-posts',['post'=>$posts]);
    return view('ucastnickespravy')->with('posts',$posts);    
 }
+//METODY PRE OPERACIE NAD POSTMI V ADMIN LTE
+public function PobytyBackend(){
+    $posts = Post::all();
+   return view('backend-posts.pobyty')->with('posts',$posts);    
+}
+public function StazeBackend(){
+    $posts = Post::all();
+   return view('backend-posts.staze')->with('posts',$posts);    
+}
+public function SpravyBackend(){
+    $posts = Post::all();
+   return view('backend-posts.spravy')->with('posts',$posts);    
+}
 }
 
