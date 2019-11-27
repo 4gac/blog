@@ -9,8 +9,8 @@
             <th scope="col">Slug</th>
             <th scope="col">Text</th>
             <th scope="col">User ID</th>
-            {{--  <th scope="col"><button type="button" class="btn btn-success"><a href="{{action("UserController@getAddUserForm")}}">pridať</a></button></th>
-            <th scope="col"></th>--}}
+            <th scope="col"><button type="button" class="btn btn-success"><a href="{{action("PostController@getAddPobytForm")}}">pridať</a></button></th>
+            <th scope="col"></th>
         </tr>
             </thead>
     <?php $i=1;?>
@@ -24,8 +24,8 @@
         <td>{{$post->slug}}</td>
         <td>{{$post->text}}</td>
         <td>{{$post->user_id}}</td>
-           {{--<td><button type="button" class="btn btn-warning"><a href="{{action("UserController@showAction",['id'=>$user->id])}}">editovať</a></button></td>
-        <td><button type="button" class="btn btn-danger"><a href="{{action("UserController@deleteAction",['id'=>$user->id])}}">zmazať</a></button></td>--}}
+        <td><button type="button" class="btn btn-warning"><a href="{{action("PostController@showPobytAction",['id'=>$post->id])}}">editovať</a></button></td>
+        <td><button type="button" class="btn btn-danger"><a href="{{action("PostController@deletePobytAction",['id'=>$post->id])}}">zmazať</a></button></td>
     </tr>
 
     @endforeach

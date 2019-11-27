@@ -60,6 +60,7 @@ Route::get('users-crud',[
 Route::get('users-crud/show/{id}',[
 'as'=>'show', 'uses'=>'UserController@showAction'
 ]);
+
 Route::post('users-crud/insert',[
     'as'=>'insert', 'uses'=>'UserController@insertAction'
     ]);
@@ -78,9 +79,21 @@ Route::get('users-crud/delete/{id}',[
 Route::get('pobyty-crud',[
     'as'=>'pobyty','uses' =>'PostController@PobytyBackend'
     ]);
+	Route::get('pobyty-crud/show/{id}',[
+'as'=>'show', 'uses'=>'PostController@showPobytAction'
+]);
+Route::post('pobyty-crud/update/{id}',[
+        'as'=>'update', 'uses'=>'PostController@updatePobytAction'
+        ]);
+Route::get('pobyty-crud/delete/{id}',[
+    'as'=>'delete', 'uses'=>'PostController@deletePobytAction'
+]);
+
+
 Route::post('pobyty-crud/insert',[
         'as'=>'insert', 'uses'=>'PostController@insertPobytAction'
         ]);
+
 Route::get('pobyty-crud/add-pobyt',[
             'as'=>'add-pobyt', 'uses'=>'PostController@getAddPobytForm'
             ]);
