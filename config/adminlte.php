@@ -126,72 +126,69 @@ return [
 
 */
     'menu' => [
+
+        ['header' => 'Správa účtov'],
         [
-            'text' => 'search',
-            'search' => true,
-        ],
-        ['header' => 'main_navigation'],
+            'text' => 'Používatelia',
+            'icon' => 'fas fa fa-users',
+            'submenu' => [
+                [
+                    'text' => 'Pridať používateľa',
+                    'url'  => 'users-crud/add-user',
+                ],
+                [
+                    'text' => 'Všetci používatelia',
+                    'url'  => 'users-crud',
+                ],
+        ], ],
         [
-            'text' => 'blog',
-            'url'  => 'admin/blog',
-            'can'  => 'manage-blog',
-        ],
-        [
-            'text'        => 'pages',
+            'text'        => 'Na schválenie',
             'url'         => 'admin/pages',
             'icon'        => 'far fa-file',
             'label'       => 4,
             'label_color' => 'success',
         ],
-        ['header' => 'Správa účtov a obsahu'],
+        ['header' => 'Správa obsahu'],
         [
-            'text' => 'Účty',
-            'url'  => 'users-crud',
-            'icon' => 'fas fa-fw fa-user',
-        ],
-        [
-            'text'    => 'Pridať príspevok',
-            'icon'    => 'fas fa-fw fa-share',
+            'text' => 'Študijné pobyty',
+            'icon' => 'fas fa-graduation-cap',
             'submenu' => [
                 [
-                    'text' => 'Študijný pobyt',
-                    'url'  => '#',
+                    'text' => 'Pridať pobyt',
+                    'url'  => 'pobyty-crud/add-pobyt',
                 ],
                 [
-                    'text' => 'Pracovná stáž',
-                    'url'  => '#',
+                    'text' => 'Všetky pobyty',
+                    'url'  => 'pobyty-crud',
+                ],
+            ],
+        ],
+
+        [
+            'text' => 'Pracovné stáže',
+            'icon' => 'fas fa-briefcase',
+            'submenu' => [
+                [
+                    'text' => 'Pridať stáž',
+                    'url'  => 'staze-crud/add-staz',
                 ],
                 [
-                    'text' => 'Účastnícka správa',
-                    'url'  => '#',
+                    'text' => 'Všetky pobyty',
+                    'url'  => 'staze-crud',
+                ],
+            ],
+        ],
+        [
+            'text' => 'Účastnícke správy',
+            'icon' => 'fas fa-envelope-open-text',
+            'submenu' => [
+                [
+                    'text' => 'Pridať správu',
+                    'url'  => 'spravy-crud/add-spravu',
                 ],
                 [
-                    'text'    => 'level_one',
-                    'url'     => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'level_two',
-                            'url'  => '#',
-                        ],
-                        [
-                            'text'    => 'level_two',
-                            'url'     => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                            ],
-                        ],
-                    ],
-                ],
-                [
-                    'text' => 'level_one',
-                    'url'  => '#',
+                    'text' => 'Všetky správy',
+                    'url'  => 'spravy-crud',
                 ],
             ],
         ],
