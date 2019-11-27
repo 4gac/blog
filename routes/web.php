@@ -78,9 +78,17 @@ Route::get('users-crud/delete/{id}',[
 Route::get('pobyty-crud',[
     'as'=>'pobyty','uses' =>'PostController@PobytyBackend'
     ]);
+Route::post('pobyty-crud/insert',[
+        'as'=>'insert', 'uses'=>'PostController@insertPobytAction'
+        ]);
+Route::get('pobyty-crud/add-pobyt',[
+            'as'=>'add-pobyt', 'uses'=>'PostController@getAddPobytForm'
+            ]);
+
 Route::get('staze-crud',[
         'as'=>'staze','uses' =>'PostController@StazeBackend'
         ]);
 Route::get('spravy-crud',[
             'as'=>'spravy','uses' =>'PostController@SpravyBackend'
             ]);
+
