@@ -77,7 +77,7 @@ Route::get('users-crud/delete/{id}',[
 //------------------</CRUD USEROV>--------------------------------------------
 /*<CRUD postov v admin rozhrani>*/
 Route::get('pobyty-crud',[
-    'as'=>'pobyty','uses' =>'PostController@PobytyBackend'
+    'as'=>'pobyty-crud','uses' =>'PostController@PobytyBackend'
     ]);
 	Route::get('pobyty-crud/show/{id}',[
 'as'=>'show', 'uses'=>'PostController@showPobytAction'
@@ -99,9 +99,9 @@ Route::get('pobyty-crud/add-pobyt',[
             ]);
 
 Route::get('staze-crud',[
-        'as'=>'staze','uses' =>'PostController@StazeBackend'
+        'as'=>'staze-crud','uses' =>'PostController@StazeBackend'
         ]);
 Route::get('spravy-crud',[
-            'as'=>'spravy','uses' =>'PostController@SpravyBackend'
+            'as'=>'spravy-crud','uses' =>'PostController@SpravyBackend'
             ]);
 
