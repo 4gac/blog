@@ -64,6 +64,6 @@
 <p>nič, man</p>
 @endforelse
 </div>
-@endsection
+
 </div>
-</div>
+</div>@endsection
