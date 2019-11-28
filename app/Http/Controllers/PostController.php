@@ -64,6 +64,31 @@ public function insertPobytAction(Request $request){
     $post->tags()->sync($tag);
     return redirect()->action('PostController@PobytyBackend');   
 }
+//SHOW SINGLE POBYT FOR UPDATE
+public function showPobytAction($id){
+        $posts=Post::find($id);
+		return view("backend-posts/update-pobyt",['posts'=>$posts]);
+}
+//UPDATE
+public function updatePobytAction($id, Request $request){
+	$text = substr($request->input('text'), 3, strlen($request->input('text'))-7); // prevents <p></p> tag from multiplying
+
+	$slug=$this->createSlug($request->title);
+	$post=Post::where("id","=",$id)->first();
+        $post->update(["title"=>$request->input('title'),
+        "text"=>$text,
+        "slug"=>$slug
+        ]);
+	return redirect()->action('PostController@PobytyBackend');
+}
+//DELETE
+public function deletePobytAction($id){
+     $posts=Post::find($id);
+     $posts->delete();  
+     return redirect()->action('PostController@PobytyBackend'); 
+}
+
+
 public function getAddPobytForm(){
     $posts = Post::all();
     $tags = Tag::all();
