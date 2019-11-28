@@ -55,6 +55,7 @@
 @yield('content')
 
 
+
 <footer id="footer" class="footer-1" >
 	<div class="main-footer widgets-dark typo-light">
 		<div class="container">
@@ -65,29 +66,30 @@
 				</div>
 			</div>
 			<div class="row">
-				@foreach($contacts as $contact)
-				<div class="col-xs-12 col-sm-6 col-md-3">
+		<div class="col-xs-12 col-sm-6 col-md-4">
 					<div class="widget subscribe no-box">
-						<h5 class="widget-title"><strong>{{ $contact->meno_kontaktu }} {{ $contact->priezvisko_kontaktu }}</strong> <br> 
-							@if($contact->typKontaktu_idtypKontaktu == "1")
-							<p class="underline">Katedrový koordinátor</p>
-							@endif
-							@if($contact->typKontaktu_idtypKontaktu == "2")
-							<p class="underline">Fakultný koordinátor</p>
-							@endif<span></span>
+						<h5 class="underline"><strong>Tr. A. Hlinku 1<br>949 01 Nitra</strong> <br> 
 						</h5>
-						<h6>{{ $contact->email }}</h6>
-						<h6 class="light" style="color: light blue">{{ $contact->tel_cislo }}</h6>
+						<h6 >Ing. Silvia Hrozenská, PhD.<br>
+								Ing. Katarína Butorová, PhD.<br>
+								Ing. Anita Garajová, PhD.<br>
+								Mgr. Pavol Vakoš<br></h6>
 					</div>
 				</div>
-				@endforeach
-				<div class="col-xs-12 col-sm-6 col-md-3">
+				<div class="col-xs-12 col-sm-6 col-md-4">
+					<div class="widget no-box">
+					<h5 class="widget-title"><strong>Úradné hodiny pre študentov</strong><span></span></h5>		
+					<h6 class="underline">pondelok – streda: 8.30 – 11.00 h <br> 
+						</h6>	
+				</div>
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-4">
 					<div class="widget no-box">
 						<h5 class="widget-title"><strong>Sociálne siete</strong><span></span></h5>
 						<ul>
 							<li class="">
-								<a href="#" class="fa fa-facebook"></a>
-								<a href="#" class="fa fa-instagram"></a>
+								<a href="https://www.facebook.com/UKFvNitre" class="fa fa-facebook">
+								<a href="https://www.instagram.com/ukfvnitre/?hl=sk" class="fa fa-instagram"></a>
 							</li>				
 						</ul>
 					</div>
