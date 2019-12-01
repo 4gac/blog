@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
         $this->call(KontaktSeeder::class);
         $this->call(CountrySeeder::class);
         $this->call(Country_postSeeder::class);
+        $this->call(ImagesSeeder::class);
 
         
         

@@ -192,6 +192,11 @@ return [
                 ],
             ],
         ],
+        [
+            'text' => 'Galéria',
+            'icon' => 'far fa-images',
+            'url'  => 'galeria',
+        ],
         ['header' => 'Môj účet'],
         [
             'text' => 'Môj profil',

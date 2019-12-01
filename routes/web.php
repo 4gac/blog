@@ -105,3 +105,13 @@ Route::get('spravy-crud',[
             'as'=>'spravy-crud','uses' =>'PostController@SpravyBackend'
             ]);
 
+Route::get('galeria',[
+    'as'=>'galeria', 'uses'=>'GalleryImageController@celaGaleria'
+]);
+Route::get('gallery/delete/{id}', [
+    'as' => 'delete','uses' => 'GalleryImageController@removeFromDB'
+]);
+Route::post('gallery/insert', [
+    'as' => 'insert','uses' => 'GalleryImageController@insertGalleryImage'
+]);
+
