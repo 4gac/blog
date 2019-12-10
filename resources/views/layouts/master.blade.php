@@ -16,7 +16,10 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link href="{{ asset('css/custom.css') }}" rel="stylesheet">
 	<link href="{{ asset('css/footer.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/grid-gallery.css') }}" rel="stylesheet">
+	<link href="{{ asset('css/grid-gallery.css') }}" rel="stylesheet">
+	<!-- Bootstrap core CSS -->
+	<link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+
 
 </head>
 <body>
@@ -44,7 +47,7 @@
                       <a class="nav-link" href="{{route('spravy') }}" tabindex="-1" aria-disabled="true">Účastnícke správy</a>
                     </li>
                     <li class="nav-item">
-                            <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Kontakt</a>
+                            <a class="nav-link" href="{{route('kontakt') }}" tabindex="-1" aria-disabled="true">Kontakt</a>
                           </li>
                   </ul>
 
@@ -107,6 +110,5 @@
 		</div>
 	</div>
 </footer>
-
 </body>
 

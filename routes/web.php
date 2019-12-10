@@ -42,6 +42,16 @@ Route::get('pracovne-staze',[
 Route::get('ucastnicke-spravy',[
     'as'=>'spravy','uses' =>'PostController@spravy'
 ]);
+
+/*Kontakty*/
+Route::get('kontakt',[
+    'as'=>'kontakt','uses' =>'ContactController@showAll'
+]);
+
+/*Spracovanie formularu*/
+Route::post('fetchform',[
+    'as'=>'fetchForm','uses' =>'ContactController@fetchForm'
+]);
 /*konkretny user pre frontend*/
 Route::get('user/{id}',[
     'as'=>'show', 'uses'=>'UserController@show'
