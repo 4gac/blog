@@ -75,6 +75,31 @@ Route::get('users-crud/delete/{id}',[
             'as'=>'delete', 'uses'=>'UserController@deleteAction'
             ]);
 //------------------</CRUD USEROV>--------------------------------------------
+
+//-----<CRUD KOKNTAKTOV>----------------------------------------------------------
+
+Route::get('kontakty-crud',[
+    'as'=>'showall', 'uses'=>'ContactController@ContactsBackend'
+    ]);
+Route::get('kontakty-crud/add-kontakt',[
+        'as'=>'add-user', 'uses'=>'ContactController@getAddContactForm'
+]);
+Route::post('kontakty-crud/insert',[
+    'as'=>'insert', 'uses'=>'ContactController@addContactAction'
+]);
+Route::post('kontakty-crud/update/{id}',[
+        'as'=>'update', 'uses'=>'ContactController@updateContactAction'
+]);
+Route::get('kontakty-crud/show/{id}',[
+'as'=>'show', 'uses'=>'ContactController@showContactAction'
+]);
+
+Route::get('kontakty-crud/delete/{id}',[
+            'as'=>'delete', 'uses'=>'ContactController@deleteContactAction'
+]);
+
+//------------------</CRUD KONTAKTOV>--------------------------------------------
+
 /*<CRUD postov v admin rozhrani>*/
 Route::get('pobyty-crud',[
     'as'=>'pobyty-crud','uses' =>'PostController@PobytyBackend'

@@ -18,7 +18,6 @@ class DatabaseSeeder extends Seeder
         $this->call(post_tagSeeder::class);
         $this->call(PostImageSeeder::class);
         $this->call(TypKontaktuSeeder::class);
-        $this->call(KontaktSeeder::class);
         $this->call(CountrySeeder::class);
         $this->call(Country_postSeeder::class);
         $this->call(ImagesSeeder::class);

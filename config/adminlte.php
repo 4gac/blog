@@ -192,11 +192,30 @@ return [
                 ],
             ],
         ],
+
+		[
+            'text' => 'Kontakty',
+            'icon' => 'fas fa-address-book',
+            'submenu' => [
+                [
+                    'text' => 'Pridať kontakt',
+                    'url'  => 'kontakty-crud/add-kontakt',
+                ],
+                [
+                    'text' => 'Všetky kontakty',
+                    'url'  => 'kontakty-crud',
+                ],
+            ],
+        ],
+
         [
             'text' => 'Galéria',
             'icon' => 'far fa-images',
             'url'  => 'galeria',
         ],
+
+
+
         ['header' => 'Môj účet'],
         [
             'text' => 'Môj profil',
@@ -209,7 +228,7 @@ return [
             'icon' => 'fas fa-fw fa-lock',
         ],
 
-
+		
 
         ['header' => 'labels'],
         [

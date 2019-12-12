@@ -14,7 +14,7 @@ class CreateTypKontaktuTable extends Migration
     public function up()
     {
         Schema::create('typ_kontaktu', function (Blueprint $table) {
-            $table->increments('idtypKontaktu');
+            $table->increments('id');
             $table->string('typ_kontaktu');
             $table->timestamps();
         });
