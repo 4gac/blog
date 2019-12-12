@@ -54,9 +54,9 @@ class ContactController extends Controller
 		$kontakt-> update(["email" => $request->input("email"),
 			"tel_cislo" => $request->input("number"),
 			"meno_kontaktu" => $request->input("firstname"),
-			"priezvisko_kontaktu" => $request->input("lastname"),
-			"idtypKontaktu" => $request->input("role")]);
-		
+			"idtypKontaktu"=> $request->input("role"),
+			"priezvisko_kontaktu" => $request->input("lastname")
+			]);
 		return redirect()->action('ContactController@ContactsBackend'); 
 	}
 

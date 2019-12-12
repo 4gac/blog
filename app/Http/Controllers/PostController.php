@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Models\Tag;
 use App\Models\PostTag;
+use App\Models\CountryPost;
 use Illuminate\Http\Request;
 use Auth;
 
@@ -86,9 +87,11 @@ public function updatePobytAction($id, Request $request){
 public function deletePobytAction($id){
     
      $posts=Post::find($id);
-     $post_tag = PostTag::find($id);
+     $post_tag = PostTag::where("post_id","=",$id)->first();
+	 $country_posts = CountryPost::where("post_id","=",$id);
+	 $country_posts->delete();
      $post_tag->delete();
-     $posts->delete();  
+	 $posts->delete();
      
      return redirect()->action('PostController@PobytyBackend'); 
 }

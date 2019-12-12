@@ -8,5 +8,5 @@ class ContactModel extends Model
 {
     protected $table = "kontakt";
 
-	protected $fillable = ["email", "tel_cislo", "meno_kontaktu", "priezvisko_kontaktu", "typKontaktu_idtypKontaktu"];
+	protected $fillable = ["email", "tel_cislo", "meno_kontaktu", "priezvisko_kontaktu", "idtypKontaktu"];
 }

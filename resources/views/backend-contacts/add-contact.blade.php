@@ -19,12 +19,13 @@
 				<label for="email-id">E-mail</label>
 				<input type ="text"class="form-control" id="email-id" name="email" value=""> <br>
 			</div>
-		</div>
-		<div class="form-row">
 			<div class="form-group col-md-6">
 				<label for="heslo-id">Telefónne číslo</label>
 				<input type ="text" class="form-control" id="number-id" name="number" value=""> <br>
 			</div>
+		</div>
+		<div class="form-row">
+			
 			<div class="form-group col-md-6">
 				<label for="role-id">Typ kontaktu</label>
 				<select class="form-control" id="role-id" name="role" value=""> 

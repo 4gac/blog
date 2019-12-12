@@ -19,15 +19,16 @@
 				<label for="email-id">E-mail</label>
 				<input type ="text"class="form-control" id="email-id" name="email" value="{{ $contacts->email }}"> <br>
 			</div>
-		</div>
-		<div class="form-row">
 			<div class="form-group col-md-6">
 				<label for="heslo-id">Telefónne číslo</label>
 				<input type ="text" class="form-control" id="number-id" name="number" value="{{ $contacts->tel_cislo }}"> <br>
 			</div>
+		</div>
+		<div class="form-row">
+			
 			<div class="form-group col-md-6">
 				<label for="role-id">Typ kontaktu</label>
-				<select class="form-control" id="role-id" name="role" value="{{$contacts->idtypKontaktu}}"> 
+				<select class="form-control" id="role-id" name="role" value="">
 					@foreach($contactTypes as $contactType)
 					@if($contacts->idtypKontaktu == $contactType->id)
 					<option value="{{$contactType->id}}">{{$contactType->typ_kontaktu}}</option>
