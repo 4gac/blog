@@ -60,42 +60,17 @@ class ContactController extends Controller
 		return redirect()->action('ContactController@ContactsBackend'); 
 	}
 
-	// CONTACT TYPE
+	
 
-	public function TypeContactBackend(){
-		$contactTypes = ContactType::all();
-		return view('backend-contacts.contactTypes')->with('contactTypes',$contactTypes);    
+	public function showAll(){
+		return view('contact');
 	}
-	public function getAddContactTypeForm(){
-        return view("backend-contacts.add-contact-type");
-    }
-	public function addContactTypeAction(Request $request){
-		$typ_kontaktu = $request->input("nazov");
 
-		$kontaktTyp = new ContactType();
-		$kontaktTyp->typ_kontaktu = $typ_kontaktu;
-		$kontaktTyp->save();
-
-		return redirect()->action('ContactController@TypeContactBackend'); 
+	public function fetchForm(){
+		$formdata = Input::all();
+		//sem treba dokodit spracovanie formu - odoslat mail/ulozit do db
+		//vymazat print, bol len na testovanie
+		print_r($formdata);
+		return view('contact');
 	}
-	public function deleteContactTypeAction($id){
-		$posts=Post::find($id);
-		$post_tag = PostTag::where("post_id","=",$id)->first();
-		$country_posts = CountryPost::where("post_id","=",$id);
-		$country_posts->delete();
-		$post_tag->delete();
-		$posts->delete();
-		return redirect()->action('PostController@PobytyBackend'); 
-	}
-	public function updateContactTypeAction($id, Request $request){
-		$kontaktType = ContactModel::where("id", "=", $id)->first();
-		$kontaktType-> update(["typ_kontaktu" => $request->input("nazov")]);
-		
-		return redirect()->action('ContactController@TypeContactBackend'); 
-	}
-	public function showContactTypeAction($id)
-    {
-        $contactType=ContactType::find($id);
-		return view('backend-contacts.update-contact-type')->with('contactType',$contactType); 
-    }
 }
