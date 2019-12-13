@@ -46,10 +46,16 @@ public function ReferentPobytyBackend(){
     return view('backend-posts.referent-pobyty')->with('posts',$posts);    
 }
 
-public function StazeBackend(){
+public function AdminStazeBackend(){
     $posts = Post::all();
-   return view('backend-posts.staze')->with('posts',$posts);    
+   return view('backend-posts.admin-staze')->with('posts',$posts);    
 }
+public function ReferentStazeBackend(){
+    $posts = Post::all();
+   return view('backend-posts.referent-staze')->with('posts',$posts);    
+}
+
+
 public function SpravyBackend(){
     $posts = Post::all();
    return view('backend-posts.spravy')->with('posts',$posts);    
@@ -101,13 +107,23 @@ public function ReferentinsertPobytAction(Request $request){
 }
 
 //SHOW SINGLE POBYT FOR UPDATE
-public function showPobytAction($id){
+public function AdminshowPobytAction($id){
         $posts=Post::find($id);
         $images = GalleryImage::all();
         $newArray = $images->diff($posts->galleryImages);
 
-		return view("backend-posts/update-pobyt",['posts'=>$posts],['images'=>$newArray]);
+		return view("backend-posts/admin-update-pobyt",['posts'=>$posts],['images'=>$newArray]);
 }
+public function ReferentshowPobytAction($id){
+    $posts=Post::find($id);
+    $images = GalleryImage::all();
+    $newArray = $images->diff($posts->galleryImages);
+
+    return view("backend-posts/referent-update-pobyt",['posts'=>$posts],['images'=>$newArray]);
+}
+
+
+
 //UPDATE
 public function updatePobytAction($id, Request $request){
 	$text = substr($request->input('text'), 3, strlen($request->input('text'))-7); // prevents <p></p> tag from multiplying
@@ -121,9 +137,15 @@ public function updatePobytAction($id, Request $request){
     $galleryImages = $request ->input('idecko');
     $post->galleryImages()->sync($galleryImages);
 
-
-	return redirect()->action('PostController@PobytyBackend');
+if(Auth::user()->role=='admin'){
+    return redirect()->action('PostController@AdminPobytyBackend');
 }
+if(Auth::user()->role=='referent'){
+    return redirect()->action('PostController@ReferentPobytyBackend');
+}
+}
+
+
 //DELETE
 public function deletePobytAction($id){
     

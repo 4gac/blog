@@ -1,12 +1,9 @@
-﻿
-@extends('adminlte::page')
+@yield('content')
 @section('css')
 	<link rel="stylesheet" href="{{asset('css/image-picker.css')}}">
 	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
 	<link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
 @stop
-
-
 @section('js')
 	<script src="{{asset('js/image-picker.js')}}"></script>script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -15,6 +12,7 @@
 	<script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
 @stop
 @section('content')
+<div class="container">
 
 <form method="post" action="{{action('PostController@updatePobytAction', ['id'=>$posts->id])}}">
                 <div class="form-group">
@@ -73,7 +71,7 @@
                     {{csrf_field()}}
                 </div>
                 </form>
-
+			</div>
 <div class="modal" id="myModal">
 	<div class="modal-dialog modal-lg">
 		<div class="modal-content">
@@ -143,4 +141,3 @@
 		</div>
 	</div>
 </div>
-@endsection

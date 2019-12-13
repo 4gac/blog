@@ -20,7 +20,7 @@
 
   <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-    <a class="navbar-brand mr-1" href="index.html">Start Bootstrap</a>
+    <a class="navbar-brand mr-1" href="index.html"> Referent LTE</a>
 
     <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
       <i class="fas fa-bars"></i>
@@ -95,34 +95,52 @@
           <span>Študijné pobyty</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-          <h6 class="dropdown-header">Login Screens:</h6>
-          <a class="dropdown-item" href="login.html">Pridať pobyt</a>
+          <a class="dropdown-item" href="{{route('referent-pobyty-crud/add-pobyt')}}">Pridať pobyt</a>
         <a class="dropdown-item" href="{{route('referent-pobyty-crud')}}">Všetky pobyty</a>
         
         </div>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="charts.html">
-          <i class="fas fa-fw fa-chart-area"></i>
-          <span>Charts</span></a>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-briefcase"></i>
+          <span>Pracovné stáže</span>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+          <a class="dropdown-item" href="#">Pridať stáž</a>
+        <a class="dropdown-item" href="#">Všetky stáže</a>
+        </div>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="tables.html">
-          <i class="fas fa-fw fa-table"></i>
-          <span>Tables</span></a>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-briefcase"></i>
+          <span>Účastnícke správy</span>
+        </a>
+      
+        <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+        <a class="dropdown-item" href="#">Pridať správu</a>
+        <a class="dropdown-item" href="#">Všetky správy</a>
+        </div>
+      
+      </li>
+      
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-question-circle"></i>
+          <span>Na schválenie</span>
+        </a>
+      
+        <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+        <a class="dropdown-item" href="#">Všetky hodnotenia</a>
+        </div>
+      
       </li>
     </ul>
     @yield('content')
       <!-- /.container-fluid -->
 
-      <!-- Sticky Footer -->
-      <footer class="sticky-footer">
-        <div class="container my-auto">
-          <div class="copyright text-center my-auto">
-            <span>Copyright © Your Website 2019</span>
-          </div>
-        </div>
-      </footer>
+    
 
     </div>
     <!-- /.content-wrapper -->

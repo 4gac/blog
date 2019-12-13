@@ -117,18 +117,27 @@ Route::get('admin-pobyty-crud',[
 Route::get('referent-pobyty-crud',[
         'as'=>'referent-pobyty-crud','uses' =>'PostController@ReferentPobytyBackend'
     ]);
+Route::get('admin-staze-crud',[
+        'as'=>'admin-staze-crud','uses' =>'PostController@AdminStazeBackend'
+        ]);
+Route::get('referent-staze-crud',[
+            'as'=>'referent-staze-crud','uses' =>'PostController@ReferentStazeBackend'
+        ]);
 //----------------------------------
-Route::get('pobyty-crud/show/{id}',[
-'as'=>'show', 'uses'=>'PostController@showPobytAction'
+Route::get('admin-pobyty-crud/show/{id}',[
+'as'=>'show', 'uses'=>'PostController@AdminshowPobytAction'
 ]);
+Route::get('referent-pobyty-crud/show/{id}',[
+    'as'=>'show', 'uses'=>'PostController@ReferentshowPobytAction'
+    ]);
+//---------------------------------------------
 Route::post('pobyty-crud/update/{id}',[
         'as'=>'update', 'uses'=>'PostController@updatePobytAction'
         ]);
+
 Route::get('pobyty-crud/delete/{id}',[
     'as'=>'delete', 'uses'=>'PostController@deletePobytAction'
 ]);
-
-
 Route::post('admin-pobyty-crud/insert',[
         'as'=>'insert', 'uses'=>'PostController@AdmininsertPobytAction'
         ]);
@@ -140,18 +149,20 @@ Route::get('admin-pobyty-crud/add-pobyt',[
             'as'=>'add-pobyt', 'uses'=>'PostController@AdmingetAddPobytForm'
             ]);
 Route::get('referent-pobyty-crud/add-pobyt',[
-                'as'=>'add-pobyt', 'uses'=>'PostController@ReferentgetAddPobytForm'
+                'as'=>'referent-pobyty-crud/add-pobyt', 'uses'=>'PostController@ReferentgetAddPobytForm'
             ]);
 
 
-Route::get('staze-crud',[
-        'as'=>'staze-crud','uses' =>'PostController@StazeBackend'
-        ]);
-Route::get('spravy-crud',[
-            'as'=>'spravy-crud','uses' =>'PostController@SpravyBackend'
-            ]);
 
-Route::get('galeria',[
+
+
+
+
+
+
+
+
+            Route::get('galeria',[
     'as'=>'galeria', 'uses'=>'GalleryImageController@celaGaleria'
 ]);
 Route::get('gallery/delete/{id}', [
