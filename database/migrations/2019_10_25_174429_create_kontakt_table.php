@@ -20,7 +20,8 @@ class CreateKontaktTable extends Migration
             $table->string('meno_kontaktu');
             $table->string('priezvisko_kontaktu');
             $table->integer('idtypKontaktu')->unsigned();
-            $table->foreign('idtypKontaktu')->references('idtypKontaktu')->on('typ_kontaktu');
+            //$table->foreign('idtypKontaktu')->references('idtypKontaktu')->on('typ_kontaktu');
+            $table->foreign('idtypKontaktu')->references('id')->on('typ_kontaktu');
             $table->timestamps();
         });
     }

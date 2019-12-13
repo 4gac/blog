@@ -18,7 +18,21 @@ class UserSeeder extends Seeder
         'email'=>'admin@admin.sk',
         'password'=>bcrypt('admin123'),
         'role'=>'admin'
-
+    ]);
+    DB::table('users')->insert([
+        'name'=>"referent",
+        'lastname'=>"referent",
+        'email'=>'referent@referent.sk',
+        'password'=>bcrypt('referent123'),
+        'role'=>'referent'
+    ]);
+    
+    DB::table('users')->insert([
+        'name'=>"pouzivatel",
+        'lastname'=>"pouzivatel",
+        'email'=>'pouzivatel@pouzivatel.sk',
+        'password'=>bcrypt('pouzivatel123'),
+        'role'=>'pouzivatel'
     ]);
     }
 }

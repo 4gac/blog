@@ -22,7 +22,7 @@
         <td>{{$i++}}</td>
         <td>{{$post->title}}</td>
         <td>{{$post->slug}}</td>
-        <td>{{$post->text}}</td>
+        <td>{!!$post->text!!}</td>
         <td>{{$post->user_id}}</td>
         <td><button type="button" class="btn btn-warning"><a href="{{action("PostController@showPobytAction",['id'=>$post->id])}}">editovať</a></button></td>
         <td><button type="button" class="btn btn-danger"><a href="{{action("PostController@deletePobytAction",['id'=>$post->id])}}">zmazať</a></button></td>

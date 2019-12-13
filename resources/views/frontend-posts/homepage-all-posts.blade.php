@@ -48,7 +48,7 @@
                         </header>
                         <div class="post-content">
                             <p>
-                                {{$post->excerpt}}
+                                {!!$post->excerpt!!}
                             </p>
                         </div>
                         <footer class="post-footer">
