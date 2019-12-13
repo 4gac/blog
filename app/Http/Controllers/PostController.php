@@ -1,5 +1,7 @@
 <?php
 namespace App\Http\Controllers;
+use App\Models\GalleryImage;
+use App\Models\ImagePost;
 use App\Models\Post;
 use App\Models\Tag;
 use App\Models\PostTag;
@@ -54,6 +56,7 @@ public function insertPobytAction(Request $request){
     $slug=$request->input('slug');
     $user_id = Auth::user()->id;
     $tag=1;
+    $galleryImages = $request ->input('idecko');
 
     $post= new Post();
     $post->title=$title;
@@ -62,14 +65,18 @@ public function insertPobytAction(Request $request){
     $post->slug=$this->createSlug($request->title);
     $post->user_id=$user_id;
 
-    $post->save(); 
+    $post->save();
+    $post->galleryImages()->sync($galleryImages);
     $post->tags()->sync($tag);
     return redirect()->action('PostController@PobytyBackend');   
 }
 //SHOW SINGLE POBYT FOR UPDATE
 public function showPobytAction($id){
         $posts=Post::find($id);
-		return view("backend-posts/update-pobyt",['posts'=>$posts]);
+        $images = GalleryImage::all();
+        $newArray = $images->diff($posts->galleryImages);
+
+		return view("backend-posts/update-pobyt",['posts'=>$posts],['images'=>$newArray]);
 }
 //UPDATE
 public function updatePobytAction($id, Request $request){
@@ -81,6 +88,10 @@ public function updatePobytAction($id, Request $request){
         "text"=>$text,
         "slug"=>$slug
         ]);
+    $galleryImages = $request ->input('idecko');
+    $post->galleryImages()->sync($galleryImages);
+
+
 	return redirect()->action('PostController@PobytyBackend');
 }
 //DELETE
@@ -91,7 +102,9 @@ public function deletePobytAction($id){
 	 $country_posts = CountryPost::where("post_id","=",$id);
 	 $country_posts->delete();
      $post_tag->delete();
-	 $posts->delete();
+     $gallery_image_post = ImagePost::where('post_id',$id);
+     $gallery_image_post->delete();
+     $posts->delete();
      
      return redirect()->action('PostController@PobytyBackend'); 
 }
@@ -100,8 +113,9 @@ public function deletePobytAction($id){
 public function getAddPobytForm(){
     $posts = Post::all();
     $tags = Tag::all();
+    $images = GalleryImage::all();
     return view("backend-posts.add-pobyt")->with('posts',$posts)
-                                          ->with('tags',$tags);
+                                          ->with('tags',$tags)->with('images',$images);
 }
 
 

@@ -10,7 +10,15 @@
             <div class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner" role="listbox">
                     <!-- Slide One - Set the background image for this slide in the line below -->
-                    <div class="carousel-item active" style="background-image: url('{{asset('assets/images/').'/'.$posts->image->where('main', '1')->first()->imgPath}}')">
+
+                    @if(is_null($posts->galleryImages->first()))
+                        <div class="carousel-item active" style="background-image: url('https://via.placeholder.com/650C/O')">
+
+                    @else
+                        <div class="carousel-item active" style="background-image: url('{{asset('assets/images/').'/'.$posts->galleryImages->first()->imgPath}}')">
+                    @endif
+
+
                         <div class="carousel-caption d-none d-md-block">
                             <h1>{{$posts->title}}</h1>
                         </div>
@@ -32,7 +40,16 @@
                     <h2>Galéria</h2>
                 </div>
                 <div class="row">
-                    @forelse($posts->image->where('main', '0') as $image)
+{{--                    @forelse($posts->image->where('main', '0') as $image)--}}
+{{--                    <div class="col-md-6 col-lg-4 item">--}}
+{{--                        <a class="lightbox" href="{{asset('assets/images/').'/'.$image->imgPath}}">--}}
+{{--                            <img class="img-fluid image scale-on-hover" src="{{asset('assets/images/').'/'.$image->imgPath}}">--}}
+{{--                        </a>--}}
+{{--                    </div>--}}
+{{--                    @empty--}}
+{{--                        <p>Galéria je prázdna</p>--}}
+{{--                    @endforelse  --}}
+                        @forelse($posts->galleryImages as $image)
                     <div class="col-md-6 col-lg-4 item">
                         <a class="lightbox" href="{{asset('assets/images/').'/'.$image->imgPath}}">
                             <img class="img-fluid image scale-on-hover" src="{{asset('assets/images/').'/'.$image->imgPath}}">

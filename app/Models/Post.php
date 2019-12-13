@@ -24,6 +24,9 @@ public function user(){
 public function image(){
         return $this->hasMany('App\Models\Image');
 }
+public function galleryImages(){
+    return $this->belongsToMany('App\Models\GalleryImage');
+}
 
 
 

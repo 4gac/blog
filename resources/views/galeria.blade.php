@@ -59,15 +59,15 @@
                 <div class="col-lg-3 col-md-4 col-xs-6 thumb">
 
 
-{{--                        <a name="removeButton" type="button" style="display:none"class="close" aria-label="Close" href="{{ action('GalleryImageController@removeFromDB',['id'=> $image->id]) }}">--}}
-{{--                            <span aria-hidden="true">&times;</span>--}}
-{{--                        </a> --}}
+                    {{--                        <a name="removeButton" type="button" style="display:none"class="close" aria-label="Close" href="{{ action('GalleryImageController@removeFromDB',['id'=> $image->id]) }}">--}}
+                    {{--                            <span aria-hidden="true">&times;</span>--}}
+                    {{--                        </a> --}}
                     <a name="removeButton" type="button" style="display:none"class="close" id="{{$image->id}}"aria-label="Close" href="javascript:deleteReport({{$image->id}});">
-                            <span aria-hidden="true">&times;</span>
-                        </a>
+                        <span aria-hidden="true">&times;</span>
+                    </a>
 
                     <a href="{{asset('assets/images/').'/'.$image->imgPath}}" class="fancybox" rel="ligthbox">
-                        <img  src="{{asset('assets/images/').'/'.$image->imgPath}}" class="zoom img-fluid "  alt="{{$image->alt}}">
+                        <img src="{{asset('assets/images/').'/'.$image->imgPath}}" class="zoom img-fluid"  alt="{{$image->alt}}">
 
                     </a>
                 </div>
@@ -75,8 +75,8 @@
 
 
 
-                        @empty
-                            <p>Galéria je prázdna</p>
+            @empty
+                <p>Galéria je prázdna</p>
             @endforelse
 
         </div>

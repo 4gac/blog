@@ -27,7 +27,12 @@
 
 <div class="col-lg-4 col-sm-6 mb-4">
         <div class="card h-100">
-        <a href="#"><img class="card-img-top" src="{{asset('assets/images/').'/'.$post->image->where('main', '1')->first()->imgPath}}" alt=""></a>
+            @if(is_null($post->galleryImages->first()))
+                <a href="#"><img class="card-img-top" src="https://via.placeholder.com/150C/O" alt="Not Found"></a>
+
+            @else
+                <a href="#"><img class="card-img-top" src="{{asset('assets/images/').'/'.$post->galleryImages->first()->imgPath}}" alt=""></a>
+            @endif
         <div class="card-body">
     <article id="post-{{ $post->id }}" class="posts">
           <header class="post-header" > 

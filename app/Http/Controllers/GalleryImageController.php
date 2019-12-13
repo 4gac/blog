@@ -3,6 +3,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\GalleryImage;
+use App\Models\ImagePost;
 use Illuminate\Http\Request;
 use File;
 use Illuminate\Support\Facades\Input;
@@ -18,8 +19,11 @@ class GalleryImageController
 //        return redirect()->action('GalleryImageController@celaGaleria');
 //    }
     public function removeFromDB($id) {
+        $ImagePost = ImagePost::where('gallery_image_id',$id);
+        $ImagePost->delete();
         $GalleryImage = GalleryImage::find($id);
         $GalleryImage->delete();
+
 
         $destinationPath = public_path() . '/assets/images';
         File::delete($destinationPath.'/'.$GalleryImage->imgPath);
@@ -33,12 +37,12 @@ class GalleryImageController
     $captions= $request->input('popis');
 
     for($i=0;$i<count($request->picture);$i++){
-        $request->picture[$i]->storeAs('images',$request->picture[$i]->getClientOriginalName());
+        $request->picture[$i]->storeAs('images',time().'-'.$request->picture[$i]->getClientOriginalName());
         $GalleryImage = new GalleryImage();
-        $GalleryImage->imgPath = $request->picture[$i]->getClientOriginalName();
+        $GalleryImage->imgPath = time().'-'.$request->picture[$i]->getClientOriginalName();
         $GalleryImage->title =$names[$i];
         $GalleryImage->caption =$captions[$i];
-        $GalleryImage->alt ="Obrázok nedostupný";
+        $GalleryImage->alt =$names[$i];
         $GalleryImage ->save();
     }
 

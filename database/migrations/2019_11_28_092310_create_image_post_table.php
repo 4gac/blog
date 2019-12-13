@@ -13,10 +13,10 @@ class CreateImagePostTable extends Migration
      */
     public function up()
     {
-        Schema::create('image_post', function (Blueprint $table) {
+        Schema::create('gallery_image_post', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('image_id')->unsigned()->index();
-            $table->foreign('image_id')->references('id')->on('images');
+            $table->integer('gallery_image_id')->unsigned()->index();
+            $table->foreign('gallery_image_id')->references('id')->on('images');
 
             $table->integer('post_id')->unsigned()->index();
             $table->foreign('post_id')->references('id')->on('posts');

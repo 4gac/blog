@@ -10,6 +10,8 @@ class GalleryImage extends Model
 
     protected $fillable = ['imgPath','alt','title','caption'];
 
-
+    public function post(){
+        return $this->belongsToMany('App\Models\Post');
+    }
 
 }
