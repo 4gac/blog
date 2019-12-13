@@ -37,10 +37,15 @@ public function spravy(){
 //METODY PRE OPERACIE NAD POSTMI V ADMIN LTE
 
 //DISPLAY
-public function PobytyBackend(){
+public function AdminPobytyBackend(){
     $posts = Post::all();
-   return view('backend-posts.pobyty')->with('posts',$posts);    
+    return view('backend-posts.admin-pobyty')->with('posts',$posts);    
 }
+public function ReferentPobytyBackend(){
+    $posts = Post::all();
+    return view('backend-posts.referent-pobyty')->with('posts',$posts);    
+}
+
 public function StazeBackend(){
     $posts = Post::all();
    return view('backend-posts.staze')->with('posts',$posts);    
@@ -49,8 +54,11 @@ public function SpravyBackend(){
     $posts = Post::all();
    return view('backend-posts.spravy')->with('posts',$posts);    
 }
+
+
+
 //CREATE
-public function insertPobytAction(Request $request){
+public function AdmininsertPobytAction(Request $request){
     $title=$request->input('title');
     $text=$request->input('text');
     $slug=$request->input('slug');
@@ -68,8 +76,30 @@ public function insertPobytAction(Request $request){
     $post->save();
     $post->galleryImages()->sync($galleryImages);
     $post->tags()->sync($tag);
-    return redirect()->action('PostController@PobytyBackend');   
+    return redirect()->action('PostController@AdminPobytyBackend');   
 }
+
+public function ReferentinsertPobytAction(Request $request){
+    $title=$request->input('title');
+    $text=$request->input('text');
+    $slug=$request->input('slug');
+    $user_id = Auth::user()->id;
+    $tag=1;
+    $galleryImages = $request ->input('idecko');
+
+    $post= new Post();
+    $post->title=$title;
+    $post->text=$text;
+    //$post->slug=str_slug($request->title, '-');
+    $post->slug=$this->createSlug($request->title);
+    $post->user_id=$user_id;
+
+    $post->save();
+    $post->galleryImages()->sync($galleryImages);
+    $post->tags()->sync($tag);
+    return redirect()->action('PostController@ReferentPobytyBackend');   
+}
+
 //SHOW SINGLE POBYT FOR UPDATE
 public function showPobytAction($id){
         $posts=Post::find($id);
@@ -105,16 +135,25 @@ public function deletePobytAction($id){
      $gallery_image_post = ImagePost::where('post_id',$id);
      $gallery_image_post->delete();
      $posts->delete();
-     
-     return redirect()->action('PostController@PobytyBackend'); 
-}
+     if(Auth::user()->role=='admin'){
+     return redirect()->action('PostController@AdminPobytyBackend'); }
+     if (Auth::user()->role=='referent'){return redirect()->action('PostController@ReferentPobytyBackend');
+     }
+    }
 
 
-public function getAddPobytForm(){
+public function AdmingetAddPobytForm(){
     $posts = Post::all();
     $tags = Tag::all();
     $images = GalleryImage::all();
-    return view("backend-posts.add-pobyt")->with('posts',$posts)
+    return view("backend-posts.admin-add-pobyt")->with('posts',$posts)
+                                          ->with('tags',$tags)->with('images',$images);
+}
+public function ReferentgetAddPobytForm(){
+    $posts = Post::all();
+    $tags = Tag::all();
+    $images = GalleryImage::all();
+    return view("backend-posts.referent-add-pobyt")->with('posts',$posts)
                                           ->with('tags',$tags)->with('images',$images);
 }
 

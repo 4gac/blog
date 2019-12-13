@@ -155,11 +155,11 @@ return [
             'submenu' => [
                 [
                     'text' => 'Pridať pobyt',
-                    'url'  => 'pobyty-crud/add-pobyt',
+                    'url'  => 'admin-pobyty-crud/add-pobyt',
                 ],
                 [
                     'text' => 'Všetky pobyty',
-                    'url'  => 'pobyty-crud',
+                    'url'  => 'admin-pobyty-crud',
                 ],
             ],
         ],

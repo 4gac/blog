@@ -111,10 +111,14 @@ Route::get('kontakty-crud/delete/{id}',[
 //------------------</CRUD KONTAKTOV>--------------------------------------------
 
 /*<CRUD postov v admin rozhrani>*/
-Route::get('pobyty-crud',[
-    'as'=>'pobyty-crud','uses' =>'PostController@PobytyBackend'
+Route::get('admin-pobyty-crud',[
+    'as'=>'admin-pobyty-crud','uses' =>'PostController@AdminPobytyBackend'
     ]);
-	Route::get('pobyty-crud/show/{id}',[
+Route::get('referent-pobyty-crud',[
+        'as'=>'referent-pobyty-crud','uses' =>'PostController@ReferentPobytyBackend'
+    ]);
+//----------------------------------
+Route::get('pobyty-crud/show/{id}',[
 'as'=>'show', 'uses'=>'PostController@showPobytAction'
 ]);
 Route::post('pobyty-crud/update/{id}',[
@@ -125,13 +129,20 @@ Route::get('pobyty-crud/delete/{id}',[
 ]);
 
 
-Route::post('pobyty-crud/insert',[
-        'as'=>'insert', 'uses'=>'PostController@insertPobytAction'
+Route::post('admin-pobyty-crud/insert',[
+        'as'=>'insert', 'uses'=>'PostController@AdmininsertPobytAction'
         ]);
-
-Route::get('pobyty-crud/add-pobyt',[
-            'as'=>'add-pobyt', 'uses'=>'PostController@getAddPobytForm'
+Route::post('referent-pobyty-crud/insert',[
+            'as'=>'insert', 'uses'=>'PostController@ReferentinsertPobytAction'
             ]);
+
+Route::get('admin-pobyty-crud/add-pobyt',[
+            'as'=>'add-pobyt', 'uses'=>'PostController@AdmingetAddPobytForm'
+            ]);
+Route::get('referent-pobyty-crud/add-pobyt',[
+                'as'=>'add-pobyt', 'uses'=>'PostController@ReferentgetAddPobytForm'
+            ]);
+
 
 Route::get('staze-crud',[
         'as'=>'staze-crud','uses' =>'PostController@StazeBackend'
