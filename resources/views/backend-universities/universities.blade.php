@@ -34,7 +34,7 @@
 			@endforeach
 			</td>
 			<td>{{$university->kontaktna_osoba}}</td>
-			{{--<td><button type="button" class="btn btn-warning"><a href="{{action("UniversityController@showContactAction",['id'=>$university->id])}}">editovať</a></button></td>--}}
+			<td><button type="button" class="btn btn-warning"><a href="{{action("UniversityController@showUniverzitaAction",['id'=>$university->id])}}">editovať</a></button></td>
 			<td><button type="button" class="btn btn-danger"><a href="{{action("UniversityController@deleteUniverzitaAction",['id'=>$university->id])}}">zmazať</a></button></td>
 		</tr>
 		@endforeach

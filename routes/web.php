@@ -122,6 +122,12 @@ Route::get('kontakty-crud/delete/{id}',[
 	Route::post('univerzity-crud/insert',[
 		'as'=>'insert', 'uses'=>'UniversityController@addUniverzitaAction'
 	]);
+	Route::post('univerzity-crud/update/{id}',[
+			'as'=>'update', 'uses'=>'UniversityController@updateUniverzitaAction'
+	]);
+	Route::get('univerzity-crud/show/{id}',[
+	'as'=>'show', 'uses'=>'UniversityController@showUniverzitaAction'
+	]);
 	Route::get('univerzity-crud/delete/{id}',[
             'as'=>'delete', 'uses'=>'UniversityController@deleteUniverzitaAction'
 	]);

@@ -51,7 +51,24 @@ class UniversityController extends Controller
 
 		return redirect()->action('UniversityController@UniverzityBackend'); 
 	}
+	public function showUniverzitaAction($id){
+		$universities = UniversityModel::find($id)->first();
+		$cities = CityModel::all();
+		$countries = Country::all();
 
+		return view('backend-universities.update-university')->with('universities',$universities)->with('cities',$cities)->with('countries',$countries); 
+	}
+	public function updateUniverzitaAction($id, Request $request){
+		$kontakt = UniversityModel::where("id", "=", $id)->first();
+		$kontakt-> update(["nazov" => $request->input("nazov"),
+			"zmluva_od" => $request->input("zmluva_od"),
+			"zmluva_do" => $request->input("zmluva_do"),
+			"mesto_id"=> $request->input("mesto"),
+			"countries_id" => $request->input("krajina"),
+			"kontaktna_osoba" => $request->input("kontaktna_osoba"),
+			]);
+		return redirect()->action('UniversityController@UniverzityBackend'); 
+	}
 
 
 	// MESTO CRUD
