@@ -19,7 +19,7 @@ class CreateZaujemTable extends Migration
             //$table->foreign('user_id')->references('id')->on('users'); 
             $table->integer('posts_id')->unsigned();
             //$table->foreign('posts_id')->references('id')->on('posts');
-              //  $table->timestamps();
+            $table->timestamps();
         });
     }
 
