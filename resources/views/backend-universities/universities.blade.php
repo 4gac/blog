@@ -29,12 +29,13 @@
 			</td>
 			<td>
 			@foreach($cities as $c)
-			@if($c->id == $university->id){{$c->nazov}} @endif
+			@if($c->id == $university->mesto_id){{$c->nazov}} @endif
+
 			@endforeach
 			</td>
 			<td>{{$university->kontaktna_osoba}}</td>
-			{{--<td><button type="button" class="btn btn-warning"><a href="{{action("UniversityController@showContactAction",['id'=>$contact->id])}}">editovať</a></button></td>
-			<td><button type="button" class="btn btn-danger"><a href="{{action("UniversityController@deleteContactAction",['id'=>$contact->id])}}">zmazať</a></button></td>--}}
+			{{--<td><button type="button" class="btn btn-warning"><a href="{{action("UniversityController@showContactAction",['id'=>$university->id])}}">editovať</a></button></td>--}}
+			<td><button type="button" class="btn btn-danger"><a href="{{action("UniversityController@deleteUniverzitaAction",['id'=>$university->id])}}">zmazať</a></button></td>
 		</tr>
 		@endforeach
     </tbody>

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\UniversityModel;
 use App\Models\CityModel;
 use App\Models\Country;
+use App\Models\UniversityPostModel;
 
 class UniversityController extends Controller
 {
@@ -40,10 +41,16 @@ class UniversityController extends Controller
 		$uni->countries_id = $krajina;
 		$uni->kontaktna_osoba = $kontaktna_osoba;
 		$uni->save();
+		return redirect()->action('UniversityController@UniverzityBackend'); 
+	}
+	public function deleteUniverzitaAction($id){
+		$uni = UniversityModel::find($id);
+		$uniPost = UniversityPostModel::where('university_id',$id);;
+		$uniPost->delete();
+		$uni->delete();
 
 		return redirect()->action('UniversityController@UniverzityBackend'); 
 	}
-
 
 
 
