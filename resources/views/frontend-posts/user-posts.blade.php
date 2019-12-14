@@ -4,7 +4,7 @@
 @extends('layouts/master')
 @section('title', isset($title)? $title :'Domov')
 @section('content')
-
+<div class="container">
 <h1>{{$title or "šicke články"}}</h1>
 
 @forelse($posts as $post)
@@ -36,6 +36,7 @@
 @endforelse
 
 </section>
+</div>
 </div>
 </div>
 @endsection

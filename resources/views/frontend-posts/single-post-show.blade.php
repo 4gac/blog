@@ -2,7 +2,7 @@
 @section('title',$posts->title)
 
 @section('content')
-
+<div class="container">
 <section>
     <article>
         <header>
@@ -27,6 +27,7 @@
 
             <h1>
             <a href="{{URL::current()}}">{{$posts->title}}</a>
+            
             </h1>
             <time>
                 <small>{{$posts->created_at}}</small>
@@ -70,4 +71,5 @@
     </article>
 </section>
 {{--    END OF GALLERY--}}
+</div>
 @endsection

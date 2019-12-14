@@ -70,6 +70,7 @@
 <p>nič, man</p>
 @endforelse
 </div>
+
+</div>
+</div>
 @endsection
-</div>
-</div>

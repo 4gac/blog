@@ -63,11 +63,11 @@
     @endforelse
                     
 </div>
-    @endsection
+    
 </div>
 </div>
 
-                    
+@endsection                  
 
 
 
