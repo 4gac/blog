@@ -32,7 +32,7 @@
             <time>
                 <small>{{$posts->created_at}}</small>
             </time>
-            {!!$post->excerpt!!}
+            {!!$posts->text!!}
         </header>
 {{--        BOTTOM GALLERY--}}
         <section class="gallery-block grid-gallery">
@@ -69,7 +69,9 @@
             baguetteBox.run('.grid-gallery', { animation: 'slideIn'});
         </script>
     </article>
+
+   
 </section>
-{{--    END OF GALLERY--}}
+{{--    END OF GALLERY--}}  
 </div>
 @endsection
