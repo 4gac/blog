@@ -3,6 +3,7 @@
 ?>
 @extends('layouts/master')
 @section('title','Domov')
+@section('description', 'Prenádherný a úplne zbytočný description')
 @section('content')
 
 <div class="carousel slide" data-ride="carousel">        
@@ -10,11 +11,11 @@
           <!-- Slide One - Set the background image for this slide in the line below -->
           <div class="carousel-item active" style="background-image: url('http://edu.uhk.cz/mobility/wp-content/uploads/2016/08/hp-1920x698.jpg')">
             <div class="carousel-caption d-none d-md-block">
-              <h1>Domov</h1>
+              <h1>{{$title or "Domov"}}</h1>
             </div>
         </div>
 </div>
-
+</div>
 <div class="container">
     
 <div class="item-margin">
@@ -42,7 +43,7 @@
                             </time>
                             @if($post->tags)
                                 @foreach($post->tags as $tag)
-                                    <h3>{{$tag->name}}</h3>
+                                    <h3 class="tag-name">{{$tag->name}}</h3>
                                 @endforeach
                             @endif
                         </header>
@@ -63,11 +64,11 @@
     @endforelse
                     
 </div>
-    @endsection
+    
 </div>
 </div>
 
-                    
+@endsection                  
 
 
 

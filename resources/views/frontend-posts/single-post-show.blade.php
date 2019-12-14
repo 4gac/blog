@@ -2,7 +2,7 @@
 @section('title',$posts->title)
 
 @section('content')
-
+<div class="container news-post">
 <section>
     <article>
         <header>
@@ -20,18 +20,18 @@
 
 
                         <div class="carousel-caption d-none d-md-block">
-                            <h1>{{$posts->title}}</h1>
                         </div>
                     </div>
                 </div>
 
-            <h1>
+            <h1 class="single-post-heading">
             <a href="{{URL::current()}}">{{$posts->title}}</a>
+            
             </h1>
             <time>
                 <small>{{$posts->created_at}}</small>
             </time>
-            <p>{!!$posts->text!!}</p>
+            {!!$posts->text!!}
         </header>
 {{--        BOTTOM GALLERY--}}
         <section class="gallery-block grid-gallery">
@@ -69,5 +69,21 @@
         </script>
     </article>
 </section>
-{{--    END OF GALLERY--}}
+{{--    END OF GALLERY--}}  
+</div>
+
+<div class="zaujem">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8">
+                <h3 class="zaujem-o-staz">Máš aj ty záujem o pobyt alebo stáž?
+                 <br>Prihlás sa a možno vyberieme práve teba
+                </h3>
+            </div>
+            <div class="col-sm-4">
+            <button type="button" class="btn-login"><a href="{{route("login")}}">Prihlásiť sa</a></button>
+            </div>
+          </div> 
+    </div>
+</div>
 @endsection
