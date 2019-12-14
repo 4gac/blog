@@ -67,6 +67,18 @@
         
         </div>
       </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fab fa-hotjar"></i>
+          <span>Aktuálne výzvy</span>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+        <a class="dropdown-item" href="{{route('dostupne-pobyty')}}">Študijné pobyty</a>
+        <a class="dropdown-item" href="#">Stáže</a>
+        
+        </div>
+      </li>
     </ul>
     @yield('content')
       <!-- /.container-fluid -->

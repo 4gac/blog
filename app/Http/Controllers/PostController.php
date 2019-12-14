@@ -45,7 +45,10 @@ public function ReferentPobytyBackend(){
     $posts = Post::all();
     return view('backend-posts.referent-pobyty')->with('posts',$posts);    
 }
-
+public function DostupnePobyty(){
+    $posts = Post::all();
+    return view('backend-posts.dostupne-pobyty')->with('posts',$posts);    
+}
 public function AdminStazeBackend(){
     $posts = Post::all();
    return view('backend-posts.admin-staze')->with('posts',$posts);    

@@ -124,6 +124,9 @@ Route::get('admin-staze-crud',[
 Route::get('referent-staze-crud',[
             'as'=>'referent-staze-crud','uses' =>'PostController@ReferentStazeBackend'
         ]);
+Route::get('dostupne-pobyty',[
+            'as'=>'dostupne-pobyty','uses' =>'PostController@DostupnePobyty'
+        ]);
 //----------------------------------
 Route::get('admin-pobyty-crud/show/{id}',[
 'as'=>'show', 'uses'=>'PostController@AdminshowPobytAction'
