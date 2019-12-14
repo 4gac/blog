@@ -3,7 +3,45 @@
 @section('content')
 <!-- Kontaktny formular -->
 <div class="container">
-   {!! Form::open(array('route' => 'fetchForm')) !!} 
+   
+   <div class="row">
+      <div class="card" style="width: 22rem;">
+         <img src="{{asset('assets/images/unknownwoman.jpeg')}}" class="card-img-top" alt="referentka">
+         <div class="card-body">
+            <h4 class="card-title">Mgr. Andrea Slovakova</h5>
+            <h5 class="card-mail">aslovakova@ukf.sk</p>
+            <p class="card-telcislo">+42 85 31 54</p>
+         </div>
+      </div>
+
+      <div class="card" style="width: 22rem;">
+         <img src="{{asset('assets/images/referentka1.jpeg')}}" class="card-img-top" alt="referentka">
+         <div class="card-body">
+            <h4 class="card-title">Mgr. Blazena Ticha</h5>
+            <h5 class="card-mail">bticha@ukf.sk</p>
+            <p class="card-telcislo">+42 49 21 87</p>
+         </div>
+      </div>
+
+
+
+      <div class="card" style="width: 22rem;">
+         <img src="{{asset('assets/images/referentka2.jpeg')}}" class="card-img-top" alt="referentka">
+         <div class="card-body">
+            <h4 class="card-title">Ing. Mariana Lesicka</h5>
+            <h5 class="card-mail">mlesicka@ukf.sk</p>
+            <p class="card-telcislo">+42 36 25 19</p>
+         </div>
+      </div>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+
+<div class="container">
+      {!! Form::open(array('route' => 'fetchForm')) !!} 
       <fieldset>
       <!-- UserName -->
       <div class="form-group">
