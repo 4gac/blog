@@ -43,6 +43,9 @@ h1{
   .user-posts-main-title{
     margin-top:2%
   }
-  .user-post-title{
+  .user-post-title, .card-title, .tag-name{
     text-transform:uppercase;
+  }
+  .tag-name{
+    font-size:18px;
   }

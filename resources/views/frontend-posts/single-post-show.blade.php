@@ -32,7 +32,7 @@
             <time>
                 <small>{{$posts->created_at}}</small>
             </time>
-            <p>{!!$posts->text!!}</p>
+            {!!$post->excerpt!!}
         </header>
 {{--        BOTTOM GALLERY--}}
         <section class="gallery-block grid-gallery">

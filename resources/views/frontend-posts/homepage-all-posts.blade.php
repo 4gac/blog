@@ -3,6 +3,7 @@
 ?>
 @extends('layouts/master')
 @section('title','Domov')
+@section('description', 'Prenádherný a úplne zbytočný description')
 @section('content')
 
 <div class="carousel slide" data-ride="carousel">        
@@ -42,7 +43,7 @@
                             </time>
                             @if($post->tags)
                                 @foreach($post->tags as $tag)
-                                    <h3>{{$tag->name}}</h3>
+                                    <h3 class="tag-name">{{$tag->name}}</h3>
                                 @endforeach
                             @endif
                         </header>
