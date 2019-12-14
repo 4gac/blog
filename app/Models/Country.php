@@ -8,7 +8,7 @@ class Country extends Model
 {
     protected $table = 'countries';
 
-    protected $fillable = ['name',];
+    protected $fillable = ['name','continent'];
 
 public function posts(){
     return $this->belongsToMany('App\Models\Post');
