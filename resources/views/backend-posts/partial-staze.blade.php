@@ -28,7 +28,7 @@
         @if(Auth::user()->role=='referent')
         <td><button type="button" class="btn btn-warning"><a href="{{action("PostController@ReferentshowStazAction",['id'=>$post->id])}}">editovať</a></button></td>
         @endif
-        <td><button type="button" class="btn btn-danger"><a href="">zmazať</a></button></td>
+        <td><button type="button" class="btn btn-danger"><a href="{{action("PostController@deleteStazAction",['id'=>$post->id])}}">zmazať</a></button></td>
     </tr>
 
     @endforeach

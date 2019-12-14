@@ -146,6 +146,9 @@ Route::post('staze-crud/update/{id}',[
 Route::get('pobyty-crud/delete/{id}',[
     'as'=>'delete', 'uses'=>'PostController@deletePobytAction'
 ]);
+Route::get('staze-crud/delete/{id}',[
+    'as'=>'delete', 'uses'=>'PostController@deleteStazAction'
+]);
 //-------------------------------------------------------------------
 Route::post('admin-pobyty-crud/insert',[
         'as'=>'insert', 'uses'=>'PostController@AdmininsertPobytAction'
