@@ -19,4 +19,12 @@ class UniversityController extends Controller
 		$countries = Country::all();
 		return view('backend-universities.universities')->with('universities',$universities)->with('cities',$cities)->with('countries',$countries);
 	}
+
+
+	// MESTO CRUD
+	public function mestaBackend(){
+		$cities = CityModel::all();
+		$countries = Country::all();
+		return view('backend-cities.cities')->with('cities',$cities)->with('countries',$countries);
+	}
 }
