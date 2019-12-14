@@ -107,8 +107,8 @@
           <span>Pracovné stáže</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-          <a class="dropdown-item" href="#">Pridať stáž</a>
-        <a class="dropdown-item" href="#">Všetky stáže</a>
+        <a class="dropdown-item" href="#">Pridať stáž</a>
+        <a class="dropdown-item" href="{{route('referent-staze-crud')}}">Všetky stáže</a>
         </div>
       </li>
 

@@ -173,8 +173,8 @@ return [
                     'url'  => 'staze-crud/add-staz',
                 ],
                 [
-                    'text' => 'Všetky pobyty',
-                    'url'  => 'staze-crud',
+                    'text' => 'Všetky staze',
+                    'url'  => 'admin-staze-crud',
                 ],
             ],
         ],

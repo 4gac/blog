@@ -105,6 +105,47 @@ public function ReferentinsertPobytAction(Request $request){
     $post->tags()->sync($tag);
     return redirect()->action('PostController@ReferentPobytyBackend');   
 }
+//------------------------------------------------------------------------
+public function AdmininsertStazAction(Request $request){
+    $title=$request->input('title');
+    $text=$request->input('text');
+    $slug=$request->input('slug');
+    $user_id = Auth::user()->id;
+    $tag=2;
+    $galleryImages = $request ->input('idecko');
+
+    $post= new Post();
+    $post->title=$title;
+    $post->text=$text;
+    //$post->slug=str_slug($request->title, '-');
+    $post->slug=$this->createSlug($request->title);
+    $post->user_id=$user_id;
+
+    $post->save();
+    $post->galleryImages()->sync($galleryImages);
+    $post->tags()->sync($tag);
+    return redirect()->action('PostController@AdminStazeBackend');   
+}
+public function ReferentinsertStazAction(Request $request){
+    $title=$request->input('title');
+    $text=$request->input('text');
+    $slug=$request->input('slug');
+    $user_id = Auth::user()->id;
+    $tag=2;
+    $galleryImages = $request ->input('idecko');
+
+    $post= new Post();
+    $post->title=$title;
+    $post->text=$text;
+    //$post->slug=str_slug($request->title, '-');
+    $post->slug=$this->createSlug($request->title);
+    $post->user_id=$user_id;
+
+    $post->save();
+    $post->galleryImages()->sync($galleryImages);
+    $post->tags()->sync($tag);
+    return redirect()->action('PostController@ReferentStazeBackend');   
+}
 
 //SHOW SINGLE POBYT FOR UPDATE
 public function AdminshowPobytAction($id){
@@ -179,10 +220,20 @@ public function ReferentgetAddPobytForm(){
                                           ->with('tags',$tags)->with('images',$images);
 }
 
-
-
-
-
+public function AdmingetAddStazForm(){
+    $posts = Post::all();
+    $tags = Tag::all();
+    $images = GalleryImage::all();
+    return view("backend-posts.admin-add-staz")->with('posts',$posts)
+                                          ->with('tags',$tags)->with('images',$images);
+}
+public function ReferentgetAddStazForm(){
+    $posts = Post::all();
+    $tags = Tag::all();
+    $images = GalleryImage::all();
+    return view("backend-posts.referent-add-staz")->with('posts',$posts)
+                                          ->with('tags',$tags)->with('images',$images);
+}
 
 
 //SLUG

@@ -138,31 +138,36 @@ Route::post('pobyty-crud/update/{id}',[
 Route::get('pobyty-crud/delete/{id}',[
     'as'=>'delete', 'uses'=>'PostController@deletePobytAction'
 ]);
+//-------------------------------------------------------------------
 Route::post('admin-pobyty-crud/insert',[
         'as'=>'insert', 'uses'=>'PostController@AdmininsertPobytAction'
         ]);
 Route::post('referent-pobyty-crud/insert',[
             'as'=>'insert', 'uses'=>'PostController@ReferentinsertPobytAction'
             ]);
-
+Route::post('admin-staze-crud/insert',[
+                'as'=>'insert', 'uses'=>'PostController@AdmininsertStazAction'
+                ]);
+Route::post('referent-staze-crud/insert',[
+                    'as'=>'insert', 'uses'=>'PostController@ReferentinsertStazAction'
+                    ]);
+//-----------------------------------------------------------------------------
 Route::get('admin-pobyty-crud/add-pobyt',[
             'as'=>'add-pobyt', 'uses'=>'PostController@AdmingetAddPobytForm'
             ]);
 Route::get('referent-pobyty-crud/add-pobyt',[
                 'as'=>'referent-pobyty-crud/add-pobyt', 'uses'=>'PostController@ReferentgetAddPobytForm'
             ]);
+Route::get('admin-staze-crud/add-staz',[
+                'as'=>'add-staz', 'uses'=>'PostController@AdmingetAddStazForm'
+                ]);
+Route::get('referent-staze-crud/add-staz',[
+                    'as'=>'referent-staze-crud/add-staz', 'uses'=>'PostController@ReferentgetAddStazForm'
+                ]);
 
 
 
-
-
-
-
-
-
-
-
-            Route::get('galeria',[
+                Route::get('galeria',[
     'as'=>'galeria', 'uses'=>'GalleryImageController@celaGaleria'
 ]);
 Route::get('gallery/delete/{id}', [
