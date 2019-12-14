@@ -2,7 +2,7 @@
 @section('title',$posts->title)
 
 @section('content')
-<div class="container">
+<div class="container news-post">
 <section>
     <article>
         <header>
@@ -20,12 +20,11 @@
 
 
                         <div class="carousel-caption d-none d-md-block">
-                            <h1>{{$posts->title}}</h1>
                         </div>
                     </div>
                 </div>
 
-            <h1>
+            <h1 class="single-post-heading">
             <a href="{{URL::current()}}">{{$posts->title}}</a>
             
             </h1>
