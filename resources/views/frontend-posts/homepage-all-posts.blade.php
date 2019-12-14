@@ -10,11 +10,11 @@
           <!-- Slide One - Set the background image for this slide in the line below -->
           <div class="carousel-item active" style="background-image: url('http://edu.uhk.cz/mobility/wp-content/uploads/2016/08/hp-1920x698.jpg')">
             <div class="carousel-caption d-none d-md-block">
-              <h1>Domov</h1>
+              <h1>Články autora: {{$title or "Domov"}}</h1>
             </div>
         </div>
 </div>
-
+</div>
 <div class="container">
     
 <div class="item-margin">
