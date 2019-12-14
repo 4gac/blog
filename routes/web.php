@@ -117,6 +117,11 @@ Route::get('kontakty-crud/delete/{id}',[
     'as'=>'showall', 'uses'=>'UniversityController@UniverzityBackend'
     ]);
 
+	// MESTÁ
+	Route::get('mesta-crud',[
+    'as'=>'showall', 'uses'=>'UniversityController@mestaBackend'
+    ]);
+
 //------------------</CRUD UNIVERZIT>--------------------------------------------
 
 /*<CRUD postov v admin rozhrani>*/

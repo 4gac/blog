@@ -205,6 +205,14 @@ return [
                     'text' => 'Všetky univerzity',
                     'url'  => 'univerzity-crud/',
                 ],
+				[
+                    'text' => 'Všetky mestá',
+                    'url'  => 'mesta-crud/',
+                ],
+				[
+                    'text' => 'Priradiť univerzitu výzve',
+                    'url'  => 'univerzita-post/',
+                ],
             ],
         ],
 
