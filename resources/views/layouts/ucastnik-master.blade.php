@@ -74,7 +74,7 @@
           <span>Aktuálne výzvy</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-        <a class="dropdown-item" href="{{route('dostupne-pobyty')}}">Študijné pobyty</a>
+        <a class="dropdown-item" href="{{route('ucastnik/dostupne-pobyty')}}">Študijné pobyty</a>
         <a class="dropdown-item" href="#">Stáže</a>
         
         </div>

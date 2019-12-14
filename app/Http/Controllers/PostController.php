@@ -6,6 +6,7 @@ use App\Models\Post;
 use App\Models\Tag;
 use App\Models\PostTag;
 use App\Models\CountryPost;
+use App\Models\Zaujem;
 use Illuminate\Http\Request;
 use Auth;
 
@@ -67,6 +68,7 @@ public function SpravyBackend(){
 
 
 //CREATE
+
 public function AdmininsertPobytAction(Request $request){
     $title=$request->input('title');
     $text=$request->input('text');
@@ -164,6 +166,12 @@ public function ReferentshowPobytAction($id){
     $newArray = $images->diff($posts->galleryImages);
 
     return view("backend-posts/referent-update-pobyt",['posts'=>$posts],['images'=>$newArray]);
+}
+public function UcastnikshowPobytAction($id){
+    $posts=Post::find($id);
+    $images = GalleryImage::all();
+    $newArray = $images->diff($posts->galleryImages);
+    return view("backend-posts/ucastnik-show-pobyt",['posts'=>$posts],['images'=>$newArray]);
 }
 public function AdminshowStazAction($id){
     $posts=Post::find($id);

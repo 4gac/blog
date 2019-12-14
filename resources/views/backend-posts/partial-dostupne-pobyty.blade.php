@@ -12,14 +12,14 @@
     <?php $i=1;?>
     @forelse($posts as $post)
     @if($post->tags)
-    @foreach($post->tags->where('name', 'Pracovné stáže') as $tags)
+    @foreach($post->tags->where('name', 'Študijné pobyty') as $tags)
     <tbody>
     <tr>
         <td>{{$i++}}</td>
         <td>{{$post->title}}</td>
         <td>{!!$post->text!!}</td>
-        <td><button type="button" class="btn btn-warning"><a href="{{action("PostController@AdminshowStazAction",['id'=>$post->id])}}">Viac info</a></button></td>
-        <td><button type="button" class="btn btn-warning"><a href="{{action("PostController@ReferentshowStazAction",['id'=>$post->id])}}">Prihlásiť sa</a></button></td>
+        <td><button type="button" class="btn btn-warning"><a href="{{action("PostController@UcastnikshowPobytAction",['id'=>$post->id])}}">Viac info</a></button></td>
+       
         
     </tr>
 

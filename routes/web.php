@@ -124,8 +124,8 @@ Route::get('admin-staze-crud',[
 Route::get('referent-staze-crud',[
             'as'=>'referent-staze-crud','uses' =>'PostController@ReferentStazeBackend'
         ]);
-Route::get('dostupne-pobyty',[
-            'as'=>'dostupne-pobyty','uses' =>'PostController@DostupnePobyty'
+Route::get('ucastnik/dostupne-pobyty',[
+            'as'=>'ucastnik/dostupne-pobyty','uses' =>'PostController@DostupnePobyty'
         ]);
 //----------------------------------
 Route::get('admin-pobyty-crud/show/{id}',[
@@ -179,10 +179,17 @@ Route::get('admin-staze-crud/add-staz',[
 Route::get('referent-staze-crud/add-staz',[
                     'as'=>'referent-staze-crud/add-staz', 'uses'=>'PostController@ReferentgetAddStazForm'
                 ]);
+//---------------------------------------------------------------------------------
+Route::get('ucastnik/dostupne-pobyty/show/{id}',[
+                    'as'=>'ucastnik/dostupne-pobyty/show', 'uses'=>'PostController@UcastnikshowPobytAction'
+                    ]);Route::post('gallery/insert', [
+    'as' => 'insert','uses' => 'GalleryImageController@insertGalleryImage'
+]);
+Route::post('ucastnik/dostupne-pobyty/insert{id}', [
+    'as' => 'ucastnik/dostupne-pobyty/insert','uses' => 'ZaujemController@PrihlasitNaPobytAction'
+]);
 
-
-
-                Route::get('galeria',[
+Route::get('galeria',[
     'as'=>'galeria', 'uses'=>'GalleryImageController@celaGaleria'
 ]);
 Route::get('gallery/delete/{id}', [
