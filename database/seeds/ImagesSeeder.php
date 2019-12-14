@@ -13,60 +13,13 @@ class ImagesSeeder extends Seeder
     {
         DB::table('images')->insert([
 
-            'imgPath'=>"img1.png",
+            'imgPath'=>"image1.jpg",
             'alt'=>"Img not Available",
             'title'=>"Obrazok1",
             'caption'=>"Toto je caption obrazku1"
 
         ]);
 
-        DB::table('images')->insert([
-
-            'imgPath'=>"img11.png",
-            'alt'=>"Img not Available",
-            'title'=>"Obrazok11",
-            'caption'=>"Toto je caption obrazku11"
-        ]);
-
-        DB::table('images')->insert([
-
-            'imgPath'=>"water.png",
-            'alt'=>"Img not Available",
-            'title'=>"ObrazokW",
-            'caption'=>"Toto je caption obrazkuW"
-        ]);
-
-        DB::table('images')->insert([
-
-            'imgPath'=>"img3.png",
-            'alt'=>"Img not Available",
-            'title'=>"Obrazok3",
-            'caption'=>"Toto je caption obrazku3"
-        ]);
-
-        DB::table('images')->insert([
-
-            'imgPath'=>"img4.png",
-            'alt'=>"Img not Available",
-            'title'=>"Obrazok4",
-            'caption'=>"Toto je caption obrazku4"
-        ]);
-
-        DB::table('images')->insert([
-
-            'imgPath'=>"img5.png",
-            'alt'=>"Img not Available",
-            'title'=>"Obrazok5",
-            'caption'=>"Toto je caption obrazku5"
-        ]);
-
-        DB::table('images')->insert([
-
-            'imgPath'=>"img1.jpg",
-            'alt'=>"Img not Available",
-            'title'=>"ObrazokA",
-            'caption'=>"Toto je caption obrazkuA"
-        ]);
 
         DB::table('images')->insert([
 
@@ -90,6 +43,13 @@ class ImagesSeeder extends Seeder
             'alt'=>"Img not Available",
             'title'=>"ObrazokD",
             'caption'=>"Toto je caption obrazkuD"
+        ]);
+        DB::table('images')->insert([
+
+            'imgPath'=>"image5.jpg",
+            'alt'=>"Img not Available",
+            'title'=>"Obrazok5",
+            'caption'=>"Toto je caption obrazku5"
         ]);
 
         DB::table('images')->insert([
@@ -122,6 +82,90 @@ class ImagesSeeder extends Seeder
             'alt'=>"Img not Available",
             'title'=>"ObrazokH",
             'caption'=>"Toto je caption obrazkuH"
+        ]);
+        DB::table('images')->insert([
+
+            'imgPath'=>"image10.jpg",
+            'alt'=>"Img not Available",
+            'title'=>"Obrazok10",
+            'caption'=>"Toto je caption obrazku10"
+        ]);
+        DB::table('images')->insert([
+
+            'imgPath'=>"image11.jpg",
+            'alt'=>"Img not Available",
+            'title'=>"Obrazok11",
+            'caption'=>"Toto je caption obrazku11"
+        ]);
+        DB::table('images')->insert([
+
+            'imgPath'=>"image12.jpg",
+            'alt'=>"Img not Available",
+            'title'=>"Obrazok12",
+            'caption'=>"Toto je caption obrazku12"
+        ]);
+        DB::table('images')->insert([
+
+            'imgPath'=>"image13.jpg",
+            'alt'=>"Img not Available",
+            'title'=>"Obrazok13",
+            'caption'=>"Toto je caption obrazku13"
+        ]);
+        DB::table('images')->insert([
+
+            'imgPath'=>"image14.jpg",
+            'alt'=>"Img not Available",
+            'title'=>"Obrazok14",
+            'caption'=>"Toto je caption obrazku14"
+        ]);
+        DB::table('images')->insert([
+
+            'imgPath'=>"image15.jpg",
+            'alt'=>"Img not Available",
+            'title'=>"Obrazok15",
+            'caption'=>"Toto je caption obrazku15"
+        ]);
+        DB::table('images')->insert([
+
+            'imgPath'=>"image16.jpg",
+            'alt'=>"Img not Available",
+            'title'=>"Obrazok16",
+            'caption'=>"Toto je caption obrazku16"
+        ]);
+        DB::table('images')->insert([
+
+            'imgPath'=>"image17.jpg",
+            'alt'=>"Img not Available",
+            'title'=>"Obrazok17",
+            'caption'=>"Toto je caption obrazku17"
+        ]);
+        DB::table('images')->insert([
+
+            'imgPath'=>"image18.jpg",
+            'alt'=>"Img not Available",
+            'title'=>"Obrazok18",
+            'caption'=>"Toto je caption obrazku18"
+        ]);
+        DB::table('images')->insert([
+
+            'imgPath'=>"image19.jpg",
+            'alt'=>"Img not Available",
+            'title'=>"Obrazok19",
+            'caption'=>"Toto je caption obrazku19"
+        ]);
+        DB::table('images')->insert([
+
+            'imgPath'=>"image20.jpg",
+            'alt'=>"Img not Available",
+            'title'=>"Obrazok20",
+            'caption'=>"Toto je caption obrazku20"
+        ]);
+        DB::table('images')->insert([
+
+            'imgPath'=>"image21.jpg",
+            'alt'=>"Img not Available",
+            'title'=>"Obrazok21",
+            'caption'=>"Toto je caption obrazku21"
         ]);
     }
 }
