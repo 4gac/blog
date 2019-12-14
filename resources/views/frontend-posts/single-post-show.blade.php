@@ -69,9 +69,22 @@
             baguetteBox.run('.grid-gallery', { animation: 'slideIn'});
         </script>
     </article>
-
-   
 </section>
 {{--    END OF GALLERY--}}  
+</div>
+
+<div class="zaujem">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8">
+                <h3 class="zaujem-o-staz">Máš aj ty záujem o pobyt alebo stáž?
+                 <br>Prihlás sa a možno vyberieme práve teba
+                </h3>
+            </div>
+            <div class="col-sm-4">
+            <button type="button" class="btn-login"><a href="{{route("login")}}">Prihlásiť sa</a></button>
+            </div>
+          </div> 
+    </div>
 </div>
 @endsection

@@ -13,6 +13,7 @@
 
 Auth::routes();
 
+
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/referent', 'ReferentController@index')->name('referent')->middleware('referent');
 Route::get('/admin', 'AdminController@index')->name('admin')->middleware('admin');

@@ -49,3 +49,32 @@ h1{
   .tag-name{
     font-size:18px;
   }
+  .zaujem{
+    background-color:#cf4b1c;
+    padding-top:5%;
+    padding-bottom:5%;
+  }
+  .zaujem-o-staz{
+    color:#fff;
+    font-weight:700;
+  }
+  .btn-login{
+  background-color: #cf4b1c;
+  color: #fff;
+  border: 2px solid #fff;;
+  width: 50%;
+  height: 80%;
+  }
+  .btn-login:hover{
+    background-color: #fff;
+    color: #cf4b1c;
+    border: 2px solid #fff;;
+    width: 50%;
+    height: 80%;
+    }
+  .btn-login a{
+    color: #fff;
+  }
+  .btn-login a:hover{
+    color:#cf4b1c;
+  }
