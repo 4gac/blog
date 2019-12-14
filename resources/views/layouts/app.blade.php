@@ -11,17 +11,17 @@
     
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+
 </head>
+
 <body>
+
     <div id="app">
         @yield('content')
     </div>
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
 </body>
-<footer id="sticky-footer" class="py-4 bg-dark text-white-50">
-<div class="container text-center">
-<small>Copyright &copy; Your Website</small>
-</div>
-</footer>
+
 </html>

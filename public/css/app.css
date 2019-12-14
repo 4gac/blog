@@ -1409,7 +1409,7 @@ body {
   font-size: 14px;
   line-height: 1.6;
   color: #636b6f;
-  background-color: #f5f8fa;
+  background-color: #fff;
 }
 
 input,
@@ -6295,7 +6295,7 @@ a.badge:focus {
   padding: 4px;
   margin-bottom: 22px;
   line-height: 1.6;
-  background-color: #f5f8fa;
+  background-color: #1cbecf;
   border: 1px solid #ddd;
   border-radius: 4px;
   -webkit-transition: border 0.2s ease-in-out;
@@ -6809,16 +6809,17 @@ button.list-group-item-danger.active:focus {
 }
 
 .panel {
-  margin-bottom: 22px;
+  margin-top:10%;
+  margin-bottom:10%;
   background-color: #fff;
-  border: 1px solid transparent;
-  border-radius: 4px;
-  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+  border-color:#d3e0e9;
+  border-style:solid;
+  border-width: 2px;
+  box-shadow: 10px 10px 5px #d3e0e9;
 }
 
 .panel-body {
-  padding: 15px;
+  padding: 50px 15px 50px 15px ;
 }
 
 .panel-body:before,
@@ -8333,3 +8334,9 @@ button.close {
   }
 }
 
+.logo-login{
+  display: block;
+  margin-top:10%;
+  margin-left: auto;
+  margin-right: auto;
+}

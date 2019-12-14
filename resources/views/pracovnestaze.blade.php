@@ -3,6 +3,7 @@
 ?>
 @extends('layouts/master')
 @section('title','Pracovné stáže')
+@section('description', 'Prenádherný a úplne zbytočný description')
 @section('content')
 
 
@@ -11,7 +12,7 @@
           <!-- Slide One - Set the background image for this slide in the line below -->
           <div class="carousel-item active" style="background-image: url('http://edu.uhk.cz/mobility/wp-content/uploads/2016/08/hp-1920x698.jpg')">
             <div class="carousel-caption d-none d-md-block">
-              <h1>Pracovné stáže</h1>
+            <h1>{{$title or "Pracovné stáže"}}</h1>
             </div>
         </div>
 </div>
@@ -46,14 +47,14 @@
                 </time>
               @if($post->tags)
               @foreach($post->tags as $tag)
-              <h3>{{$tag->name}}</h3>
+              <h3 class="tag-name">{{$tag->name}}</h3>
               @endforeach
               @endif
           </header>
 
     <div class="post-content">
           <p>
-              {{$post->excerpt}}
+            {!!$post->excerpt!!}
           </p>
     </div>
             <footer class="post-footer">
@@ -70,6 +71,7 @@
 <p>nič, man</p>
 @endforelse
 </div>
+
+</div>
+</div>
 @endsection
-</div>
-</div>

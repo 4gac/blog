@@ -27,11 +27,11 @@ class GalleryImagePostSeeder extends Seeder
             'post_id'=>"3"
         ]);
         DB::table('gallery_image_post')->insert([
-            'gallery_image_id'=>"15",
+            'gallery_image_id'=>"12",
             'post_id'=>"3"
         ]);
         DB::table('gallery_image_post')->insert([
-            'gallery_image_id'=>"17",
+            'gallery_image_id'=>"14",
             'post_id'=>"4"
         ]);
         DB::table('gallery_image_post')->insert([
@@ -39,7 +39,7 @@ class GalleryImagePostSeeder extends Seeder
         'post_id'=>"4"
     ]);
         DB::table('gallery_image_post')->insert([
-        'gallery_image_id'=>"15",
+        'gallery_image_id'=>"13",
         'post_id'=>"4"
     ]);
     DB::table('gallery_image_post')->insert([
@@ -52,7 +52,7 @@ class GalleryImagePostSeeder extends Seeder
         ]);
         DB::table('gallery_image_post')->insert([
         'gallery_image_id'=>"8",
-        'post_id'=>"6"
+        'post_id'=>"4"
     ]);
         DB::table('gallery_image_post')->insert([
             'gallery_image_id'=>"2",
@@ -60,7 +60,7 @@ class GalleryImagePostSeeder extends Seeder
         ]);
         DB::table('gallery_image_post')->insert([
             'gallery_image_id'=>"7",
-            'post_id'=>"6"
+            'post_id'=>"2"
         ]);
         DB::table('gallery_image_post')->insert([
             'gallery_image_id'=>"12",

@@ -17,6 +17,7 @@
 	<link href="{{ asset('css/custom.css') }}" rel="stylesheet">
 	<link href="{{ asset('css/footer.css') }}" rel="stylesheet">
 	<link href="{{ asset('css/grid-gallery.css') }}" rel="stylesheet">
+	
 	<!-- Bootstrap core CSS -->
 	<link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
 
@@ -24,91 +25,8 @@
 </head>
 <body>
 
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-                 
-                    <a class="navbar-brand" href="{{route('homepage') }}">
-                     
-                        <img id="logo"src="{{asset('assets/images/logoukf.png')}}" class="img-responsive" />
-                    </a>
-                   
-                  <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                    <li class="nav-item active hlavneMenuItem">
-                      <a class="nav-link" href="{{route('pobyty') }}">Študijné pobyty<span class="sr-only"></span></a>
-                    </li>
-                    <li class="nav-item hlavneMenuItem">
-                      <a class="nav-link" href="{{route('staze') }}">Pracovné stáže</a>
-                    </li>
-                    <li class="nav-item hlavneMenuItem">
-                      <a class="nav-link" href="{{route('spravy') }}" tabindex="-1" aria-disabled="true">Účastnícke správy</a>
-                    </li>
-                    <li class="nav-item">
-                            <a class="nav-link" href="{{route('kontakt') }}" tabindex="-1" aria-disabled="true">Kontakt</a>
-                          </li>
-                  </ul>
-
-                </div>
-
-            </div>
-        </nav>
+@include('layouts/partial-navbar')
 @yield('content')
-
-
-
-<footer id="footer" class="footer-1" >
-	<div class="main-footer widgets-dark typo-light">
-		<div class="container">
-			<div class="row">
-				<div id="footertitle">
-					<h1 class="widget-title"><bold id="titleunderline">Kontakty<bold></h1>
-					<br>
-				</div>
-			</div>
-			<div class="row">
-		<div class="col-xs-12 col-sm-6 col-md-4">
-					<div class="widget subscribe no-box">
-						<h5 class="underline"><strong>Tr. A. Hlinku 1<br>949 01 Nitra</strong> <br> 
-						</h5>
-						<h6 >Ing. Silvia Hrozenská, PhD.<br>
-								Ing. Katarína Butorová, PhD.<br>
-								Ing. Anita Garajová, PhD.<br>
-								Mgr. Pavol Vakoš<br></h6>
-					</div>
-				</div>
-				<div class="col-xs-12 col-sm-6 col-md-4">
-					<div class="widget no-box">
-					<h5 class="widget-title"><strong>Úradné hodiny pre študentov</strong><span></span></h5>		
-					<h6 class="underline">pondelok – streda: 8.30 – 11.00 h <br> 
-						</h6>	
-				</div>
-				</div>
-				<div class="col-xs-12 col-sm-6 col-md-4">
-					<div class="widget no-box">
-						<h5 class="widget-title"><strong>Sociálne siete</strong><span></span></h5>
-						<ul>
-							<li class="">
-								<a href="https://www.facebook.com/UKFvNitre" class="fa fa-facebook">
-								<a href="https://www.instagram.com/ukfvnitre/?hl=sk" class="fa fa-instagram"></a>
-							</li>				
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="footer-copyright">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12 text-center">
-					<p>Copyright Company Name © 2019.</p>
-				</div>
-			</div>
-		</div>
-	</div>
-</footer>
+@include('layouts/partial-footer')
 </body>
 
