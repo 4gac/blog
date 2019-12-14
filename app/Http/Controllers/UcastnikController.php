@@ -8,6 +8,6 @@ class UcastnikController extends Controller
 {
     public function index()
     {
-        return view('adminlte');
+        return view('ucastniklte');
     }
 }

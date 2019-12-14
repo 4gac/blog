@@ -32,7 +32,7 @@ class UserSeeder extends Seeder
         'lastname'=>"pouzivatel",
         'email'=>'pouzivatel@pouzivatel.sk',
         'password'=>bcrypt('pouzivatel123'),
-        'role'=>'pouzivatel'
+        'role'=>'ucastnik'
     ]);
     }
 }

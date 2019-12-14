@@ -58,50 +58,14 @@
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-graduation-cap"></i>
-          <span>Študijné pobyty</span>
+          <i class="fas fa-envelope"></i>
+          <span>Moje hodnotenia</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-          <a class="dropdown-item" href="{{route('referent-pobyty-crud/add-pobyt')}}">Pridať pobyt</a>
-        <a class="dropdown-item" href="{{route('referent-pobyty-crud')}}">Všetky pobyty</a>
+          <a class="dropdown-item" href="#">Pridať</a>
+        <a class="dropdown-item" href="#">Všetky</a>
         
         </div>
-      </li>
-
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-briefcase"></i>
-          <span>Pracovné stáže</span>
-        </a>
-        <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-        <a class="dropdown-item" href="{{route('referent-staze-crud/add-staz')}}">Pridať stáž</a>
-        <a class="dropdown-item" href="{{route('referent-staze-crud')}}">Všetky stáže</a>
-        </div>
-      </li>
-
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-briefcase"></i>
-          <span>Účastnícke správy</span>
-        </a>
-      
-        <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-        <a class="dropdown-item" href="#">Pridať správu</a>
-        <a class="dropdown-item" href="#">Všetky správy</a>
-        </div>
-      
-      </li>
-      
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-question-circle"></i>
-          <span>Na schválenie</span>
-        </a>
-      
-        <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-        <a class="dropdown-item" href="#">Všetky hodnotenia</a>
-        </div>
-      
       </li>
     </ul>
     @yield('content')
