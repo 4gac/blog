@@ -20,9 +20,14 @@
         <td>{{$i++}}</td>
         <td>{{$post->title}}</td>
         <td>{{$post->slug}}</td>
-        <td>{{$post->text}}</td>
+        <td>{!!$post->text!!}</td>
         <td>{{$post->user_id}}</td>
-        <td><button type="button" class="btn btn-warning"><a href="">editovať</a></button></td>
+        @if(Auth::user()->role=='admin')
+        <td><button type="button" class="btn btn-warning"><a href="{{action("PostController@AdminshowStazAction",['id'=>$post->id])}}">editovať</a></button></td>
+        @endif
+        @if(Auth::user()->role=='referent')
+        <td><button type="button" class="btn btn-warning"><a href="{{action("PostController@ReferentshowStazAction",['id'=>$post->id])}}">editovať</a></button></td>
+        @endif
         <td><button type="button" class="btn btn-danger"><a href="">zmazať</a></button></td>
     </tr>
 

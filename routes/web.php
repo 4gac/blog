@@ -130,11 +130,19 @@ Route::get('admin-pobyty-crud/show/{id}',[
 Route::get('referent-pobyty-crud/show/{id}',[
     'as'=>'show', 'uses'=>'PostController@ReferentshowPobytAction'
     ]);
+Route::get('admin-staze-crud/show/{id}',[
+        'as'=>'show', 'uses'=>'PostController@AdminshowStazAction'
+        ]);
+Route::get('referent-staze-crud/show/{id}',[
+            'as'=>'show', 'uses'=>'PostController@ReferentshowStazAction'
+            ]);
 //---------------------------------------------
 Route::post('pobyty-crud/update/{id}',[
         'as'=>'update', 'uses'=>'PostController@updatePobytAction'
         ]);
-
+Route::post('staze-crud/update/{id}',[
+            'as'=>'update', 'uses'=>'PostController@updateStazAction'
+        ]);
 Route::get('pobyty-crud/delete/{id}',[
     'as'=>'delete', 'uses'=>'PostController@deletePobytAction'
 ]);

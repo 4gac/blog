@@ -162,7 +162,20 @@ public function ReferentshowPobytAction($id){
 
     return view("backend-posts/referent-update-pobyt",['posts'=>$posts],['images'=>$newArray]);
 }
+public function AdminshowStazAction($id){
+    $posts=Post::find($id);
+    $images = GalleryImage::all();
+    $newArray = $images->diff($posts->galleryImages);
 
+    return view("backend-posts/admin-update-staz",['posts'=>$posts],['images'=>$newArray]);
+}
+public function ReferentshowStazAction($id){
+$posts=Post::find($id);
+$images = GalleryImage::all();
+$newArray = $images->diff($posts->galleryImages);
+
+return view("backend-posts/referent-update-staz",['posts'=>$posts],['images'=>$newArray]);
+}
 
 
 //UPDATE
@@ -185,7 +198,25 @@ if(Auth::user()->role=='referent'){
     return redirect()->action('PostController@ReferentPobytyBackend');
 }
 }
+public function updateStazAction($id, Request $request){
+	$text = substr($request->input('text'), 3, strlen($request->input('text'))-7); // prevents <p></p> tag from multiplying
 
+	$slug=$this->createSlug($request->title);
+	$post=Post::where("id","=",$id)->first();
+        $post->update(["title"=>$request->input('title'),
+        "text"=>$text,
+        "slug"=>$slug
+        ]);
+    $galleryImages = $request ->input('idecko');
+    $post->galleryImages()->sync($galleryImages);
+
+if(Auth::user()->role=='admin'){
+    return redirect()->action('PostController@AdminStazeBackend');
+}
+if(Auth::user()->role=='referent'){
+    return redirect()->action('PostController@ReferentStazeBackend');
+}
+}
 
 //DELETE
 public function deletePobytAction($id){
@@ -203,7 +234,20 @@ public function deletePobytAction($id){
      if (Auth::user()->role=='referent'){return redirect()->action('PostController@ReferentPobytyBackend');
      }
     }
-
+    public function deleteStazAction($id){
+        $posts=Post::find($id);
+        $post_tag = PostTag::where("post_id","=",$id)->first();
+        $country_posts = CountryPost::where("post_id","=",$id);
+        $country_posts->delete();
+        $post_tag->delete();
+        $gallery_image_post = ImagePost::where('post_id',$id);
+        $gallery_image_post->delete();
+        $posts->delete();
+        if(Auth::user()->role=='admin'){
+        return redirect()->action('PostController@AdminStazeBackend'); }
+        if (Auth::user()->role=='referent'){return redirect()->action('PostController@ReferentStazeBackend');
+        }
+       }
 
 public function AdmingetAddPobytForm(){
     $posts = Post::all();
