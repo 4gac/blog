@@ -116,12 +116,23 @@ Route::get('kontakty-crud/delete/{id}',[
 	Route::get('univerzity-crud',[
     'as'=>'showall', 'uses'=>'UniversityController@UniverzityBackend'
     ]);
+	Route::get('univerzity-crud/add-univerzitu',[
+        'as'=>'add-user', 'uses'=>'UniversityController@getAddUniverzitaForm'
+	]);
+	Route::post('univerzity-crud/insert',[
+		'as'=>'insert', 'uses'=>'UniversityController@addUniverzitaAction'
+	]);
 
 	// MESTÁ
 	Route::get('mesta-crud',[
     'as'=>'showall', 'uses'=>'UniversityController@mestaBackend'
     ]);
-
+	Route::get('mesta-crud/add-mesto',[
+        'as'=>'add-user', 'uses'=>'UniversityController@getAddMestoForm'
+	]);
+	Route::post('mesta-crud/insert',[
+		'as'=>'insert', 'uses'=>'UniversityController@addMestoAction'
+	]);
 //------------------</CRUD UNIVERZIT>--------------------------------------------
 
 /*<CRUD postov v admin rozhrani>*/
