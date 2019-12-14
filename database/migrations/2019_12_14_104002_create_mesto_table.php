@@ -15,11 +15,9 @@ class CreateMestoTable extends Migration
     {
         Schema::create('mesto', function (Blueprint $table) {
             $table->increments('id');
+			$table->string('nazov');
 			$table->integer('countries_id')->unsigned()->index();
             $table->foreign('countries_id')->references('id')->on('countries');
-
-            $table->integer('univerzita_id')->unsigned()->index();
-            $table->foreign('univerzita_id')->references('id')->on('univerzita');
             $table->timestamps();
         });
     }

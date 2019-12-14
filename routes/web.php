@@ -110,6 +110,14 @@ Route::get('kontakty-crud/delete/{id}',[
 
 //------------------</CRUD KONTAKTOV>--------------------------------------------
 
+//-----<CRUD UNIVERZIT>----------------------------------------------------------
+	
+	Route::get('univerzity-crud',[
+    'as'=>'showall', 'uses'=>'UniversityController@UniverzityBackend'
+    ]);
+
+//------------------</CRUD UNIVERZIT>--------------------------------------------
+
 /*<CRUD postov v admin rozhrani>*/
 Route::get('admin-pobyty-crud',[
     'as'=>'admin-pobyty-crud','uses' =>'PostController@AdminPobytyBackend'

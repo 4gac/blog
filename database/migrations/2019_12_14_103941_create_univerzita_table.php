@@ -20,6 +20,8 @@ class CreateUniverzitaTable extends Migration
 			$table->string('zmluva_do');
 			$table->integer('mesto_id')->unsigned()->index();
             $table->foreign('mesto_id')->references('id')->on('mesto');
+			$table->integer('countries_id')->unsigned()->index();
+            $table->foreign('countries_id')->references('id')->on('countries');
 			$table->string('kontaktna_osoba');
             $table->timestamps();
         });

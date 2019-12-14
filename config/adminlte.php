@@ -194,6 +194,21 @@ return [
         ],
 
 		[
+            'text' => 'Univerzity',
+            'icon' => 'fa fa-university',
+            'submenu' => [
+                [
+                    'text' => 'Pridať univerzitu',
+                    'url'  => 'univerzity-crud/add-univerzitu',
+                ],
+                [
+                    'text' => 'Všetky univerzity',
+                    'url'  => 'univerzity-crud/',
+                ],
+            ],
+        ],
+
+		[
             'text' => 'Kontakty',
             'icon' => 'fas fa-address-book',
             'submenu' => [
