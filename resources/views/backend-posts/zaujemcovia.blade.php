@@ -4,7 +4,7 @@
 @section('content')
 
 <div class="container">
-    <table class="table table-hover table-responsive-sm">
+    <table id="demo" class="table table-hover table-responsive-sm dataframe">
         <tr>
                 <thead class="thead-dark">
                 <th scope="col">Index</th>
@@ -53,7 +53,12 @@
         @empty
         <p>nič, man</p>
         @endforelse
+        
+        
     </table>
+    
+
+
     </div>
     
 @endsection

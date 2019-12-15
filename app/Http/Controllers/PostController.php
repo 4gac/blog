@@ -12,7 +12,7 @@ use Auth;
 
 class PostController extends Controller{
 public function index(){
-    $posts = Post::all();
+    $posts = Post::paginate(20);
    // return view('frontend-posts.homepage-all-posts',['post'=>$posts]);
    return view('frontend-posts.homepage-all-posts')->with('posts',$posts);    
 }
@@ -21,17 +21,17 @@ public function show($id){
     return view('frontend-posts.single-post-show')->with('posts',$posts);
 }
 public function pobyty(){
-    $posts = Post::all();
+    $posts = Post::paginate(5);
    // return view('frontend-posts.homepage-all-posts',['post'=>$posts]);
    return view('studijnepobyty')->with('posts',$posts);    
 }
 public function staze(){
-    $posts = Post::all();
+    $posts = Post::paginate(20);
    // return view('frontend-posts.homepage-all-posts',['post'=>$posts]);
    return view('pracovnestaze')->with('posts',$posts);    
 }
 public function spravy(){
-    $posts = Post::all();
+    $posts = Post::paginate(20);
    // return view('frontend-posts.homepage-all-posts',['post'=>$posts]);
    return view('ucastnickespravy')->with('posts',$posts);    
 }
