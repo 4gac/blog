@@ -100,6 +100,7 @@
       
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
         <a class="dropdown-item" href="#">Všetky hodnotenia</a>
+        <a class="dropdown-item" href="{{route('referent/zaujemcovia')}}">Záujemcovia</a>
         </div>
       
       </li>

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Zaujem extends Model
 {
     protected $table = 'zaujem';
-    protected $fillable = ['user_id, posts_id'];
+    protected $fillable = ['user_id, posts_id','status'];
     public $timestamps=false;
 
     public function user(){
@@ -16,4 +16,5 @@ class Zaujem extends Model
     public function post(){
         return $this->hasMany('App\Models\Post');
     }
+   
 }
