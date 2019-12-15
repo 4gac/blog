@@ -237,7 +237,14 @@ Route::post('gallery/insert', [
     'as' => 'insert','uses' => 'GalleryImageController@insertGalleryImage'
 ]);
 
+
+//zaujemcovia
 Route::get('/referent/zaujemcovia', 'ZaujemController@index')->name('referent/zaujemcovia');
+
 Route::post('/referent/zaujemcovia/update{id}',[
-    'as'=>'update', 'uses'=>'ReferentController@updateAction'
+    'as'=>'update', 'uses'=>'ZaujemController@updateAction'
     ]);
+Route::get('/referent/zaujemcovia/{id}',[
+        'as'=>'show', 'uses'=>'ZaujemController@showAction'
+        ]);
+        
