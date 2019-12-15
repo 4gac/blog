@@ -1,11 +1,11 @@
-﻿@extends('adminlte::page')
+﻿@extends('layouts/master')
 @section('content')
 
 {{$renderData->nazov}}
 <br>
-{{dd($renderData)}}
 
+{{url()->current()}} <br>
 
-
+<?php echo "http://" . $_SERVER['SERVER_NAME']?>
 
 @endsection

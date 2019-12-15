@@ -49,13 +49,13 @@
 			  <input type="text" placeholder="hľadať.." id="myInput" onkeyup="filterFunction()" onclick="">
 			  <div id="myDropdown" class="dropdown-content">
 				@foreach($unis as $uni)
-				 <a href="{{url()->current()}}/searchresults/university/{{$uni->id}}" >{{$uni->nazov}}</a>
+				 <a onclick="redirectUni({{$uni->id}})">{{$uni->nazov}}</a>
 				@endforeach
 				@foreach($posts as $post)
-				 <a href="{{url()->current()}}/post/{{$post->id}}">{{$post->title}}</a>
+				 <a onclick="redirectPosts({{$post->id}})">{{$post->title}}</a>
 				@endforeach
 				@foreach($countries as $country)
-				 <a href="{{url()->current()}}/searchresults/country/{{$country->id}}">{{$country->name}}</a>
+				 <a onclick="redirectCountry({{$country->id}})">{{$country->name}}</a>
 				@endforeach
 			  </div>
 			</div>
@@ -80,6 +80,22 @@ document.addEventListener('click', function(e) {
 		myFunction();
 	}
 }, false);
+
+function redirectUni(id){
+	var getUrl = window.location;
+	var baseUrl = getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];
+	window.location.replace(baseUrl +"/public/searchresults/university/"+id);
+}
+function redirectPosts(id){
+	var getUrl = window.location;
+	var baseUrl = getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];
+	window.location.replace(baseUrl +"/public/post/"+id);
+}
+function redirectCountry(id){
+	var getUrl = window.location;
+	var baseUrl = getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];
+	window.location.replace(baseUrl +"/public/searchresults/country/"+id);
+}
 
 function filterFunction() {
 		  if(document.getElementById("myInput").value.length >1 && hlp==0){

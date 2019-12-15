@@ -1,4 +1,4 @@
-<style>
+
 
 .dropbtn:hover, .dropbtn:focus {
   background-color: #3e8e41;
@@ -40,10 +40,12 @@
   display: block;
 }
 
-.dropdown a:hover {background-color: #ddd;}
+.dropdown a:hover {
+    background-color: #ddd;
+    cursor: pointer
+}
 
 .show {display: block;}
-</style>
 
 
 
