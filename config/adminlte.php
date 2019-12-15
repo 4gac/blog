@@ -211,7 +211,7 @@ return [
                 ],
 				[
                     'text' => 'Priradiť univerzitu výzve',
-                    'url'  => 'univerzita-post/',
+                    'url'  => 'uni-posts-crud/',
                 ],
             ],
         ],
@@ -253,19 +253,6 @@ return [
 
 		
 
-        ['header' => 'labels'],
-        [
-            'text'       => 'important',
-            'icon_color' => 'red',
-        ],
-        [
-            'text'       => 'warning',
-            'icon_color' => 'yellow',
-        ],
-        [
-            'text'       => 'information',
-            'icon_color' => 'aqua',
-        ],
     ],
 
     /*

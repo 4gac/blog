@@ -81,7 +81,40 @@
                 </h3>
             </div>
             <div class="col-sm-4">
-            <button type="button" class="btn-login"><a href="{{route("login")}}">Prihlásiť sa</a></button>
+                @if (!Auth::check())                       
+                <button type="button" class="btn-login"><a href="{{route("ucastnik")}}">Prihlásiť sa</a></button>
+             
+                @else
+    
+                    @if(Auth::user()->role='ucastnik')
+                        @if($posts->tag='Študijné pobyty')
+                            <form method="post" action="{{action('ZaujemController@PrihlasitNaPobytAction',['id'=>$posts->id])}}">
+                            <input type ="submit"class="btn-login" onclick="myFunction()" value="Mám záujem" >
+                            <script>
+                            function myFunction() {
+                            alert("Vaša žiadosť bola odoslaná, čoskoro sa vám ozveme.");
+                            }
+                            </script>
+                            {{csrf_field()}}
+                            </form>
+                            @elseif($posts->tag='Pracovné stáže')
+                            <form method="post" action="{{action('ZaujemController@PrihlasitNaStazAction',['id'=>$posts->id])}}">
+                                <input type ="submit"class="btn-login" onclick="myFunction()" value="Mám záujem" >
+                                <script>
+                                function myFunction() {
+                                alert("Vaša žiadosť bola odoslaná, čoskoro sa vám ozveme.");
+                                }
+                                </script>
+                                {{csrf_field()}}
+                                </form>
+                            @else<button type="button" class="btn-login"><a href="{{route("ucastnik")}}">Prihlásiť sa</a></button>   
+                            @endif
+                     @endif      
+                     @endif                                     
+            
+
+               
+            
             </div>
           </div> 
     </div>

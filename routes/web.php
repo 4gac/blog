@@ -142,6 +142,33 @@ Route::get('kontakty-crud/delete/{id}',[
 	Route::post('mesta-crud/insert',[
 		'as'=>'insert', 'uses'=>'UniversityController@addMestoAction'
 	]);
+	Route::post('mesta-crud/update/{id}',[
+			'as'=>'update', 'uses'=>'UniversityController@updateMestoAction'
+	]);
+	Route::get('mesta-crud/show/{id}',[
+	'as'=>'show', 'uses'=>'UniversityController@showMestoAction'
+	]);
+
+	// UNI / POST 
+	Route::get('uni-posts-crud',[
+    'as'=>'showall', 'uses'=>'UniversityController@uniPostsBackend'
+    ]);
+	Route::get('uni-posts-crud/add-uni-post',[
+        'as'=>'add-user', 'uses'=>'UniversityController@getAddUniPostForm'
+	]);
+	Route::post('uni-posts-crud/insert',[
+		'as'=>'insert', 'uses'=>'UniversityController@addAddUniAction'
+	]);
+	Route::post('uni-posts-crud/update/{id}',[
+			'as'=>'update', 'uses'=>'UniversityController@updateUniPostAction'
+	]);
+	Route::get('uni-posts-crud/show/{id}',[
+	'as'=>'show', 'uses'=>'UniversityController@showUniPostAction'
+	]);
+	Route::get('uni-posts-crud/delete/{id}',[
+            'as'=>'delete', 'uses'=>'UniversityController@deleteUniPostAction'
+	]);
+
 //------------------</CRUD UNIVERZIT>--------------------------------------------
 
 /*<CRUD postov v admin rozhrani>*/
@@ -237,3 +264,7 @@ Route::post('gallery/insert', [
     'as' => 'insert','uses' => 'GalleryImageController@insertGalleryImage'
 ]);
 
+Route::get('/referent/zaujemcovia', 'ZaujemController@index')->name('referent/zaujemcovia');
+Route::post('/referent/zaujemcovia/update{id}',[
+    'as'=>'update', 'uses'=>'ReferentController@updateAction'
+    ]);
