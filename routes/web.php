@@ -238,3 +238,6 @@ Route::post('gallery/insert', [
 ]);
 
 Route::get('/referent/zaujemcovia', 'ZaujemController@index')->name('referent/zaujemcovia');
+Route::post('/referent/zaujemcovia/update{id}',[
+    'as'=>'update', 'uses'=>'ReferentController@updateAction'
+    ]);

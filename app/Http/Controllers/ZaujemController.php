@@ -6,14 +6,27 @@ use App\Models\User;
 use App\Models\Zaujem;
 use Auth;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\DB;
 
 class ZaujemController extends Controller
 {
+    public function updateAction($id){
+        $zaujemca=Zaujem::where("id","=",$id)->first();
+
+        $zaujemca->update(["status"=>"schvaleny"
+        ]);
+        return back();
+    }
+
+
     public function index(){
-        $zaujemca = Zaujem::all();
-       // return view('frontend-posts.homepage-all-posts',['post'=>$posts]);
+        $zaujemca = DB::table('zaujem')				
+        ->join('users', 'users.id', '=', 'zaujem.user_id')
+        ->join('posts', 'posts.id', '=', 'zaujem.posts_id')
+        ->select('zaujem.id', 'users.name','users.lastname', 'users.email', 'posts.title', 'zaujem.status')
+        ->get();
        return view('backend-posts.zaujemcovia')->with('zaujemca',$zaujemca);    
+      
     }
 
     public function PrihlasitNaPobytAction($id){
