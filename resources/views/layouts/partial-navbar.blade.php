@@ -18,12 +18,7 @@
 @endif
 
 
-<<<<<<< HEAD
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-=======
-
-<nav class="navbar navbar-expand-lg">
->>>>>>> 050ce24db0f9afaf4eff165f229151bba6d51fec
   <div class="container">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
