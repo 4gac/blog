@@ -12,7 +12,7 @@
 */
 
 Auth::routes();
-
+Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/referent', 'ReferentController@index')->name('referent')->middleware('referent');
@@ -111,6 +111,39 @@ Route::get('kontakty-crud/delete/{id}',[
 
 //------------------</CRUD KONTAKTOV>--------------------------------------------
 
+//-----<CRUD UNIVERZIT>----------------------------------------------------------
+	
+	Route::get('univerzity-crud',[
+    'as'=>'showall', 'uses'=>'UniversityController@UniverzityBackend'
+    ]);
+	Route::get('univerzity-crud/add-univerzitu',[
+        'as'=>'add-user', 'uses'=>'UniversityController@getAddUniverzitaForm'
+	]);
+	Route::post('univerzity-crud/insert',[
+		'as'=>'insert', 'uses'=>'UniversityController@addUniverzitaAction'
+	]);
+	Route::post('univerzity-crud/update/{id}',[
+			'as'=>'update', 'uses'=>'UniversityController@updateUniverzitaAction'
+	]);
+	Route::get('univerzity-crud/show/{id}',[
+	'as'=>'show', 'uses'=>'UniversityController@showUniverzitaAction'
+	]);
+	Route::get('univerzity-crud/delete/{id}',[
+            'as'=>'delete', 'uses'=>'UniversityController@deleteUniverzitaAction'
+	]);
+
+	// MESTÁ
+	Route::get('mesta-crud',[
+    'as'=>'showall', 'uses'=>'UniversityController@mestaBackend'
+    ]);
+	Route::get('mesta-crud/add-mesto',[
+        'as'=>'add-user', 'uses'=>'UniversityController@getAddMestoForm'
+	]);
+	Route::post('mesta-crud/insert',[
+		'as'=>'insert', 'uses'=>'UniversityController@addMestoAction'
+	]);
+//------------------</CRUD UNIVERZIT>--------------------------------------------
+
 /*<CRUD postov v admin rozhrani>*/
 Route::get('admin-pobyty-crud',[
     'as'=>'admin-pobyty-crud','uses' =>'PostController@AdminPobytyBackend'
@@ -124,8 +157,11 @@ Route::get('admin-staze-crud',[
 Route::get('referent-staze-crud',[
             'as'=>'referent-staze-crud','uses' =>'PostController@ReferentStazeBackend'
         ]);
-Route::get('dostupne-pobyty',[
-            'as'=>'dostupne-pobyty','uses' =>'PostController@DostupnePobyty'
+Route::get('ucastnik/dostupne-pobyty',[
+            'as'=>'ucastnik/dostupne-pobyty','uses' =>'PostController@DostupnePobyty'
+        ]);
+Route::get('ucastnik/dostupne-staze',[
+            'as'=>'ucastnik/dostupne-staze','uses' =>'PostController@DostupneStaze'
         ]);
 //----------------------------------
 Route::get('admin-pobyty-crud/show/{id}',[
@@ -179,10 +215,19 @@ Route::get('admin-staze-crud/add-staz',[
 Route::get('referent-staze-crud/add-staz',[
                     'as'=>'referent-staze-crud/add-staz', 'uses'=>'PostController@ReferentgetAddStazForm'
                 ]);
-
-
-
-                Route::get('galeria',[
+//---------------------------------------------------------------------------------
+Route::get('ucastnik/dostupne-pobyty/show/{id}',[
+                    'as'=>'ucastnik/dostupne-pobyty/show', 'uses'=>'PostController@UcastnikshowPobytAction'
+                    ]);Route::post('gallery/insert', [
+    'as' => 'insert','uses' => 'GalleryImageController@insertGalleryImage'
+]);
+Route::post('ucastnik/dostupne-pobyty/insert{id}', [
+    'as' => 'ucastnik/dostupne-pobyty/insert','uses' => 'ZaujemController@PrihlasitNaPobytAction'
+]);
+Route::post('ucastnik/dostupne-staze/insert{id}', [
+    'as' => 'ucastnik/dostupne-staze/insert','uses' => 'ZaujemController@PrihlasitNaStazAction'
+]);
+Route::get('galeria',[
     'as'=>'galeria', 'uses'=>'GalleryImageController@celaGaleria'
 ]);
 Route::get('gallery/delete/{id}', [

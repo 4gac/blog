@@ -12,7 +12,7 @@
     <?php $i=1;?>
     @forelse($posts as $post)
     @if($post->tags)
-    @foreach($post->tags->where('name', 'Študijné pobyty') as $tags)
+    @foreach($post->tags->where('name', 'Pracovné stáže') as $tags)
     <tbody>
     <tr>
         <td>{{$i++}}</td>

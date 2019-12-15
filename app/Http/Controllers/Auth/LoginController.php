@@ -43,6 +43,10 @@ class LoginController extends Controller
          
         // return $next($request);
     } 
+    public function logout() {
+        Auth::logout();
+        return redirect('/');
+      }
     /**
      * Create a new controller instance.
      *
