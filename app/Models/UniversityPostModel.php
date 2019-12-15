@@ -8,5 +8,5 @@ class UniversityPostModel extends Model
 {
     protected $table = "university_post";
 
-	protected $fillable = ["university_id", "post_id", "pocet_miest"];
+	protected $fillable = ["university_id", "post_id", "pocet_miest", "studijny_odbor"];
 }

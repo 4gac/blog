@@ -211,7 +211,7 @@ return [
                 ],
 				[
                     'text' => 'Priradiť univerzitu výzve',
-                    'url'  => 'univerzita-post/',
+                    'url'  => 'uni-posts-crud/',
                 ],
             ],
         ],
