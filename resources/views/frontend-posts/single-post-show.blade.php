@@ -32,6 +32,7 @@
                 <small>{{$posts->created_at}}</small>
             </time>
             {!!$posts->text!!}
+          
         </header>
         <div class="unitab">
         <h2>Partnerské univerzity</h2>

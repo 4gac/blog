@@ -1,36 +1,53 @@
+<?php
+?>
 @extends('layouts/master')
 @section('title','Kontakty')
 @section('content')
 <!-- Kontaktny formular -->
+<div class="carousel slide" data-ride="carousel">        
+        <div class="carousel-inner" role="listbox">
+          <!-- Slide One - Set the background image for this slide in the line below -->
+          <div class="carousel-item active" style="background-image: url('http://edu.uhk.cz/mobility/wp-content/uploads/2016/08/hp-1920x698.jpg')">
+            <div class="carousel-caption d-none d-md-block">
+            <h1>{{$title or "Kontakt"}}</h1>
+            </div>
+        </div>
+</div>
+
+<div class="container">
+    
+<div class="item-margin">
+<div class="row">  
+
 <div class="container">
    
    <div class="row">
-      <div class="card" style="width: 22rem;">
+      <div class="card" style="width: 18rem;">
          <img src="{{asset('assets/images/unknownwoman.jpeg')}}" class="card-img-top" alt="referentka">
          <div class="card-body">
-            <h4 class="card-title">Mgr. Andrea Slovakova</h5>
-            <h5 class="card-mail">aslovakova@ukf.sk</p>
-            <p class="card-telcislo">+42 85 31 54</p>
+            <h4 class="card-title">Ing. Anita Garajová, PhD.</h5>
+            <h5 class="card-mail">agarajova@ukf.sk</p>
+            <p class="card-telcislo">tel/fax: +421 37 6408 031</p>
          </div>
       </div>
 
-      <div class="card" style="width: 22rem;">
-         <img src="{{asset('assets/images/referentka1.jpeg')}}" class="card-img-top" alt="referentka">
+      <div class="card" style="width: 18rem;">
+         <img src="{{asset('assets/images/unknownwoman.jpeg')}}" class="card-img-top" alt="referentka">
          <div class="card-body">
-            <h4 class="card-title">Mgr. Blazena Ticha</h5>
-            <h5 class="card-mail">bticha@ukf.sk</p>
-            <p class="card-telcislo">+42 49 21 87</p>
+            <h4 class="card-title">Ing. Silvia Hrozenská, PhD.</h5>
+            <h5 class="card-mail">shrozenska@ukf.sk</p>
+            <p class="card-telcislo">+421 37 6408 035</p>
          </div>
       </div>
 
 
 
-      <div class="card" style="width: 22rem;">
-         <img src="{{asset('assets/images/referentka2.jpeg')}}" class="card-img-top" alt="referentka">
+      <div class="card" style="width: 18rem;">
+         <img src="{{asset('assets/images/unknownwoman.jpeg')}}" class="card-img-top" alt="referentka">
          <div class="card-body">
-            <h4 class="card-title">Ing. Mariana Lesicka</h5>
-            <h5 class="card-mail">mlesicka@ukf.sk</p>
-            <p class="card-telcislo">+42 36 25 19</p>
+            <h4 class="card-title">Ing. Katarína Butorová, PhD.</h5>
+            <h5 class="card-mail">kbutorova@ukf.sk</p>
+            <p class="card-telcislo">tel/fax: +421 37 6408 031</p>
          </div>
       </div>
 </div>

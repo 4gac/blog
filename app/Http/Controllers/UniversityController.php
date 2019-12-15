@@ -24,6 +24,7 @@ class UniversityController extends Controller
 		])->with('universities',$universities);
 	}
 
+
 	public function UniverzityBackend(){
 		$universities = UniversityModel::all();
 		$cities = CityModel::all();
