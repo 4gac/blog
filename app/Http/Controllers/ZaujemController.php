@@ -10,11 +10,25 @@ use Illuminate\Support\Facades\DB;
 
 class ZaujemController extends Controller
 {
-    public function updateAction($id){
-        $zaujemca=Zaujem::where("id","=",$id)->first();
+    public function showAction($id)
+    {
+        $z = DB::table('zaujem')	
+        ->join('users', 'users.id', '=', 'zaujem.user_id')
+        ->join('posts', 'posts.id', '=', 'zaujem.posts_id')
+        ->select('zaujem.id', 'users.name','users.lastname', 'users.email', 'posts.title', 'zaujem.status')
+        ->get();
 
-        $zaujemca->update(["status"=>"schvaleny"
+        $zaujemca=Zaujem::find($id);        
+        return view("users-crud/zaujemca-update",['zaujemca'=>$zaujemca,
+                                                   ])->with('z',$z);
+    }
+
+    public function updateAction($id, Request $request){
+        $post=Zaujem::find($id);
+        $post->update([
+        'status' => $request->input('status')
         ]);
+        
         return back();
     }
 

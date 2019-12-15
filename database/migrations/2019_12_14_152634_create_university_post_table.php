@@ -18,7 +18,7 @@ class CreateUniversityPostTable extends Migration
 			$table->integer('university_id')->unsigned()->index();
             $table->foreign('university_id')->references('id')->on('univerzita');
 			$table->integer('post_id')->unsigned()->index();
-            $table->foreign('post_id')->references('id')->on('univerzita');
+            $table->foreign('post_id')->references('id')->on('posts');
 			$table->string('pocet_miest');
 			$table->string('studijny_odbor');
             $table->timestamps();

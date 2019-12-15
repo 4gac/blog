@@ -16,8 +16,8 @@ class Country_postSeeder extends Seeder
             'post_id'=>"1"
             ]);
             DB::table('country_post')->insert([
-                'country_id'=>"1",
-                'post_id'=>"2"
+                'country_id'=>"2",
+                'post_id'=>"3"
                 ]);
     }
 }

@@ -12,12 +12,12 @@ class CountrySeeder extends Seeder
     public function run()
     {
         DB::table('countries')->insert([
-            'name'=>"Maďarsko",
+            'name'=>"Slovensko",
             'continent'=>"Európa"
             ]);
 
         DB::table('countries')->insert([
-            'name'=>"Poľsko",
+            'name'=>"Veľká Británia",
             'continent'=>"Európa"
             ]);
         DB::table('countries')->insert([

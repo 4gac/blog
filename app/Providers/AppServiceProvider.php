@@ -4,6 +4,9 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use App\Models\ContactModel;
+use App\Models\UniversityModel;
+use App\Models\Post;
+use App\Models\Country;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -14,11 +17,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        /*
+        
 		view()->composer('layouts.master', function ($view){ // loads contants to master
-			$view->with('contacts', ContactModel::whereIn("email", ["juri.benc@gmail.com","typ2@ukf.com"])->take(2)->get());
+			$view->with('unis', UniversityModel::all())->with('posts', Post::all())->with('countries', Country::all());
 		});
-		*/
+		
     }
 
     /**

@@ -27,10 +27,10 @@
 <div class="col-lg-4 col-sm-6 mb-4">
         <div class="card h-100">
             @if(is_null($post->galleryImages->first()))
-                <a href="#"><img class="card-img-top" src="https://via.placeholder.com/150C/O" alt="Not Found"></a>
+                <a href="{{ url('post', $post->id) }}"><img class="card-img-top" src="https://via.placeholder.com/150C/O" alt="Not Found"></a>
 
             @else
-                <a href="#"><img class="card-img-top" src="{{asset('assets/images/').'/'.$post->galleryImages->first()->imgPath}}" alt=""></a>
+                <a href="{{ url('post', $post->id) }}"><img class="card-img-top" src="{{asset('assets/images/').'/'.$post->galleryImages->first()->imgPath}}" alt=""></a>
             @endif
 {{--        <a href="#"><img class="card-img-top" src="{{asset('assets/images/').'/'.$post->image->where('main', '1')->first()->imgPath}}" alt=""></a>--}}
         <div class="card-body"> 
@@ -72,5 +72,6 @@
 </div>
 
 </div>
+{!! $posts->render("pagination::bootstrap-4") !!} 
 </div>
 @endsection

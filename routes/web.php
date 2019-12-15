@@ -171,6 +171,19 @@ Route::get('kontakty-crud/delete/{id}',[
 
 //------------------</CRUD UNIVERZIT>--------------------------------------------
 
+//------------------<SEARCH>--------------------------------------------
+Route::get('searchresults/university/{id}',[
+    'as'=>'showall', 'uses'=>'SearchController@universitySearch'
+	]);
+Route::get('searchresults/post/{id}',[
+	'as'=>'showall', 'uses'=>'SearchController@postSearch'
+	]);
+Route::get('searchresults/country/{id}',[
+	'as'=>'showall', 'uses'=>'SearchController@countrySearch'
+	]);
+//------------------</SEARCH>--------------------------------------------
+
+
 /*<CRUD postov v admin rozhrani>*/
 Route::get('admin-pobyty-crud',[
     'as'=>'admin-pobyty-crud','uses' =>'PostController@AdminPobytyBackend'
@@ -264,7 +277,14 @@ Route::post('gallery/insert', [
     'as' => 'insert','uses' => 'GalleryImageController@insertGalleryImage'
 ]);
 
+
+//zaujemcovia
 Route::get('/referent/zaujemcovia', 'ZaujemController@index')->name('referent/zaujemcovia');
+
 Route::post('/referent/zaujemcovia/update{id}',[
-    'as'=>'update', 'uses'=>'ReferentController@updateAction'
+    'as'=>'update', 'uses'=>'ZaujemController@updateAction'
     ]);
+Route::get('/referent/zaujemcovia/{id}',[
+        'as'=>'show', 'uses'=>'ZaujemController@showAction'
+        ]);
+        
