@@ -22,4 +22,16 @@ class ZaujemController extends Controller
         $zaujem->save();
         return back();
     }
+
+    public function PrihlasitNaStazAction($id){
+
+        $post_id = Post::find($id)->id;
+        $ucastnik_id=Auth::user()->id;
+        $zaujem= new Zaujem();
+        $zaujem->user_id=$ucastnik_id;
+        $zaujem->posts_id=$post_id;
+    
+        $zaujem->save();
+        return back();
+    }
 }

@@ -3,7 +3,7 @@
 
 	<link href="{{ asset('css/grid-gallery.css') }}" rel="stylesheet">
 <div class="container news-post">
-    <form method="post" action="{{action('ZaujemController@PrihlasitNaPobytAction',['id'=>$posts->id])}}">
+    <form method="post" action="{{action('ZaujemController@PrihlasitNaStazAction',['id'=>$posts->id])}}">
     <section>
     <article>
         <header>

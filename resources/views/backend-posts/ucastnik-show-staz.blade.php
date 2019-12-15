@@ -2,6 +2,6 @@
 
 @section('content')
 
-@include('backend-posts/partial-show-pobyt')
+@include('backend-posts/partial-show-staz')
 
 @endsection

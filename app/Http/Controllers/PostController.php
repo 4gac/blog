@@ -50,6 +50,10 @@ public function DostupnePobyty(){
     $posts = Post::all();
     return view('backend-posts.dostupne-pobyty')->with('posts',$posts);    
 }
+public function DostupneStaze(){
+    $posts = Post::all();
+    return view('backend-posts.dostupne-staze')->with('posts',$posts);    
+}
 public function AdminStazeBackend(){
     $posts = Post::all();
    return view('backend-posts.admin-staze')->with('posts',$posts);    

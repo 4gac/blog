@@ -140,6 +140,9 @@ Route::get('referent-staze-crud',[
 Route::get('ucastnik/dostupne-pobyty',[
             'as'=>'ucastnik/dostupne-pobyty','uses' =>'PostController@DostupnePobyty'
         ]);
+Route::get('ucastnik/dostupne-staze',[
+            'as'=>'ucastnik/dostupne-staze','uses' =>'PostController@DostupneStaze'
+        ]);
 //----------------------------------
 Route::get('admin-pobyty-crud/show/{id}',[
 'as'=>'show', 'uses'=>'PostController@AdminshowPobytAction'
@@ -201,7 +204,9 @@ Route::get('ucastnik/dostupne-pobyty/show/{id}',[
 Route::post('ucastnik/dostupne-pobyty/insert{id}', [
     'as' => 'ucastnik/dostupne-pobyty/insert','uses' => 'ZaujemController@PrihlasitNaPobytAction'
 ]);
-
+Route::post('ucastnik/dostupne-staze/insert{id}', [
+    'as' => 'ucastnik/dostupne-staze/insert','uses' => 'ZaujemController@PrihlasitNaStazAction'
+]);
 Route::get('galeria',[
     'as'=>'galeria', 'uses'=>'GalleryImageController@celaGaleria'
 ]);
