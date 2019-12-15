@@ -142,6 +142,12 @@ Route::get('kontakty-crud/delete/{id}',[
 	Route::post('mesta-crud/insert',[
 		'as'=>'insert', 'uses'=>'UniversityController@addMestoAction'
 	]);
+	Route::post('mesta-crud/update/{id}',[
+			'as'=>'update', 'uses'=>'UniversityController@updateMestoAction'
+	]);
+	Route::get('mesta-crud/show/{id}',[
+	'as'=>'show', 'uses'=>'UniversityController@showMestoAction'
+	]);
 //------------------</CRUD UNIVERZIT>--------------------------------------------
 
 /*<CRUD postov v admin rozhrani>*/
