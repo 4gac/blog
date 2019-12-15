@@ -21,8 +21,8 @@
 			@if($city->countries_id == $c->id){{$c->name}} @endif
 			@endforeach
 			</td>
-			<td><button type="button" class="btn btn-warning"><a href="{{action("UniversityController@showContactAction",['id'=>$contact->id])}}">editovať</a></button></td>
-			{{--<td><button type="button" class="btn btn-danger"><a href="{{action("UniversityController@deleteContactAction",['id'=>$contact->id])}}">zmazať</a></button></td>--}}
+			<td><button type="button" class="btn btn-warning"><a href="{{action("UniversityController@showMestoAction",['id'=>$city->id])}}">editovať</a></button></td>
+			{{--<td><button type="button" class="btn btn-danger"><a href="{{action("UniversityController@deleteMestoAction",['id'=>$city->id])}}">zmazať</a></button></td>--}}
 		</tr>
 		@endforeach
     </tbody>
