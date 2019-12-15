@@ -70,7 +70,7 @@ class ContactController extends Controller
 		$formdata = Input::all();
 		//sem treba dokodit spracovanie formu - odoslat mail/ulozit do db
 		//vymazat print, bol len na testovanie
-		print_r($formdata);
+		//print_r($formdata);
 		return view('contact');
 	}
 }
