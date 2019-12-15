@@ -8,7 +8,7 @@
 			<th scope="col">Názov</th>
 			<th scope="col">Krajina</th>
 			<th scope="col"><button type="button" class="btn btn-success"><a href="{{action("UniversityController@getAddMestoForm")}}">pridať</a></button></th>
-			<th scope="col"></th>
+			{{--<th scope="col"></th>--}}
 		</tr>
     </thead>
     <tbody>
@@ -22,7 +22,7 @@
 			@endforeach
 			</td>
 			<td><button type="button" class="btn btn-warning"><a href="{{action("UniversityController@showMestoAction",['id'=>$city->id])}}">editovať</a></button></td>
-			{{--<td><button type="button" class="btn btn-danger"><a href="{{action("UniversityController@deleteMestoAction",['id'=>$city->id])}}">zmazať</a></button></td>--}}
+			{{--<td><button type="button" class="btn btn-danger"><a href="{{action("UniversityController@",['id'=>$city->id])}}">zmazať</a></button></td>--}}
 		</tr>
 		@endforeach
     </tbody>
