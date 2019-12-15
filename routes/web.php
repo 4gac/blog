@@ -12,7 +12,7 @@
 */
 
 Auth::routes();
-
+Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/referent', 'ReferentController@index')->name('referent')->middleware('referent');
@@ -264,3 +264,7 @@ Route::post('gallery/insert', [
     'as' => 'insert','uses' => 'GalleryImageController@insertGalleryImage'
 ]);
 
+Route::get('/referent/zaujemcovia', 'ZaujemController@index')->name('referent/zaujemcovia');
+Route::post('/referent/zaujemcovia/update{id}',[
+    'as'=>'update', 'uses'=>'ReferentController@updateAction'
+    ]);
