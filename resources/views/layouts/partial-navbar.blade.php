@@ -24,7 +24,9 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+       
           <a class="navbar-brand" href="{{route('homepage') }}">
+           
               <img id="logo"src="{{asset('assets/images/logoukf.png')}}" class="img-responsive" />
           </a>
          
@@ -32,13 +34,13 @@
           <li class="nav-item active hlavneMenuItem">
             <a class="nav-link" href="{{route('pobyty') }}">Študijné pobyty<span class="sr-only"></span></a>
           </li>
-          <li class="nav-item hlavneMenuItem">
+          <li class="nav-item active hlavneMenuItem">
             <a class="nav-link" href="{{route('staze') }}">Pracovné stáže</a>
           </li>
-          <li class="nav-item hlavneMenuItem">
+          <li class="nav-item active hlavneMenuItem">
             <a class="nav-link" href="{{route('spravy') }}" tabindex="-1" aria-disabled="true">Účastnícke správy</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item active hlavneMenuItem">
                   <a class="nav-link" href="{{route('kontakt') }}" tabindex="-1" aria-disabled="true">Kontakt</a>
           </li>
       
