@@ -9,6 +9,11 @@ use App\Models\CountryPost;
 use App\Models\Zaujem;
 use Illuminate\Http\Request;
 use Auth;
+use App\Models\UniversityPostModel;
+use App\Models\UniversityModel;
+use App\Models\CityModel;
+use App\Models\Country;
+use Illuminate\Support\Facades\DB;
 
 class PostController extends Controller{
 public function index(){
@@ -18,8 +23,26 @@ public function index(){
 }
 public function show($id){
     $posts= Post::findOrFail($id);
-    return view('frontend-posts.single-post-show')->with('posts',$posts);
+
+    $universities = DB::table('univerzita')
+		->join('university_post', 'university_post.university_id', '=', 'univerzita.id')
+		->join('mesto', 'mesto.id', '=', 'univerzita.mesto_id')
+		->join('countries', 'countries.id', '=', 'univerzita.countries_id')
+		->select('univerzita.id', 'univerzita.nazov as uninazov', 'mesto.nazov', 'countries.name', 'univerzita.kontaktna_osoba','university_post.pocet_miest', 'university_post.studijny_odbor')
+		->where('university_post.post_id', '=', $id)
+        ->get();
+
+      /*  $universities = DB::table('university_post')
+		->select('pocet_miest', 'studijny_odbor')
+		->where('id', '=', $id)
+        
+        ->get();*/
+        
+    return view('frontend-posts.single-post-show',['universities'=>$universities,
+    ])->with('posts',$posts)
+                                                ->with('universities',$universities);
 }
+
 public function pobyty(){
     $posts = Post::paginate(5);
    // return view('frontend-posts.homepage-all-posts',['post'=>$posts]);

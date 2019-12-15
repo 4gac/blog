@@ -33,6 +33,35 @@
             </time>
             {!!$posts->text!!}
         </header>
+        <div class="unitab">
+        <h2>Partnerské univerzity</h2>
+        @forelse($universities as $uni)
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Univerzita</th>
+                <th scope="col">Krajina</th>
+                <th scope="col">Mesto</th>
+                <th scope="col">Študijný odbor</th>
+                <th scope="col">Počet miest</th>
+                <th scope="col">Kontaktná osoba</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{{$uni->uninazov}}</td>
+                <td>{{$uni->name}}</td>
+                <td>{{$uni->nazov}}</td>
+                <td>{{$uni->studijny_odbor}}</td>
+                <td>{{$uni->pocet_miest}}</td>
+                <td>{{$uni->kontaktna_osoba}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+    @empty
+            <p>nič, man</p>
+            @endforelse
 {{--        BOTTOM GALLERY--}}
         <section class="gallery-block grid-gallery">
             <div class="container">

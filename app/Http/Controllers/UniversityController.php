@@ -12,8 +12,16 @@ use App\Models\UniversityPostModel;
 
 class UniversityController extends Controller
 {
-    public function index(){
-	
+    public function index($id){
+		$universities = DB::table('univerzita')
+		->join('university_post', 'university_post.university_id', '=', 'univerzita.id')
+		->join('mesto', 'mesto.id', '=', 'univerzita.mesto_id')
+		->join('countries', 'countries.id', '=', 'univerzita.countries_id')
+		->select('univerzita.id', 'univerzita.nazov as uninazov', 'mesto.nazov', 'countries.name', 'univerzita.kontaktna_osoba')
+		->where('university_post.post_id', '=', $id)
+		->get();
+		return view("frontend-posts.single-post-show",['universities'=>$universities,
+		])->with('universities',$universities);
 	}
 
 	public function UniverzityBackend(){
