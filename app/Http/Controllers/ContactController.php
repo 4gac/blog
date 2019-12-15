@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
 use App\Models\ContactModel;
 use App\Models\ContactType;
+use App\Models\MailModel;
 
 class ContactController extends Controller
 {
@@ -67,10 +69,18 @@ class ContactController extends Controller
 	}
 
 	public function fetchForm(){
-		$formdata = Input::all();
-		//sem treba dokodit spracovanie formu - odoslat mail/ulozit do db
-		//vymazat print, bol len na testovanie
-		//print_r($formdata);
-		return view('contact');
+		$request = Input::all();
+		
+		$name = $request['username'];
+		$email = $request['email'];
+		$text = $request['textarea'];
+
+		$kontakt = new MailModel();
+		$kontakt->name = $name;
+		$kontakt->email = $email;
+		$kontakt->text = $text;
+		$kontakt->save();
+
+		return redirect()->action('ContactController@showAll');
 	}
 }
