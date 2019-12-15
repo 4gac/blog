@@ -7,14 +7,14 @@
     <table id="demo" class="table table-hover table-responsive-sm dataframe">
         <tr>
                 <thead class="thead-dark">
-                <th scope="col">Index</th>
-                <th scope="col">Meno</th>
-                <th scope="col">Priezvisko</th>
-                <th scope="col">Email</th>
-                <th scope="col">Záujem o</th>
-                <th scope="col">Status</th>
-                <th scope="col">Zmeniť na</th>
-                <th scope="col"></th>
+                <th width="5%">Index</th>
+                <th width="5%">Meno</th>
+                <th width="10%">Priezvisko</th>
+                <th width="10%">Email</th>
+                <th width="20%">Záujem o</th>
+                <th width="5%">Status</th>
+                <th width="40%">Zmeniť na</th>
+                <th width="5%"></th>
       
             </tr>
                 </thead>
