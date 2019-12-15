@@ -171,6 +171,19 @@ Route::get('kontakty-crud/delete/{id}',[
 
 //------------------</CRUD UNIVERZIT>--------------------------------------------
 
+//------------------<SEARCH>--------------------------------------------
+Route::get('searchresults/university/{id}',[
+    'as'=>'showall', 'uses'=>'SearchController@universitySearch'
+	]);
+Route::get('searchresults/post/{id}',[
+	'as'=>'showall', 'uses'=>'SearchController@postSearch'
+	]);
+Route::get('searchresults/country/{id}',[
+	'as'=>'showall', 'uses'=>'SearchController@countrySearch'
+	]);
+//------------------</SEARCH>--------------------------------------------
+
+
 /*<CRUD postov v admin rozhrani>*/
 Route::get('admin-pobyty-crud',[
     'as'=>'admin-pobyty-crud','uses' =>'PostController@AdminPobytyBackend'

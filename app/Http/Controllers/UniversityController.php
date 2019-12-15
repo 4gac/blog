@@ -164,5 +164,7 @@ class UniversityController extends Controller
 			"studijny_odbor" => $request->input("studijny_odbor")
 			]);
 		return redirect()->action('UniversityController@uniPostsBackend'); 
+
+
 	}
 }
