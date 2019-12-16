@@ -93,7 +93,7 @@
 
 
 							<div class="col-lg-3 col-md-4 col-xs-6 thumb">
-								<div class="custom-control custom-checkbox image-checkbox imgAdd">
+								<div class="custom-control custom-checkbox image-checkbox">
 									<input type="checkbox" class="custom-control-input" id="{{$galleryImage->id}}" name="selectedPictures[]" onclick="pridaj('{{asset('assets/images/').'/'.$galleryImage->imgPath}}','{{$galleryImage ->alt}}','{{$galleryImage->id}}',this.checked)" checked>
 									<label class="custom-control-label" for="{{$galleryImage->id}}" >
 										<img src="{{asset('assets/images/').'/'.$galleryImage->imgPath}}" alt="#" class="img-fluid" >
@@ -106,7 +106,7 @@
                                 @forelse($images as $image)
 
 								<div class="col-lg-3 col-md-4 col-xs-6 thumb">
-									<div class="custom-control custom-checkbox image-checkbox imgAdd">
+									<div class="custom-control custom-checkbox image-checkbox">
 										<input type="checkbox" class="custom-control-input" id="{{$image->id}}" name="selectedPictures[]" onclick="pridaj('{{asset('assets/images/').'/'.$image->imgPath}}','{{$image ->alt}}','{{$image->id}}',this.checked)">
 										<label class="custom-control-label" for="{{$image->id}}" >
 											<img src="{{asset('assets/images/').'/'.$image->imgPath}}" alt="#" class="img-fluid" >
