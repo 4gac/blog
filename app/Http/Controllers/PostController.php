@@ -3,11 +3,13 @@ namespace App\Http\Controllers;
 use App\Models\GalleryImage;
 use App\Models\ImagePost;
 use App\Models\Post;
+use App\Models\Image;
 use App\Models\Tag;
 use App\Models\PostTag;
 use App\Models\CountryPost;
 use App\Models\Zaujem;
 use Illuminate\Http\Request;
+use File;
 use Auth;
 use App\Models\UniversityPostModel;
 use App\Models\UniversityModel;
@@ -35,9 +37,9 @@ public function show($id){
       /*  $universities = DB::table('university_post')
 		->select('pocet_miest', 'studijny_odbor')
 		->where('id', '=', $id)
-        
+
         ->get();*/
-        
+
     return view('frontend-posts.single-post-show',['universities'=>$universities,
     ])->with('posts',$posts)
                                                 ->with('universities',$universities);
@@ -71,11 +73,11 @@ public function ReferentPobytyBackend(){
 }
 public function DostupnePobyty(){
     $posts = Post::all();
-    return view('backend-posts.dostupne-pobyty')->with('posts',$posts);    
+    return view('backend-posts.dostupne-pobyty')->with('posts',$posts);
 }
 public function DostupneStaze(){
     $posts = Post::all();
-    return view('backend-posts.dostupne-staze')->with('posts',$posts);    
+    return view('backend-posts.dostupne-staze')->with('posts',$posts);
 }
 public function AdminStazeBackend(){
     $posts = Post::all();
@@ -86,10 +88,29 @@ public function ReferentStazeBackend(){
    return view('backend-posts.referent-staze')->with('posts',$posts);    
 }
 
+    public function HodnoteniaBackend(){
+        $posts = Post::all()->where('user_id',Auth::user()->id); //user potrebuje vidieť len jeho hodnotenia
+        //$posts = Post::all()->tags->where('name','Hodnotenia');
+        return view('backend-posts.user-hodnotenia')->with('posts',$posts);
+    }  public function ReferentHodnoteniaBackend(){
+        $posts = Post::all();
+        //$posts = Post::all()->tags->where('name','Hodnotenia');
+        return view('backend-posts.referent-hodnotenia')->with('posts',$posts);
+    }  public function AdminHodnoteniaBackend(){
+        $posts = Post::all();
+        //$posts = Post::all()->tags->where('name','Hodnotenia');
+        return view('backend-posts.admin-hodnotenia')->with('posts',$posts);
+    }
 
 public function SpravyBackend(){
     $posts = Post::all();
-   return view('backend-posts.spravy')->with('posts',$posts);    
+    //$posts = Post::all()->tags->where('name','Hodnotenia');
+   return view('backend-posts.admin-spravy')->with('posts',$posts);
+}
+public function ReferentSpravyBackend(){
+    $posts = Post::all();
+    //$posts = Post::all()->tags->where('name','Hodnotenia');
+   return view('backend-posts.referent-spravy')->with('posts',$posts);
 }
 
 
@@ -179,6 +200,53 @@ public function ReferentinsertStazAction(Request $request){
     return redirect()->action('PostController@ReferentStazeBackend');   
 }
 
+public function insertSpravaAction(Request $request) {
+    $title=$request->input('title');
+    $text=$request->input('text');
+    $slug=$request->input('slug');
+    $user_id = Auth::user()->id;
+    $tag=4;
+
+    $post= new Post();
+    $post->title=$title;
+    $post->text=$text;
+    //$post->slug=str_slug($request->title, '-');
+    $post->slug=$this->createSlug($request->title);
+    $post->user_id=$user_id;
+
+    $post->save();
+    $post->tags()->sync($tag);
+
+    $files= $request->input('picture');
+    $names= $request->input('nazov');
+    $captions= $request->input('popis');
+
+    for($i=0;$i<count($request->picture);$i++){
+        $request->picture[$i]->storeAs('images',time().'-'.$request->picture[$i]->getClientOriginalName());
+        $Image = new Image();
+        $Image->imgPath = time().'-'.$request->picture[$i]->getClientOriginalName();
+        $Image->title =$names[$i];
+        $Image->caption =$captions[$i];
+        $Image->post_id =$post->id;
+        if ($i==0) {
+            $Image->main =1;
+} else {
+            $Image->main =0;
+        }
+        $Image ->save();
+    }
+    if(Auth::user()->role=='admin'){
+        return redirect()->action('PostController@AdminHodnoteniaBackend');
+    }
+    if(Auth::user()->role=='referent'){
+        return redirect()->action('PostController@ReferentHodnoteniaBackend');
+    }
+    if(Auth::user()->role=='ucastnik'){
+        return redirect()->action('PostController@HodnoteniaBackend');
+    }
+    return redirect()->action('PostController@HodnoteniaBackend');
+}
+
 //SHOW SINGLE POBYT FOR UPDATE
 public function AdminshowPobytAction($id){
         $posts=Post::find($id);
@@ -198,6 +266,12 @@ public function UcastnikshowPobytAction($id){
     $posts=Post::find($id);
     $images = GalleryImage::all();
     $newArray = $images->diff($posts->galleryImages);
+    if(Auth::user()->role=='admin'){
+        return view("backend-posts/admin-show-spravu",['posts'=>$posts],['images'=>$newArray]);
+    }
+    if(Auth::user()->role=='referent'){
+        return view("backend-posts/referent-show-spravu",['posts'=>$posts],['images'=>$newArray]);
+    }
     return view("backend-posts/ucastnik-show-pobyt",['posts'=>$posts],['images'=>$newArray]);
 }
 public function AdminshowStazAction($id){
@@ -214,6 +288,16 @@ $newArray = $images->diff($posts->galleryImages);
 
 return view("backend-posts/referent-update-staz",['posts'=>$posts],['images'=>$newArray]);
 }
+public function AdminshowHodnotenieAction($id){
+        $posts=Post::find($id);
+        return view("backend-posts/admin-update-staz",['posts'=>$posts]);
+
+}public function ReferentshowHodnotenieAction($id){
+    $posts=Post::find($id);
+    return view("backend-posts/referent-update-staz",['posts'=>$posts]);
+}
+
+
 
 
 //UPDATE
@@ -286,13 +370,54 @@ public function deletePobytAction($id){
         if (Auth::user()->role=='referent'){return redirect()->action('PostController@ReferentStazeBackend');
         }
        }
+    public function deleteHodnotenieAction($id){
+        $posts=Post::find($id);
+        $post_tag = PostTag::where("post_id","=",$id)->first();
+        $country_posts = CountryPost::where("post_id","=",$id);
+        $country_posts->delete();
+        $post_tag->delete();
+        $posts->delete();
+        if(Auth::user()->role=='admin'){
+            return redirect()->action('PostController@AdminHodnoteniaBackend'); }
+        if (Auth::user()->role=='referent'){
+            return redirect()->action('PostController@ReferentHodnoteniaBackend');
+        }
+        if (Auth::user()->role=='ucastnik'){
+            return redirect()->action('PostController@HodnoteniaBackend');
+        }
+    }
+    public function deleteSpravaAction($id)
+    {
+        $posts = Post::find($id);
+        $post_tag = PostTag::where("post_id", "=", $id)->first();
+        $country_posts = CountryPost::where("post_id", "=", $id);
+        $country_posts->delete();
+        $post_tag->delete();
+        foreach ($posts->image as $Image) {
+        $Image->delete($Image->id);
+        $destinationPath = public_path() . '/assets/images';
+        File::delete($destinationPath . '/' . $Image->imgPath);
+        }
+        $posts->delete();
+        if(Auth::user()->role=='admin'){
+            return redirect()->action('PostController@SpravyBackend'); }
+        if (Auth::user()->role=='referent'){return redirect()->action('PostController@ReferentSpravyBackend');
+        }
+    }
 
 public function AdmingetAddPobytForm(){
     $posts = Post::all();
     $tags = Tag::all();
     $images = GalleryImage::all();
-    return view("backend-posts.admin-add-pobyt")->with('posts',$posts)
-                                          ->with('tags',$tags)->with('images',$images);
+    if(Auth::user()->role=='admin'){
+        return view("backend-posts.admin-add-pobyt")->with('posts',$posts)
+            ->with('tags',$tags)->with('images',$images);
+    }
+    if (Auth::user()->role=='referent'){
+        return view("backend-posts.referent-add-pobyt")->with('posts',$posts)
+            ->with('tags',$tags)->with('images',$images);
+    }
+
 }
 public function ReferentgetAddPobytForm(){
     $posts = Post::all();
@@ -301,6 +426,22 @@ public function ReferentgetAddPobytForm(){
     return view("backend-posts.referent-add-pobyt")->with('posts',$posts)
                                           ->with('tags',$tags)->with('images',$images);
 }
+    public function getAddHodnotenieForm(){
+        $posts = Post::all();
+        $tags = Tag::all();
+        return view("backend-posts.user-add-hodnotenie")->with('posts',$posts)
+            ->with('tags',$tags);
+    }  public function ReferentgetAddHodnotenieForm(){
+        $posts = Post::all();
+        $tags = Tag::all();
+        return view("backend-posts.referent-add-hodnotenie")->with('posts',$posts)
+            ->with('tags',$tags);
+    } public function AdmingetAddHodnotenieForm(){
+        $posts = Post::all();
+        $tags = Tag::all();
+        return view("backend-posts.admin-add-hodnotenie")->with('posts',$posts)
+            ->with('tags',$tags);
+    }
 
 public function AdmingetAddStazForm(){
     $posts = Post::all();
@@ -316,8 +457,27 @@ public function ReferentgetAddStazForm(){
     return view("backend-posts.referent-add-staz")->with('posts',$posts)
                                           ->with('tags',$tags)->with('images',$images);
 }
+//    public function UsergetAddSpravaForm(){
+//        $posts = Post::all()->tags->where('name','Hodnotenia');
+//
+//        return view("backend-posts.referent-add-staz")->with('posts',$posts)
+//            ->with('tags',$tags)->with('images',$images);
+//    }
 
 
+public function schvalithodnotenie($id) {
+    $post=Post::find($id);
+    $posts = Post::all();
+    $tag=3;
+    $post->save();
+    $post->tags()->sync($tag);
+    if(Auth::user()->role=='admin'){
+        return view('backend-posts.admin-hodnotenia')->with('posts',$posts);
+    }
+    if(Auth::user()->role=='referent'){
+        return view('backend-posts.referent-hodnotenia')->with('posts',$posts);
+    }
+}
 //SLUG
 public function createSlug($title, $id = 0)
 {

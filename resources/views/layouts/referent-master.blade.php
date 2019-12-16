@@ -11,9 +11,24 @@
 
   <title>SB Admin - Blank Page</title>
 
+
   <link href="{{ asset('vendor-referent/fontawesome-free/css/all.min.css') }}" rel="stylesheet">
   <link href="{{ asset('vendor-referent/datatables/dataTables.bootstrap4.css') }}" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="{{ asset('css/sb-admin.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/footer.css') }}" rel="stylesheet">
+
+  <link href="{{ asset('css/image-picker.css') }}" rel="stylesheet">
+
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+
+  <link href="{{ asset('css/grid-gallery.css') }}" rel="stylesheet">
+
+
 </head>
 
 <body id="page-top">
@@ -35,10 +50,10 @@
             <i class="fas fa-user-circle fa-fw"></i>
           </a>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-        
+
             <a class="dropdown-item" href="{{route('logout')}}">Logout</a>
           </div>
-     
+
     
     </ul>
 
@@ -48,7 +63,7 @@
 
     <!-- Sidebar -->
     <ul class="sidebar navbar-nav">
-  
+
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fas fa-graduation-cap"></i>
@@ -79,8 +94,8 @@
         </a>
       
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-        <a class="dropdown-item" href="#">Pridať správu</a>
-        <a class="dropdown-item" href="#">Všetky správy</a>
+        <a class="dropdown-item" href="{{ url('referent-spravy-crud/add-spravu')}}">Pridať správu</a>
+        <a class="dropdown-item" href="{{ url('referent-spravy-crud')}}">Všetky správy</a>
         </div>
       
       </li>
@@ -92,7 +107,7 @@
         </a>
       
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-        <a class="dropdown-item" href="#">Všetky hodnotenia</a>
+        <a class="dropdown-item" href="{{ url('referent-hodnotenia-crud')}}">Všetky hodnotenia</a>
         <a class="dropdown-item" href="{{route('referent/zaujemcovia')}}">Záujemcovia</a>
         </div>
       
@@ -115,9 +130,15 @@
   </a>
 
  <script src="{{ asset('vendor-referent/jquery/jquery.min.js') }}"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
+
+ <script src="{{ asset('vendor-referent/jquery/jquery.min.js') }}"></script>
   <script src="{{ asset('vendor-referent/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
   <script src="{{ asset('vendor-referent/jquery-easing/jquery.easing.min.js') }}"></script>
   <script src="{{ asset('js/sb-admin.min.js') }}"></script>
+  <script src="{{asset('js/image-picker.js')}}"></script>
+  <script src="{{asset('js/GalleryView.js')}}"></script>
 </body>
 
 </html>

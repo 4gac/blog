@@ -22,6 +22,8 @@
 <div class="row">  
                           
     @forelse($posts as $post)
+        @if($post->tags)
+            @foreach($post->tags->whereIn('name',['Pracovné stáže','Študijné pobyty']) as $tags)
         <div class="col-lg-4 col-sm-6 mb-4">
             <div class="card h-100">
                 @if(is_null($post->galleryImages->first()))
@@ -59,6 +61,8 @@
                 </div>
             </div>
         </div>
+            @endforeach
+        @endif
     @empty
         <p>nič, man</p>
     @endforelse

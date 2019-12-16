@@ -17,6 +17,8 @@ class PostImageTable extends Migration
             $table->increments('id');
             $table->string('imgPath');
             $table->boolean('main');
+            $table->string('title');
+            $table->string('caption');
             $table->integer('post_id')->unsigned();
             $table->foreign('post_id')->references('id')->on('posts');
             $table->timestamps();
