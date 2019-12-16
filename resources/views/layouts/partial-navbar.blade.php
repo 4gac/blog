@@ -1,4 +1,4 @@
-@yield('nav')
+
 
 
 @if (Auth::check()) 
@@ -42,7 +42,10 @@
           </li>
           <li class="nav-item active hlavneMenuItem">
                   <a class="nav-link" href="{{route('kontakt') }}" tabindex="-1" aria-disabled="true">Kontakt</a>
-          </li>
+		  </li>
+		  <li class="nav-item active hlavneMenuItem">
+			<a class="nav-link" id="login-link"href="{{route('login') }}" tabindex="-1" aria-disabled="true">Login</a>
+	</li>
 		  <li>
 			<div class="dropdown">
 			  <input type="text" placeholder="hľadať.." id="myInput" onkeyup="populateDropdown()" onclick="">
@@ -58,7 +61,9 @@
 				@endforeach
 			  </div>
 			</div>
+
 		  </li>
+		  
         </ul>
       
       </div>
