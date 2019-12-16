@@ -167,5 +167,11 @@ class ImagesSeeder extends Seeder
             'title'=>"Obrazok21",
             'caption'=>"Toto je caption obrazku21"
         ]);
+        DB::table('images')->insert([
+            'imgPath'=>"unknownwoman",
+            'alt'=>"Img not Available",
+            'title'=>"Obrazok22",
+            'caption'=>"Toto je caption obrazku22"
+        ]);
     }
 }

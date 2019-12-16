@@ -46,7 +46,7 @@ Route::get('ucastnicke-spravy',[
 
 /*Kontakty*/
 Route::get('kontakt',[
-    'as'=>'kontakt','uses' =>'ContactController@showAll'
+    'as'=>'kontakt','uses' =>'ContactController@index'
 ]);
 
 /*Spracovanie formularu*/
@@ -88,6 +88,8 @@ Route::get('users-crud/delete/{id}',[
 //------------------</CRUD USEROV>--------------------------------------------
 
 //-----<CRUD KOKNTAKTOV>----------------------------------------------------------
+
+
 
 Route::get('kontakty-crud',[
     'as'=>'showall', 'uses'=>'ContactController@ContactsBackend'
