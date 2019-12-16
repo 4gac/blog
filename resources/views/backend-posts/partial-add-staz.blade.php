@@ -18,6 +18,7 @@
 @if(Auth::user()->role=='admin')
 <form method="post" action="{{action('PostController@AdmininsertStazAction')}}">
 @endif
+
 @if(Auth::user()->role=='referent')
 <form method="post" action="{{action('PostController@ReferentinsertStazAction')}}">
 @endif

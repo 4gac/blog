@@ -1,6 +1,6 @@
 @yield('content')
 @section('css')
-	<link rel="stylesheet" href="{{asset('css/image-picker.css')}}">
+	
 	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
 	<link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
 @stop
@@ -29,7 +29,7 @@
 				<label for="text-id">Text</label>
 				{{--<input type="text" class="form-control" id="text-id" name="text" value="{{ $posts->text }}"> <br>--}}
 
-				<textarea class="description" name="text" value="{{ $posts->text }}"></textarea>
+				<textarea class="description" name="text" value="">{{ $posts->text }}</textarea>
 				<script src="{{ asset('node_modules/tinymce/tinymce.js') }}"></script>
 				<script>
 					tinymce.init({
@@ -38,9 +38,7 @@
 						height: 400,
 						init_instance_callback: "insert_contents"
 					});
-					function insert_contents(inst){
-						inst.setContent( "{{ $posts->text }}" );  
-					}
+				
 				</script>
 				</div>
 				</div>
