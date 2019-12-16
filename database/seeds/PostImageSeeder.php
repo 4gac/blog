@@ -28,5 +28,13 @@ class PostImageSeeder extends Seeder
             'main'=>"1",
             'post_id'=>"5"
         ]);
+        DB::table('postImages')->insert([
+
+            'imgPath'=>"image15.jpg",
+            'title'=>"name3",
+            'caption'=>"caption2",
+            'main'=>"0",
+            'post_id'=>"1"
+        ]);
     }
 }
