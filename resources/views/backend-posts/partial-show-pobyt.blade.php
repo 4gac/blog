@@ -9,7 +9,7 @@
         <header>
 
             <h1 class="single-post-heading">
-            <a href="{{URL::current()}}">{{$posts->title}}</a>            
+            <a href="{{URL::current()}}">{{$posts->title}}</a>
             </h1>
             <time>
                 <small>{{$posts->created_at}}</small>

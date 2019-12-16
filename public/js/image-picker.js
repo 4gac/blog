@@ -37,24 +37,24 @@ $(function() {
     });
 });
 
-$(".imgAdd").click(function(){
-  $(this).find('.description').before(' <div class="card mr-1" margin="10px">\n' +
-      '        <div class="col-sm-20 imgUp">\n' +
-      '            <div class="imagePreview"></div>\n' +
-      '            <label class="btn btn-primary">\n' +
-      '                Upload<input type="file" class="uploadFile img" value="Upload Photo" name="picture[]" style="width: 0px;height: 0px;overflow: hidden;" required>\n' +
-      '            </label>\n' +
-      '            <i class="fa fa-times del"></i>\n' +
-      '        </div><!-- col-2 -->\n' +
-      '            <div class="card-body">\n' +
-      '        <div class="form-group">\n' +
-      '            <label for="formGroupExampleInput">Názov</label>\n' +
-      '            <input type="text" class="form-control"  name="nazov[]" placeholder="Názov" required>\n' +
-      '        </div>\n' +
-      '        <div class="form-group">\n' +
-      '            <label for="formGroupExampleInput2">Popis</label>\n' +
-      '            <input type="text" class="form-control" name="popis[]" placeholder="Popis" required>\n' +
-      '        </div>\n' +
-      '            </div>\n' +
-      '        </div>');
-});
+// $(".imgAdd").click(function(){
+//   $(this).find('.description').before(' <div class="card mr-1" margin="10px">\n' +
+//       '        <div class="col-sm-20 imgUp">\n' +
+//       '            <div class="imagePreview"></div>\n' +
+//       '            <label class="btn btn-primary">\n' +
+//       '                Upload<input type="file" class="uploadFile img" value="Upload Photo" name="picture[]" style="width: 0px;height: 0px;overflow: hidden;" required>\n' +
+//       '            </label>\n' +
+//       '            <i class="fa fa-times del"></i>\n' +
+//       '        </div><!-- col-2 -->\n' +
+//       '            <div class="card-body">\n' +
+//       '        <div class="form-group">\n' +
+//       '            <label for="formGroupExampleInput">Názov</label>\n' +
+//       '            <input type="text" class="form-control"  name="nazov[]" placeholder="Názov" required>\n' +
+//       '        </div>\n' +
+//       '        <div class="form-group">\n' +
+//       '            <label for="formGroupExampleInput2">Popis</label>\n' +
+//       '            <input type="text" class="form-control" name="popis[]" placeholder="Popis" required>\n' +
+//       '        </div>\n' +
+//       '            </div>\n' +
+//       '        </div>');
+// });
