@@ -18,17 +18,14 @@ class DatabaseSeeder extends Seeder
         $this->call(post_tagSeeder::class);
         $this->call(PostImageSeeder::class);
         $this->call(TypKontaktuSeeder::class);
-        $this->call(ContactSeeder::class);
+         $this->call(ContactSeeder::class);
         $this->call(CountrySeeder::class);
         $this->call(Country_postSeeder::class);
         $this->call(MestoSeeder::class);
         $this->call(ImagesSeeder::class);
         $this->call(GalleryImagePostSeeder::class);
         $this->call(UniverzitaSeeder::class);
-        $this->call(University_postSeeder::class);
-
-
-        
+        $this->call(University_postSeeder::class);       
         
     }
 }

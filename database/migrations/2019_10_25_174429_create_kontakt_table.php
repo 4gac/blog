@@ -13,12 +13,12 @@ class CreateKontaktTable extends Migration
      */
     public function up()
     {
-        Schema::create('kontakt', function (Blueprint $table) {
+        Schema::create('contact_models', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('titul_pre');
-            $table->string('meno');
-            $table->string('priezvisko');
-            $table->string('titul_post');
+            //$table->string('titul_pre');
+            $table->string('meno_kontaktu');
+            $table->string('priezvisko_kontaktu');
+            //$table->string('titul_post');
             $table->string('email');
             $table->string('tel_cislo');
             $table->integer('idtypKontaktu')->unsigned();

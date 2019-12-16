@@ -7,9 +7,22 @@ use Illuminate\Http\Request;
 use App\Models\ContactModel;
 use App\Models\ContactType;
 use App\Models\MailModel;
+use Illuminate\Support\Facades\DB;
 
 class ContactController extends Controller
 {
+public function index(){
+	$kontakt = DB::table('contact_models')	
+	->join('typ_kontaktu', 'typ_kontaktu.id', '=', 'contact_models.idtypKontaktu')
+	->select('contact_models.id', 'contact_models.meno_kontaktu','contact_models.priezvisko_kontaktu', 
+			 'contact_models.email', 'contact_models.tel_cislo', 'contact_models.idtypKontaktu',
+			'typ_kontaktu.id','typ_kontaktu.typ_kontaktu')
+	->get();
+
+	$k=ContactModel::all();        
+	return view("contact",['kontakt'=>$kontakt,
+											   ])->with('k',$k);
+}
 
 	public function ContactsBackend(){
 		$contacts = ContactModel::all();
