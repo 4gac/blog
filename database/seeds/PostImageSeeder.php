@@ -30,7 +30,7 @@ class PostImageSeeder extends Seeder
         ]);
         DB::table('postImages')->insert([
 
-            'imgPath'=>"image15.jpg",
+            'imgPath'=>"image14.jpg",
             'title'=>"name3",
             'caption'=>"caption2",
             'main'=>"0",
