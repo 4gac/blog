@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,6 +15,8 @@
   <link href="{{ asset('vendor-referent/fontawesome-free/css/all.min.css') }}" rel="stylesheet">
   <link href="{{ asset('vendor-referent/datatables/dataTables.bootstrap4.css') }}" rel="stylesheet">
   <link href="{{ asset('css/sb-admin.css') }}" rel="stylesheet">
+  <link href="{{ asset('css/grid-gallery.css') }}" rel="stylesheet">
+
 </head>
 
 <body id="page-top">
@@ -61,9 +64,9 @@
           <span>Moje hodnotenia</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-          <a class="dropdown-item" href="#">Pridať</a>
-        <a class="dropdown-item" href="#">Všetky</a>
-        
+          <a class="dropdown-item" href="{{ url('user-spravy-crud/add-spravu')}}">Pridať</a>
+        <a class="dropdown-item" href="{{ url('user-hodnotenia-crud')}}">Všetky</a>
+
         </div>
       </li>
 
@@ -96,12 +99,14 @@
   </a>
 
 
- 
 
+  <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
   <script src="{{ asset('vendor-referent/jquery/jquery.min.js') }}"></script>
   <script src="{{ asset('vendor-referent/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
   <script src="{{ asset('vendor-referent/jquery-easing/jquery.easing.min.js') }}"></script>
   <script src="{{ asset('js/sb-admin.min.js') }}"></script>
+  <script src="{{asset('js/GalleryView.js')}}"></script>
 </body>
 
 </html>

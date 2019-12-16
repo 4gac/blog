@@ -143,7 +143,7 @@ return [
         ], ],
         [
             'text'        => 'Na schválenie',
-            'url'         => 'admin/pages',
+            'url'         => 'admin-hodnotenia-crud',
             'icon'        => 'far fa-file',
             'label'       => 4,
             'label_color' => 'success',
@@ -184,11 +184,11 @@ return [
             'submenu' => [
                 [
                     'text' => 'Pridať správu',
-                    'url'  => 'spravy-crud/add-spravu',
+                    'url'  => 'admin-spravy-crud/add-spravu',
                 ],
                 [
                     'text' => 'Všetky správy',
-                    'url'  => 'spravy-crud',
+                    'url'  => 'admin-spravy-crud',
                 ],
             ],
         ],

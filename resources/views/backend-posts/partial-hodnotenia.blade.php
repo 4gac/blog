@@ -10,6 +10,7 @@
             <th scope="col">User ID</th>
             <th scope="col"></th>
             <th scope="col"></th>
+            <th scope="col"></th>
         </tr>
             </thead>
     <?php $i=1;?>
@@ -24,13 +25,16 @@
         <td>{!!$post->text!!}</td>
         <td>{{$post->user_id}}</td>
         @if(Auth::user()->role=='admin')
-        <td><button type="button" class="btn btn-warning"><a href="{{action("PostController@AdminshowHodnotenieAction",['id'=>$post->id])}}">editovať</a></button></td>
+{{--        <td><button type="button" class="btn btn-warning"><a href="{{action("PostController@AdminshowHodnotenieAction",['id'=>$post->id])}}">editovať</a></button></td>--}}
+        <td><button type="button" class="btn btn-success"><a href="{{action("PostController@schvalithodnotenie",['id'=>$post->id])}}">Schváliť</a></button></td>
         @endif
         @if(Auth::user()->role=='referent')
-        <td><button type="button" class="btn btn-warning"><a href="{{action("PostController@ReferentshowHodnotenieAction",['id'=>$post->id])}}">editovať</a></button></td>
+            <td><button type="button" class="btn btn-warning"><a href="{{action("PostController@UcastnikshowPobytAction",['id'=>$post->id])}}">Viac</a></button></td>
+{{--        <td><button type="button" class="btn btn-warning"><a href="{{action("PostController@ReferentshowHodnotenieAction",['id'=>$post->id])}}">editovať</a></button></td>--}}
+        <td><button type="button" class="btn btn-success"><a href="{{action("PostController@schvalithodnotenie",['id'=>$post->id])}}">Schváliť</a></button></td>
         @endif
-        @if(Auth::user()->role=='pouzivatel')
-        <td><button type="button" class="btn btn-warning"><a href="{{action("PostController@PouzivatelshowHodnotenieAction",['id'=>$post->id])}}">editovať</a></button></td>
+        @if(Auth::user()->role=='ucastnik')
+{{--        <td><button type="button" class="btn btn-warning"><a href="{{action("PostController@PouzivatelshowHodnotenieAction",['id'=>$post->id])}}">editovať</a></button></td>--}}
         @endif
         <td><button type="button" class="btn btn-danger"><a href="{{action("PostController@deleteHodnotenieAction",['id'=>$post->id])}}">zmazať</a></button></td>
     </tr>

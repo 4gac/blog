@@ -15,10 +15,12 @@ class CreateKontaktTable extends Migration
     {
         Schema::create('kontakt', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('titul_pre');
+            $table->string('meno');
+            $table->string('priezvisko');
+            $table->string('titul_post');
             $table->string('email');
             $table->string('tel_cislo');
-            $table->string('meno_kontaktu');
-            $table->string('priezvisko_kontaktu');
             $table->integer('idtypKontaktu')->unsigned();
             //$table->foreign('idtypKontaktu')->references('idtypKontaktu')->on('typ_kontaktu');
             $table->foreign('idtypKontaktu')->references('id')->on('typ_kontaktu');

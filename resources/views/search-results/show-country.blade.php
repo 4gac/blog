@@ -1,9 +1,9 @@
-﻿@extends('adminlte::page')
+﻿@extends('layouts/master')
 @section('content')
 
-{{$renderData->name}}
-<br>
-{{dd($renderData)}}
+@foreach ($renderData as $data)
+    <p>{{$data->name}}</p>
+@endforeach
 
 
 

@@ -112,7 +112,7 @@ Route::get('kontakty-crud/delete/{id}',[
 //------------------</CRUD KONTAKTOV>--------------------------------------------
 
 //-----<CRUD UNIVERZIT>----------------------------------------------------------
-	
+
 	Route::get('univerzity-crud',[
     'as'=>'showall', 'uses'=>'UniversityController@UniverzityBackend'
     ]);
@@ -149,7 +149,7 @@ Route::get('kontakty-crud/delete/{id}',[
 	'as'=>'show', 'uses'=>'UniversityController@showMestoAction'
 	]);
 
-	// UNI / POST 
+	// UNI / POST
 	Route::get('uni-posts-crud',[
     'as'=>'showall', 'uses'=>'UniversityController@uniPostsBackend'
     ]);
@@ -267,6 +267,67 @@ Route::post('ucastnik/dostupne-pobyty/insert{id}', [
 Route::post('ucastnik/dostupne-staze/insert{id}', [
     'as' => 'ucastnik/dostupne-staze/insert','uses' => 'ZaujemController@PrihlasitNaStazAction'
 ]);
+
+Route::get('user-hodnotenia-crud',[
+    'as'=>'hodnotenia-crud','uses' =>'PostController@HodnoteniaBackend'
+]);
+Route::get('referent-hodnotenia-crud',[
+'as'=>'hodnotenia-crud','uses' =>'PostController@ReferentHodnoteniaBackend'
+]);
+Route::get('admin-hodnotenia-crud',[
+'as'=>'hodnotenia-crud','uses' =>'PostController@AdminHodnoteniaBackend'
+]);
+Route::get('hodnoteia-crud/show/{id}',[
+    'as'=>'AdminshowHodnotenieAction', 'uses'=>'PostController@AdminshowHodnotenieAction'
+]);
+Route::get('hodnoteia-crud/delete/{id}',[
+    'as'=>'deleteHodnotenieAction', 'uses'=>'PostController@deleteHodnotenieAction'
+]);
+Route::get('hodnoteia-crud/schvalit/{id}',[
+    'as'=>'schvalithodnotenie', 'uses'=>'PostController@schvalithodnotenie'
+]);
+Route::get('admin-spravy-crud',[
+    'as'=>'spravy-crud/SpravyBackend', 'uses'=>'PostController@SpravyBackend'
+]);
+Route::get('referent-spravy-crud',[
+    'as'=>'spravy-crud/SpravyBackend', 'uses'=>'PostController@ReferentSpravyBackend'
+]);
+Route::get('spravy-crud/delete/{id}',[
+    'as'=>'deleteSpravaAction', 'uses'=>'PostController@deleteSpravaAction'
+]);
+Route::get('user-spravy-crud/add-spravu',[
+    'as'=>'spravy-crud/getAddHodnotenieForm', 'uses'=>'PostController@getAddHodnotenieForm'
+]);
+Route::get('referent-spravy-crud/add-spravu',[
+    'as'=>'spravy-crud/getAddHodnotenieForm', 'uses'=>'PostController@ReferentgetAddHodnotenieForm'
+]);
+Route::get('admin-spravy-crud/add-spravu',[
+    'as'=>'spravy-crud/getAddHodnotenieForm', 'uses'=>'PostController@AdmingetAddHodnotenieForm'
+]);
+Route::post('user-spravy-crud/insert',[
+    'as'=>'insert', 'uses'=>'PostController@insertSpravaAction'
+]);
+Route::post('admin-spravy-crud/insert',[
+    'as'=>'insert', 'uses'=>'PostController@insertSpravaAction'
+]);
+Route::post('referent-spravy-crud/insert',[
+    'as'=>'insert', 'uses'=>'PostController@insertSpravaAction'
+]);
+
+
+//---------------------------------------------------------------------------------
+Route::get('ucastnik/dostupne-pobyty/show/{id}',[
+                    'as'=>'ucastnik/dostupne-pobyty/show', 'uses'=>'PostController@UcastnikshowPobytAction'
+                    ])
+;Route::post('gallery/insert', [
+    'as' => 'insert','uses' => 'GalleryImageController@insertGalleryImage'
+]);
+Route::post('ucastnik/dostupne-pobyty/insert{id}', [
+    'as' => 'ucastnik/dostupne-pobyty/insert','uses' => 'ZaujemController@PrihlasitNaPobytAction'
+]);
+Route::post('ucastnik/dostupne-staze/insert{id}', [
+    'as' => 'ucastnik/dostupne-staze/insert','uses' => 'ZaujemController@PrihlasitNaStazAction'
+]);
 Route::get('galeria',[
     'as'=>'galeria', 'uses'=>'GalleryImageController@celaGaleria'
 ]);
@@ -287,4 +348,3 @@ Route::post('/referent/zaujemcovia/update{id}',[
 Route::get('/referent/zaujemcovia/{id}',[
         'as'=>'show', 'uses'=>'ZaujemController@showAction'
         ]);
-        
