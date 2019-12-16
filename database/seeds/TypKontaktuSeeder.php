@@ -17,5 +17,8 @@ class TypKontaktuSeeder extends Seeder
         DB::table("typ_kontaktu")->insert([
             'typ_kontaktu' => "Fakultný koordinátor",
         ]);
+        DB::table("typ_kontaktu")->insert([
+            'typ_kontaktu' => "Študentský ambasádor programu",
+        ]);
     }
 }
