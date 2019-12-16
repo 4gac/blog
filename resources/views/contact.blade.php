@@ -13,11 +13,9 @@
             </div>
         </div>
 </div>
+</div>
 
-<div class="container">
-    
-<div class="item-margin">
-<div class="row">  
+
 
 <div class="container">
    
