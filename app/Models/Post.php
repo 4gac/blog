@@ -8,7 +8,7 @@ class Post extends Model
 {
     protected $table = 'posts';
 
-    protected $fillable = ['title','text','slug','user_id',];
+    protected $fillable = ['title','text','slug','user_id','filepath',];
 
     /*Ak pristupim k atributu tags, post môže patriť k mnohým tagom*/
 

@@ -139,6 +139,7 @@
   <script src="{{ asset('js/sb-admin.min.js') }}"></script>
   <script src="{{asset('js/image-picker.js')}}"></script>
   <script src="{{asset('js/GalleryView.js')}}"></script>
+
 </body>
 
 </html>

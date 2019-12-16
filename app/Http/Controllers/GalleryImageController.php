@@ -37,9 +37,10 @@ class GalleryImageController
     $captions= $request->input('popis');
 
     for($i=0;$i<count($request->picture);$i++){
-        $request->picture[$i]->storeAs('images',time().'-'.$request->picture[$i]->getClientOriginalName());
+        $filepath=time().'-'.$request->picture[$i]->getClientOriginalName();
+        $request->picture[$i]->storeAs('images',$filepath);
         $GalleryImage = new GalleryImage();
-        $GalleryImage->imgPath = time().'-'.$request->picture[$i]->getClientOriginalName();
+        $GalleryImage->imgPath = $filepath;
         $GalleryImage->title =$names[$i];
         $GalleryImage->caption =$captions[$i];
         $GalleryImage->alt =$names[$i];

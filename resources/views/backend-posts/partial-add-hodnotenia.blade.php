@@ -60,6 +60,12 @@
                                 @endforeach
                             </select>
                             --}}
+
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="customFile" name="pptFile">
+                                <label class="custom-file-label" for="customFile">Choose file</label>
+                            </div>
+
                             <br><div class="container" name="uploadImageZone">
                                 <div class="row">
                                     <div class="card mr-1" margin="10px">
@@ -88,6 +94,7 @@
                             {{csrf_field()}}
                         </div>
                     </form>
+
 
 
     </div>

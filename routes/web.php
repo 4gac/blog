@@ -13,11 +13,12 @@
 
 Auth::routes();
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
-
+Route::get('/download/{id}', 'PostController@getDownload');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/referent', 'ReferentController@index')->name('referent')->middleware('referent');
 Route::get('/admin', 'AdminController@index')->name('admin')->middleware('admin');
 Route::get('/ucastnik', 'UcastnikController@index')->name('ucastnik')->middleware('ucastnik');
+
 //Route::get('/admin', 'AdminController@index');
 
 //-------------------------------------------------------------------

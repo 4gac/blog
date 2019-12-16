@@ -72,6 +72,11 @@
     @empty
             <p>nič, man</p>
             @endforelse
+        @if (is_null($posts->filepath))
+        @else
+            <a href="{{ url('download', $posts->id) }}" class="btn btn-large pull-right"><i class="icon-download-alt"> </i> Stiahnuť prílohu </a>
+
+        @endif
 {{--        BOTTOM GALLERY--}}
         <section class="gallery-block grid-gallery">
             <div class="container">

@@ -213,7 +213,11 @@ public function insertSpravaAction(Request $request) {
     //$post->slug=str_slug($request->title, '-');
     $post->slug=$this->createSlug($request->title);
     $post->user_id=$user_id;
-
+    if (!is_null($request->pptFile)) {
+        $filePath = time() . '-' . $request->pptFile->getClientOriginalName();
+        $request->pptFile->storeAs('files', $filePath);
+        $post->filepath = $filePath;
+    }
     $post->save();
     $post->tags()->sync($tag);
 
@@ -222,9 +226,10 @@ public function insertSpravaAction(Request $request) {
     $captions= $request->input('popis');
 
     for($i=0;$i<count($request->picture);$i++){
-        $request->picture[$i]->storeAs('images',time().'-'.$request->picture[$i]->getClientOriginalName());
+        $filePathT=time().'-'.$request->picture[$i]->getClientOriginalName();
+        $request->picture[$i]->storeAs('images',$filePathT);
         $Image = new Image();
-        $Image->imgPath = time().'-'.$request->picture[$i]->getClientOriginalName();
+        $Image->imgPath = $filePathT;
         $Image->title =$names[$i];
         $Image->caption =$captions[$i];
         $Image->post_id =$post->id;
@@ -376,6 +381,15 @@ public function deletePobytAction($id){
         $country_posts = CountryPost::where("post_id","=",$id);
         $country_posts->delete();
         $post_tag->delete();
+        if (!is_null($posts->filepath)) {
+            $destinationPathF = public_path() . '/assets/files';
+            File::delete($destinationPathF . '/' . $posts->filepath);
+        }
+        foreach ($posts->image as $Image) {
+            $Image->delete($Image->id);
+            $destinationPath = public_path() . '/assets/images';
+            File::delete($destinationPath . '/' . $Image->imgPath);
+        }
         $posts->delete();
         if(Auth::user()->role=='admin'){
             return redirect()->action('PostController@AdminHodnoteniaBackend'); }
@@ -393,6 +407,10 @@ public function deletePobytAction($id){
         $country_posts = CountryPost::where("post_id", "=", $id);
         $country_posts->delete();
         $post_tag->delete();
+        if (!is_null($posts->filepath)) {
+            $destinationPathF = public_path() . '/assets/files';
+            File::delete($destinationPathF . '/' . $posts->filepath);
+        }
         foreach ($posts->image as $Image) {
         $Image->delete($Image->id);
         $destinationPath = public_path() . '/assets/images';
@@ -501,5 +519,17 @@ protected function getRelatedSlugs($slug, $id = 0)
     ->where('id', '<>', $id)
     ->get();
 }
+    public function getDownload($id)
+    {
+        $post=Post::find($id);
+        //PDF file is stored under project/public/download/info.pdf
+        $file= public_path(). "/assets/files/".$post->filepath;
+
+        $headers = array(
+            'Content-Type: application/xls',
+        );
+        return response()->download($file);
+       // return Response::download($file, 'Export.xls', $headers);
+    }
 }
 
