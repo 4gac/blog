@@ -18,7 +18,7 @@
 @endif
 
 
-<nav class="navbar navbar-expand-lg navbar-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -45,7 +45,7 @@
           </li>
 		  <li>
 			<div class="dropdown">
-			  <input type="text" placeholder="hľadať.." id="myInput" onkeyup="filterFunction()" onclick="">
+			  <input type="text" placeholder="hľadať.." id="myInput" onkeyup="populateDropdown()" onclick="">
 			  <div id="myDropdown" class="dropdown-content">
 				@foreach($unis as $uni)
 				 <a onclick="redirectUni({{$uni->id}})">{{$uni->nazov}}</a>
@@ -69,14 +69,14 @@
 
 <script>
 var hlp = 0;
-function myFunction() {
+function dropdownVisibility() {
 	document.getElementById("myDropdown").classList.toggle("show");
 }
 
 document.addEventListener('click', function(e) {
     if(hlp == 1){
 		hlp = 0;
-		myFunction();
+		dropdownVisibility();
 	}
 }, false);
 
@@ -96,13 +96,13 @@ function redirectCountry(id){
 	window.location.replace(baseUrl +"/public/searchresults/country/"+id);
 }
 
-function filterFunction() {
+function populateDropdown() {
 		  if(document.getElementById("myInput").value.length >1 && hlp==0){
-			myFunction();
+			dropdownVisibility();
 			hlp =1;
 		  }
 		  if(document.getElementById("myInput").value.length < 2 && hlp==1){
-			myFunction();
+			dropdownVisibility();
 			hlp =0;
 		  }
 
