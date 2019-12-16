@@ -7,7 +7,7 @@
             <th scope="col">Slug</th>
             <th scope="col">Text</th>
             <th scope="col">User ID</th>
-            <th scope="col"><button type="button" class="btn btn-success"><a href="">pridať</a></button></th>
+            <th scope="col"><button type="button" class="btn btn-success"><a href="{{action("PostController@AdmingetAddStazForm")}}">pridať</a></button></th>
             <th scope="col"></th>
         </tr>
             </thead>

@@ -170,7 +170,7 @@ return [
             'submenu' => [
                 [
                     'text' => 'Pridať stáž',
-                    'url'  => 'staze-crud/add-staz',
+                    'url'  => 'admin-staze-crud/add-staz',
                 ],
                 [
                     'text' => 'Všetky staze',
