@@ -20,7 +20,7 @@
         <td>{{$i++}}</td>
         <td>{{$post->title}}</td>
         <td>{{$post->slug}}</td>
-        <td>{!!$post->text!!}</td>
+        <td>{!!$post->excerpt!!}</td>
         <td>{{$post->user_id}}</td>
         @if(Auth::user()->role=='admin')
         <td><button type="button" class="btn btn-warning"><a href="{{action("PostController@AdminshowStazAction",['id'=>$post->id])}}">editovať</a></button></td>

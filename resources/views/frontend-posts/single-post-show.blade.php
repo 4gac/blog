@@ -2,7 +2,7 @@
 @section('title',$posts->title)
 
 @section('content')
-@include('maps')
+
 <div class="container news-post">
 <section>
     <article>
