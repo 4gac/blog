@@ -22,7 +22,7 @@
 <div class="container">
    
    <div class="row">
-      <div class="card" style="width: 18rem;">
+      <div class="card" style="width: 18rem; margin-left: 5rem;">
          <img src="{{asset('assets/images/unknownwoman.jpeg')}}" class="card-img-top" alt="referentka">
          <div class="card-body">
             <h4 class="card-title">Ing. Anita Garajová, PhD.</h5>
@@ -31,7 +31,7 @@
          </div>
       </div>
 
-      <div class="card" style="width: 18rem;">
+      <div class="card" style="width: 18rem; margin-left: 1rem;" >
          <img src="{{asset('assets/images/unknownwoman.jpeg')}}" class="card-img-top" alt="referentka">
          <div class="card-body">
             <h4 class="card-title">Ing. Silvia Hrozenská, PhD.</h5>
@@ -42,7 +42,7 @@
 
 
 
-      <div class="card" style="width: 18rem;">
+      <div class="card" style="width: 18rem; margin-left: 1rem;">
          <img src="{{asset('assets/images/unknownwoman.jpeg')}}" class="card-img-top" alt="referentka">
          <div class="card-body">
             <h4 class="card-title">Ing. Katarína Butorová, PhD.</h5>
