@@ -29,7 +29,7 @@
 				<label for="text-id">Text</label>
 				{{--<input type="text" class="form-control" id="text-id" name="text" value="{{ $posts->text }}"> <br>--}}
 
-				<textarea class="description" name="text" value="{{ $posts->text }}"></textarea>
+				<textarea class="description" name="text" value="{{ $posts->text }}">{{ $posts->text }}</textarea>
 				<script src="{{ asset('node_modules/tinymce/tinymce.js') }}"></script>
 				<script>
 					tinymce.init({
@@ -38,9 +38,7 @@
 						height: 400,
 						init_instance_callback: "insert_contents"
 					});
-					function insert_contents(inst){
-						inst.setContent( "{{ $posts->text }}" );  
-					}
+				
 				</script>
 				</div>
 				</div>
